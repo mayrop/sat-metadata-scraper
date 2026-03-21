@@ -503,8 +503,8 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     xls_files = discover_xls(args.xls_dir)
     if not xls_files:
-        print("No XLS files found. Run scripts/catalogos/scrape.py first.", file=sys.stderr)
-        return 1
+        print("No XLS files found — skipping extract.", file=sys.stderr)
+        return 0
 
     # Load existing catalog_state.csv for skip-if-unchanged and merge
     existing_state = _load_catalog_state(args.state_file)
