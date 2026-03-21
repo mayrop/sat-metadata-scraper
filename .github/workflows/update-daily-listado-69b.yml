@@ -52,7 +52,15 @@ jobs:
 
       - name: Upload to Hugging Face
         if: env.FILES_CHANGED != '' || inputs.force_upload == true
-        run: uv run huggingface-cli upload-large-folder mayrop/sat-listado-69b hf/dataset/listado-69b/ --repo-type=dataset
+        run: |
+          uv run python -c "
+          from huggingface_hub import HfApi
+          HfApi().upload_large_folder(
+              folder_path='hf/dataset/listado-69b',
+              repo_id='mayrop/sat-listado-69b',
+              repo_type='dataset',
+          )
+          "
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
 
