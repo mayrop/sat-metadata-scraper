@@ -2,7 +2,7 @@ name: Update catalogos (daily)
 
 on:
   schedule:
-    - cron: '0 7 * * *'   # every day at 7am UTC
+    - cron: '0 8 * * *'   # every day at 7am UTC
   workflow_dispatch:
     inputs:
       force:
