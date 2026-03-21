@@ -18,6 +18,9 @@ jobs:
 
       - uses: astral-sh/setup-uv@v5
 
+      - name: Install Playwright browsers
+        run: uv run playwright install chromium --with-deps
+
       - name: Scrape SAT
         run: |
           if [ "${{ inputs.force }}" = "true" ]; then
