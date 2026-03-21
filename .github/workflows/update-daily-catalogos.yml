@@ -45,18 +45,22 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add catalog_state.csv output/
-          git diff --cached --quiet || git commit -m "chore: update catalog_state.csv [skip ci]"
-          git push
+          if git diff --cached --quiet; then
+            echo "FILES_CHANGED=" >> $GITHUB_ENV
+          else
+            git commit -m "chore: update catalog_state.csv [skip ci]"
+            git push
+            echo "FILES_CHANGED=$(git show --stat HEAD | grep '|')" >> $GITHUB_ENV
+          fi
 
       - name: Job summary
         run: |
           echo "## Catalogos update" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          CHANGED=$(git show --stat HEAD 2>/dev/null | grep '|' || echo "")
-          if [ -n "$CHANGED" ]; then
+          if [ -n "$FILES_CHANGED" ]; then
             echo "### Updated files" >> $GITHUB_STEP_SUMMARY
             echo '```' >> $GITHUB_STEP_SUMMARY
-            echo "$CHANGED" >> $GITHUB_STEP_SUMMARY
+            echo "$FILES_CHANGED" >> $GITHUB_STEP_SUMMARY
             echo '```' >> $GITHUB_STEP_SUMMARY
           else
             echo "No changes." >> $GITHUB_STEP_SUMMARY
