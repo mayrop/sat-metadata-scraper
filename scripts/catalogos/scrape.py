@@ -1008,7 +1008,7 @@ def _download_catalog(
     prev: _PrevState | None = None,
     verify: bool = False,
     force: bool = False,
-) -> None:
+) -> bool:
     """Download a catalog entry's files into base_slug/subdir/.
 
     XLS/XLSX files are routed to hf_xls_dir/hf_subpath/ when hf_xls_dir is given.
@@ -1032,7 +1032,7 @@ def _download_catalog(
             cat["files"] = _prev.files
             for fe in _prev.files:
                 print(f"    ✓ skip (version {cat_fp}) {fe.get('local_file', fe.get('url', ''))}", file=sys.stderr)
-            return
+            return False
         # else: fingerprint changed — fall through to re-download
 
     cat_version = cat.get("catalog_version")
@@ -1043,6 +1043,7 @@ def _download_catalog(
         files = groups[0]["files"] if groups else []
 
     file_entries = []
+    any_written = False
     hf_idx = 0
     for file_url in files:
         fname = _filename(file_url)
@@ -1061,6 +1062,7 @@ def _download_catalog(
         stored_fp, stored_hash = _prev.lm.get(file_url, (None, None))
         status = download(file_url, dest, fingerprint=cat_fp, stored_fingerprint=stored_fp, stored_hash=stored_hash, verify=verify, force=force)
         if status == "written":
+            any_written = True
             print(f"    ↓ {rel}", file=sys.stderr)
         elif status == "skipped":
             print(f"    ✓ skip (fingerprint) {rel}", file=sys.stderr)
@@ -1086,6 +1088,7 @@ def _download_catalog(
             file_entries.append({"url": file_url, "local_file": rel, "hash": stored_hash})
 
     cat["files"] = file_entries
+    return any_written
 
 
 def _comp_hf_section(comp: dict) -> str:
@@ -1110,7 +1113,7 @@ def download_complemento(
     prev_manifest: dict | None = None,
     verify: bool = False,
     force: bool = False,
-) -> None:
+) -> bool:
     print(f"\n  {comp['name']}", file=sys.stderr)
     name_slug = slugify(re.sub(r"\s*\(.*?\)", "", comp["name"]).strip())
     base = f"{prefix}/{name_slug}"
@@ -1121,7 +1124,10 @@ def download_complemento(
     #   complementos/*       → hf/xls/complementos/{slug}/
     hf_subpath = _comp_hf_section(comp)
 
+    comp_changed = False
+
     def get(url: str, subdir: str) -> str | None:
+        nonlocal comp_changed
         if not url:
             return None
         fname = _filename(url)
@@ -1129,6 +1135,7 @@ def download_complemento(
         dest = files_dir / rel
         status = download(url, dest, force=force)
         if status == "written":
+            comp_changed = True
             print(f"    ↓ {rel}", file=sys.stderr)
         elif status == "unchanged":
             print(f"    ✓ skip (hash match)  {rel}", file=sys.stderr)
@@ -1164,7 +1171,7 @@ def download_complemento(
         for cat_type, cat in ver.get("catalogos", {}).items():
             pv_entry = prev_ver_files.get(ver_fp or "", {}).get(cat_type) if ver_fp else None
             prev_cat_fp, prev_files = pv_entry if pv_entry else (None, [])
-            _download_catalog(
+            if _download_catalog(
                 cat, files_dir, base, vslug,
                 hf_xls_dir=HF_XLS_DIR, hf_subpath=hf_ver_subpath,
                 hf_subpath_has_version=(hf_vslug != "files"),
@@ -1172,7 +1179,10 @@ def download_complemento(
                 prev=_PrevState(cat_fp=prev_cat_fp, files=prev_files, lm=prev_lm or {}),
                 verify=verify,
                 force=force,
-            )
+            ):
+                comp_changed = True
+
+    return comp_changed
 
 
 # ── CSV export ─────────────────────────────────────────────────────────────────
@@ -1193,11 +1203,19 @@ def _ver_tuple(v: str | None) -> tuple:
         return (0,)
 
 
-def write_csv(manifest: dict, csv_path: Path) -> None:
+def write_csv(manifest: dict, csv_path: Path, prev_csv_path: Path | None = None) -> None:
     """Write a flat CSV with one row per file across all complementos/versions."""
     scraped_at = manifest["scraped_at"]
     files_dir = OUTPUT_DIR / "files"
     rows: list[dict] = []
+
+    # Build {url: (hash, scraped_at)} from previous CSV to preserve scraped_at for unchanged rows
+    prev_row_info: dict[str, tuple[str, str]] = {}
+    if prev_csv_path and prev_csv_path.exists():
+        with prev_csv_path.open(newline="", encoding="utf-8") as f:
+            for r in csv.DictReader(f):
+                if r.get("url"):
+                    prev_row_info[r["url"]] = (r.get("hash", ""), r.get("scraped_at", ""))
 
     for comp in manifest["complementos"]:
         versions = comp.get("versions", [])
@@ -1206,7 +1224,7 @@ def write_csv(manifest: dict, csv_path: Path) -> None:
         category = comp.get("_section", "complementos")
         name = comp["name"]
         slug = slugify(re.sub(r"\s*\(.*?\)", "", name).strip())
-        base = {"scraped_at": scraped_at, "category": category, "name": name, "slug": slug, "detail_url": comp.get("detail_url") or ""}
+        base = {"category": category, "name": name, "slug": slug, "detail_url": comp.get("detail_url") or ""}
 
         def row(version: str, revision: str, ftype: str, url: str | None, local: str | None, h: str | None, lm: str | None) -> None:
             if not url:
@@ -1216,7 +1234,9 @@ def write_csv(manifest: dict, csv_path: Path) -> None:
             else:
                 p = None
             size = p.stat().st_size if p and p.exists() else ""
-            rows.append({**base, "version": version, "revision": revision,
+            prev_hash, prev_scraped_at = prev_row_info.get(url, ("", ""))
+            row_scraped_at = prev_scraped_at if (prev_scraped_at and h and h == prev_hash) else scraped_at
+            rows.append({**base, "scraped_at": row_scraped_at, "version": version, "revision": revision,
                           "latest": "true" if (version or None) == latest_ver else "false",
                           "file_type": ftype,
                           "url": url, "local_file": local or "", "size": size,
@@ -1428,7 +1448,7 @@ def main() -> int:
         print(json.dumps(all_complementos, ensure_ascii=False, indent=2))
         return 0
 
-    if not args.force and not data_changed(all_complementos):
+    if not args.force and not args.verify and not data_changed(all_complementos):
         print("\nNo changes since last run — skipping write.", file=sys.stderr)
         return 0
 
@@ -1465,20 +1485,25 @@ def main() -> int:
                 expanded.append(s)
         sections_filter = expanded or None  # 'all' expands to [] → None = no filter
 
+    any_files_changed = False
     for comp in complementos:
         if sections_filter and not _comp_matches_sections(comp, sections_filter):
             continue
-        download_complemento(comp, files_dir, comp.get("_section", "complementos"), prev_lm=prev_lm, prev_manifest=prev_manifest, verify=args.verify, force=args.force)
+        if download_complemento(comp, files_dir, comp.get("_section", "complementos"), prev_lm=prev_lm, prev_manifest=prev_manifest, verify=args.verify, force=args.force):
+            any_files_changed = True
 
     _flatten_catalogos(complementos)
 
-    manifest = {"scraped_at": datetime.now().isoformat(), "complementos": all_complementos}
+    prev_scraped_at = prev_manifest.get("scraped_at") if prev_manifest else None
+    scraped_at = datetime.now().isoformat() if any_files_changed or not prev_scraped_at else prev_scraped_at
+    manifest = {"scraped_at": scraped_at, "complementos": all_complementos}
 
     manifest_path = run_dir / "catalogos-manifest.json"
     manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"\nManifest → {manifest_path}", file=sys.stderr)
 
-    write_csv(manifest, run_dir / "catalog.csv")
+    prev_csv = OUTPUT_DIR / "catalog.csv"
+    write_csv(manifest, run_dir / "catalog.csv", prev_csv_path=prev_csv if prev_csv.exists() else None)
 
     return 0
 
