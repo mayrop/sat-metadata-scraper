@@ -1495,6 +1495,15 @@ def main() -> int:
 
     _flatten_catalogos(complementos)
 
+    # When running with --sections, preserve entries from the previous manifest
+    # for sections that were not part of this run.
+    if sections_filter and prev_manifest:
+        prev_other = [
+            c for c in prev_manifest.get("complementos", [])
+            if not _comp_matches_sections(c, sections_filter)
+        ]
+        all_complementos = all_complementos + prev_other
+
     prev_scraped_at = prev_manifest.get("scraped_at") if prev_manifest else None
     scraped_at = datetime.now().isoformat() if any_files_changed or not prev_scraped_at else prev_scraped_at
     manifest = {"scraped_at": scraped_at, "complementos": all_complementos}
