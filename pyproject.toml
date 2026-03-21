@@ -1,0 +1,12 @@
+[project]
+name = "catalogos"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "huggingface-hub>=1.7.2",
+    "playwright>=1.48.0",
+    "xlrd>=2.0.1",
+]
+
+[tool.uv]
+default-groups = []
