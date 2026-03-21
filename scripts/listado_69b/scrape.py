@@ -315,11 +315,15 @@ def main() -> int:
         }
         articles_out.append(entry)
 
-    any_written = any(a.get("_status") == "written" for a in articles_out)
+    prev_hashes = {a["key"]: a.get("hash", "") for a in (prev_manifest or {}).get("articles", [])}
+    any_changed = any(
+        a.get("hash") and a.get("hash") != prev_hashes.get(a.get("key", ""))
+        for a in articles_out
+    )
     for a in articles_out:
         a.pop("_status", None)
     prev_scraped_at = prev_manifest.get("scraped_at") if prev_manifest else None
-    scraped_at = datetime.now(timezone.utc).isoformat() if any_written or not prev_scraped_at else prev_scraped_at
+    scraped_at = datetime.now(timezone.utc).isoformat() if any_changed or not prev_scraped_at else prev_scraped_at
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     manifest = {
