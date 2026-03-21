@@ -18,12 +18,6 @@ jobs:
 
       - uses: astral-sh/setup-uv@v5
 
-      - name: Restore CSV cache
-        uses: actions/cache/restore@v4.1.2
-        with:
-          path: hf/csv
-          key: hf-csv-${{ runner.os }}
-
       - name: Scrape SAT
         run: |
           if [ "${{ inputs.force }}" = "true" ]; then
