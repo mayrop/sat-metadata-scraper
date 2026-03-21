@@ -45,6 +45,7 @@ HF_XLS_DIR     = Path("hf/xls")
 HF_CSV_DIR     = Path("hf/csv")
 HF_DATASET_DIR = Path("hf/dataset/catalogos")
 CATALOG_STATE  = Path("catalog_state.csv")
+CATALOG_CSV    = Path("output/catalog.csv")
 
 # Override: map section_rel path → friendly slug used in config names and output subdir.
 _SECTION_SLUG_OVERRIDES: dict[str, str] = {
@@ -120,6 +121,19 @@ def _load_state_rows(state_file: Path) -> list[dict]:
         return [dict(row) for row in csv.DictReader(f)]
 
 
+def _load_latest_map(catalog_csv: Path) -> dict[str, str]:
+    """Return {local_file: latest} from output/catalog.csv."""
+    if not catalog_csv.exists():
+        return {}
+    result: dict[str, str] = {}
+    with catalog_csv.open(newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            lf = row.get("local_file", "")
+            if lf:
+                result[lf] = row.get("latest", "")
+    return result
+
+
 # ── README generation ──────────────────────────────────────────────────────────
 
 
@@ -176,8 +190,9 @@ def _build_readme(entries: list[dict]) -> str:
 # ── main ───────────────────────────────────────────────────────────────────────
 
 
-def generate(csv_dir: Path, state_file: Path, output_dir: Path, xls_dir: Path | None = None) -> int:
+def generate(csv_dir: Path, state_file: Path, output_dir: Path, xls_dir: Path | None = None, catalog_csv: Path | None = None) -> int:
     state_rows = _load_state_rows(state_file)
+    latest_map = _load_latest_map(catalog_csv or CATALOG_CSV)
     if not state_rows:
         print(f"No catalog state found at {state_file}. Run scripts/catalogos/extract.py first.", file=sys.stderr)
         return 1
@@ -232,12 +247,15 @@ def generate(csv_dir: Path, state_file: Path, output_dir: Path, xls_dir: Path | 
             missing_locally += 1
             print(f"  {config_name}  →  {dest_rel}  (not local — kept from HF)", file=sys.stderr)
 
+        source_xls = row.get("source_xls", "")
+        latest_val = latest_map.get(source_xls, "")
         entry = {
             "config_name":  config_name,
             "namespace":    slug,
             "catalog_id":   catalog_slug,
             "path":         dest_rel,
             "source_version": folder_version,
+            "latest":       latest_val,
         }
         for k, v in row.items():
             if k not in entry and not k.startswith("_"):
@@ -267,7 +285,7 @@ def generate(csv_dir: Path, state_file: Path, output_dir: Path, xls_dir: Path | 
     meta_dir = output_dir / "metadata"
     meta_dir.mkdir(parents=True, exist_ok=True)
     meta_path = meta_dir / "catalogos.csv"
-    _base_fields = ["config_name", "namespace", "catalog_id", "path", "source_version"]
+    _base_fields = ["config_name", "namespace", "catalog_id", "path", "source_version", "latest"]
     fieldnames: list[str] = list(_base_fields)
     for e in entries:
         for k in e:
@@ -321,8 +339,14 @@ def main() -> int:
         default=HF_XLS_DIR,
         help=f"Root directory of XLS source files to include (default: {HF_XLS_DIR})",
     )
+    parser.add_argument(
+        "--catalog-file",
+        type=Path,
+        default=CATALOG_CSV,
+        help=f"Path to scraped catalog CSV for 'latest' lookup (default: {CATALOG_CSV})",
+    )
     args = parser.parse_args()
-    return generate(args.csv_dir, args.state_file, args.output, args.xls_dir)
+    return generate(args.csv_dir, args.state_file, args.output, args.xls_dir, args.catalog_file)
 
 
 if __name__ == "__main__":
