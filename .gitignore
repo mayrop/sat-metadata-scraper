@@ -1,0 +1,10 @@
+# Downloaded XLS source files — large binaries, re-downloaded by scrape.py
+hf/
+
+# Playwright browsers
+.playwright/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
