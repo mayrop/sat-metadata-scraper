@@ -63,7 +63,7 @@ jobs:
 
       - name: Upload to Hugging Face
         if: env.FILES_CHANGED != '' || inputs.force_upload == true
-        run: huggingface-cli upload-large-folder mayrop/sat-catalogos hf/dataset/catalogos/ --repo-type=dataset
+        run: uv run huggingface-cli upload-large-folder mayrop/sat-catalogos hf/dataset/catalogos/ --repo-type=dataset
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
 
