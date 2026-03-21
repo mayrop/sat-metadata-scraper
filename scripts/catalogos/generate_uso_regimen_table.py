@@ -92,19 +92,28 @@ def _load_state(state_file: Path) -> tuple[list[str], list[dict]]:
 
 
 def _upsert_state(state_file: Path, new_entry: dict) -> None:
-    """Insert or replace the entry for (section, folder_version, catalogo) in catalog_state.csv."""
+    """Insert or replace the entry for (section, catalogo) in catalog_state.csv.
+
+    Matches on (section, catalogo) only so that a version change (e.g. 3-3 → 4-0)
+    replaces the old row rather than leaving a stale entry alongside the new one.
+    """
     fieldnames, rows = _load_state(state_file)
 
-    key = (new_entry.get("section", ""), new_entry.get("folder_version", ""), new_entry.get("catalogo", ""))
+    section  = new_entry.get("section", "")
+    catalogo = new_entry.get("catalogo", "")
     replaced = False
-    for i, row in enumerate(rows):
-        rkey = (row.get("section", ""), row.get("folder_version", ""), row.get("catalogo", ""))
-        if rkey == key:
-            rows[i] = new_entry
-            replaced = True
-            break
+    new_rows = []
+    for row in rows:
+        if row.get("section") == section and row.get("catalogo") == catalogo:
+            if not replaced:
+                new_rows.append(new_entry)
+                replaced = True
+            # drop any additional stale entries for the same (section, catalogo)
+        else:
+            new_rows.append(row)
     if not replaced:
-        rows.append(new_entry)
+        new_rows.append(new_entry)
+    rows = new_rows
 
     # Merge fieldnames: preserve existing order, append any new keys
     for k in new_entry:
