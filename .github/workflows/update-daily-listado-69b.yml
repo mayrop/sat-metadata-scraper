@@ -42,6 +42,16 @@ jobs:
             echo "FILES_CHANGED=$(git show --stat HEAD | grep '|')" >> $GITHUB_ENV
           fi
 
+      - name: Generate HF dataset
+        if: env.FILES_CHANGED != ''
+        run: uv run scripts/listado_69b/generate_hf.py
+
+      - name: Upload to Hugging Face
+        if: env.FILES_CHANGED != ''
+        run: huggingface-cli upload-large-folder mayrop/sat-listado-69b hf/dataset/listado-69b/ --repo-type=dataset
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+
       - name: Job summary
         run: |
           echo "## Listado 69-B update" >> $GITHUB_STEP_SUMMARY
