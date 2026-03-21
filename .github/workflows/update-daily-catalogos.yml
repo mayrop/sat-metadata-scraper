@@ -14,12 +14,12 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.2.2
 
-      - uses: astral-sh/setup-uv@v3
+      - uses: astral-sh/setup-uv@v5
 
       - name: Restore CSV cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v4.1.2
         with:
           path: hf/csv
           key: hf-csv-${{ runner.os }}
