@@ -44,6 +44,9 @@ jobs:
       - name: Extract CSVs
         run: uv run scripts/catalogos/extract.py
 
+      - name: Generate derived tables
+        run: uv run scripts/catalogos/generate_uso_regimen_table.py
+
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
