@@ -8,3 +8,4 @@ hf/
 __pycache__/
 *.py[cod]
 .venv/
+.claude/

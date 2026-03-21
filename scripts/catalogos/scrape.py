@@ -660,7 +660,7 @@ def scrape_static_page(name: str, url: str) -> dict:
     return {"name": name, "detail_url": url, "versions": versions, "_section": "anexo-20"}
 
 
-_EXTRACT_MODALS_JS = f"""() => {{
+_EXTRACT_MODALS_JS = rf"""() => {{
     const BASE = "{BASE_URL}";
     const results = [];
     for (const modal of document.querySelectorAll("dialog.pacs-modal")) {{
