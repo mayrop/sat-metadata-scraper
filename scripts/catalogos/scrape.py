@@ -1209,13 +1209,13 @@ def write_csv(manifest: dict, csv_path: Path, prev_csv_path: Path | None = None)
     files_dir = OUTPUT_DIR / "files"
     rows: list[dict] = []
 
-    # Build {url: (hash, scraped_at)} from previous CSV to preserve scraped_at for unchanged rows
-    prev_row_info: dict[str, tuple[str, str]] = {}
+    # Build {url: (hash, scraped_at, size)} from previous CSV to preserve stable fields for unchanged rows
+    prev_row_info: dict[str, tuple[str, str, str]] = {}
     if prev_csv_path and prev_csv_path.exists():
         with prev_csv_path.open(newline="", encoding="utf-8") as f:
             for r in csv.DictReader(f):
                 if r.get("url"):
-                    prev_row_info[r["url"]] = (r.get("hash", ""), r.get("scraped_at", ""))
+                    prev_row_info[r["url"]] = (r.get("hash", ""), r.get("scraped_at", ""), r.get("size", ""))
 
     for comp in manifest["complementos"]:
         versions = comp.get("versions", [])
@@ -1233,9 +1233,10 @@ def write_csv(manifest: dict, csv_path: Path, prev_csv_path: Path | None = None)
                 p = Path(local) if local.startswith("hf/") else files_dir / local
             else:
                 p = None
-            size = p.stat().st_size if p and p.exists() else ""
-            prev_hash, prev_scraped_at = prev_row_info.get(url, ("", ""))
-            row_scraped_at = prev_scraped_at if (prev_scraped_at and h and h == prev_hash) else scraped_at
+            prev_hash, prev_scraped_at, prev_size = prev_row_info.get(url, ("", "", ""))
+            unchanged = bool(prev_hash and h and h == prev_hash)
+            size = (p.stat().st_size if p and p.exists() else None) or (prev_size if unchanged else "")
+            row_scraped_at = prev_scraped_at if (prev_scraped_at and unchanged) else scraped_at
             rows.append({**base, "scraped_at": row_scraped_at, "version": version, "revision": revision,
                           "latest": "true" if (version or None) == latest_ver else "false",
                           "file_type": ftype,
