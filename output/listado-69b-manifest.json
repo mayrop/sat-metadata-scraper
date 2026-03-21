@@ -1,0 +1,30 @@
+{
+  "scraped_at": "2026-03-21T06:20:42.035425+00:00",
+  "source_url": "http://omawww.sat.gob.mx/cifras_sat/Paginas/DatosAbiertos/contribuyentes_publicados.html",
+  "articles": [
+    {
+      "key": "69b",
+      "name": "Artículo 69-B",
+      "url": "https://wu1agsprosta001.blob.core.windows.net/agsc-publicaciones/Datos_abiertos/Documents_AGAFF/Listado_completo_69-B.csv",
+      "local_file": "output/listado-69b/Listado_completo_69-B.csv",
+      "fingerprint": "Thu, 19 Mar 2026 00:10:07 GMT|0x8DE854BE10B2BAC",
+      "last_modified": "Thu, 19 Mar 2026 00:10:07 GMT",
+      "etag": "0x8DE854BE10B2BAC",
+      "info_date": "2026-02-28",
+      "hash": "595e24914e847622c077cbbc54c51f9d85bd1d484bc5d92c2684d4acc2388892",
+      "size": "4623450"
+    },
+    {
+      "key": "69b-bis",
+      "name": "Artículo 69-B Bis",
+      "url": "https://wu1agsprosta001.blob.core.windows.net/agsc-publicaciones/Datos_abiertos/Documents_AGGC/Listado_69_B_Bis_Completo.csv",
+      "local_file": "output/listado-69b/Listado_69_B_Bis_Completo.csv",
+      "fingerprint": "Thu, 12 Mar 2026 18:44:12 GMT|0x8DE80675AC76BED",
+      "last_modified": "Thu, 12 Mar 2026 18:44:12 GMT",
+      "etag": "0x8DE80675AC76BED",
+      "info_date": "2026-03-12",
+      "hash": "095809a04430f3f4c56c17ddcff432c7afc3a00b3b70dd46d4fff49b82734619",
+      "size": "1199"
+    }
+  ]
+}
