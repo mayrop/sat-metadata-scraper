@@ -10,11 +10,16 @@ on:
         type: boolean
         default: false
 
+permissions:
+  contents: write
+
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.2.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: astral-sh/setup-uv@v5
 
@@ -32,7 +37,7 @@ jobs:
       - name: Extract CSVs
         run: uv run scripts/catalogos/extract.py
 
-      - name: Commit updated catalog_state.csv
+      - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
