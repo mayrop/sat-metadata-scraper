@@ -5,6 +5,10 @@ on:
     - cron: '0 7 * * *'   # every day at 8am UTC
   workflow_dispatch:
     inputs:
+      force_upload:
+        description: 'Force generate and upload to Hugging Face'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -43,11 +47,11 @@ jobs:
           fi
 
       - name: Generate HF dataset
-        if: env.FILES_CHANGED != ''
+        if: env.FILES_CHANGED != '' || inputs.force_upload == true
         run: uv run scripts/listado_69b/generate_hf.py
 
       - name: Upload to Hugging Face
-        if: env.FILES_CHANGED != ''
+        if: env.FILES_CHANGED != '' || inputs.force_upload == true
         run: huggingface-cli upload-large-folder mayrop/sat-listado-69b hf/dataset/listado-69b/ --repo-type=dataset
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
