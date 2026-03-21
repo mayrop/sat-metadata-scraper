@@ -660,7 +660,7 @@ def scrape_static_page(name: str, url: str) -> dict:
     return {"name": name, "detail_url": url, "versions": versions, "_section": "anexo-20"}
 
 
-_EXTRACT_MODALS_JS = rf"""() => {{
+_EXTRACT_MODALS_JS = f"""() => {{
     const BASE = "{BASE_URL}";
     const results = [];
     for (const modal of document.querySelectorAll("dialog.pacs-modal")) {{
@@ -679,7 +679,7 @@ _EXTRACT_MODALS_JS = rf"""() => {{
         }}
         const info = modal.querySelector(".info-modal");
         const infoText = info?.textContent || "";
-        const vm = infoText.match(/[Vv]ersi[oó]n\s*([\d][.\d]*)(?:\s+[Rr]evisión\s+(\w+))?/);
+        const vm = infoText.match(/[Vv]ersi[oó]n\\s*([\\d][.\\d]*)(?:\\s+[Rr]evisión\\s+(\\w+))?/);
         const entry = {{ name, detail_url,
                          version: vm ? vm[1] : null, revision: vm ? (vm[2] || null) : null,
                          estandar_url: null, xsd_url: null, xslt_url: null, catalogos: [] }};
