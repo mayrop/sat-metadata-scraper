@@ -483,6 +483,13 @@ def parse_args(argv: Sequence[str]) -> argparse.Namespace:
         help="Column name format: 'original' keeps SAT names, 'snake' converts to snake_case (default: snake)",
     )
     parser.add_argument("--force", action="store_true", help="Re-extract all XLS even if unchanged")
+    parser.add_argument(
+        "--sections", nargs="+", metavar="SECTION",
+        help=(
+            "Only extract XLS files under these section paths. "
+            "Examples: anexo20/factura  anexo20/retenciones  complementos"
+        ),
+    )
     return parser.parse_args(argv)
 
 
@@ -502,6 +509,17 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = parse_args(argv or sys.argv[1:])
 
     xls_files = discover_xls(args.xls_dir)
+    if args.sections:
+        sections_filter = [s.strip("/") for s in args.sections]
+        xls_files = [
+            p for p in xls_files
+            if any(
+                str(p.relative_to(args.xls_dir)).startswith(s + "/") or
+                str(p.relative_to(args.xls_dir)).startswith(s + "\\")
+                for s in sections_filter
+            )
+        ]
+        print(f"Filtering to sections: {sections_filter}", file=sys.stderr)
     if not xls_files:
         print("No XLS files found — skipping extract.", file=sys.stderr)
         return 0

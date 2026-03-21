@@ -5,6 +5,15 @@ on:
     - cron: '0 8 * * *'   # every day at 7am UTC
   workflow_dispatch:
     inputs:
+      section:
+        description: 'Section to update'
+        type: choice
+        default: all
+        options:
+          - all
+          - anexo20/factura
+          - anexo20/retenciones
+          - complementos
       force:
         description: 'Force re-download all files'
         type: boolean
@@ -35,17 +44,31 @@ jobs:
 
       - name: Scrape SAT
         run: |
+          SECTION_ARG=""
+          if [ "${{ inputs.section }}" != "" ] && [ "${{ inputs.section }}" != "all" ]; then
+            SECTION_ARG="--sections ${{ inputs.section }}"
+          fi
           if [ "${{ inputs.force }}" = "true" ]; then
-            uv run scripts/catalogos/scrape.py --force
+            uv run scripts/catalogos/scrape.py --force $SECTION_ARG
           else
-            uv run scripts/catalogos/scrape.py --verify
+            uv run scripts/catalogos/scrape.py --verify $SECTION_ARG
           fi
 
       - name: Extract CSVs
-        run: uv run scripts/catalogos/extract.py
+        run: |
+          SECTION_ARG=""
+          if [ "${{ inputs.section }}" != "" ] && [ "${{ inputs.section }}" != "all" ]; then
+            SECTION_ARG="--sections ${{ inputs.section }}"
+          fi
+          uv run scripts/catalogos/extract.py $SECTION_ARG
 
       - name: Generate derived tables
-        run: uv run scripts/catalogos/generate_uso_regimen_table.py
+        run: |
+          if find hf/csv/anexo20/factura -name "c_UsoCFDI.csv" -type f 2>/dev/null | grep -q .; then
+            uv run scripts/catalogos/generate_uso_regimen_table.py
+          else
+            echo "Skipping: c_UsoCFDI.csv not found under hf/csv/anexo20/factura"
+          fi
 
       - name: Commit changes
         run: |
