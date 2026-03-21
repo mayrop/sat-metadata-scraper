@@ -43,7 +43,9 @@ jobs:
           else
             git commit -m "chore: update listado 69-B [skip ci]"
             git push
-            echo "FILES_CHANGED=$(git show --stat HEAD | grep '|')" >> $GITHUB_ENV
+            echo "FILES_CHANGED<<EOF" >> $GITHUB_ENV
+            git show --stat HEAD | grep '|' >> $GITHUB_ENV
+            echo "EOF" >> $GITHUB_ENV
           fi
 
       - name: Generate HF dataset
