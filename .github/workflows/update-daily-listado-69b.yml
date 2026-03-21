@@ -1,0 +1,39 @@
+name: Update listado 69-B (daily)
+
+on:
+  schedule:
+    - cron: '0 8 * * *'   # every day at 8am UTC
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Force re-download all files'
+        type: boolean
+        default: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v3
+
+      - name: Scrape SAT listado 69-B
+        run: |
+          if [ "${{ inputs.force }}" = "true" ]; then
+            echo "Running with --force"
+            uv run scripts/listado_69b/scrape.py --force
+          else
+            uv run scripts/listado_69b/scrape.py
+          fi
+
+      - name: Merge and transform
+        run: uv run scripts/listado_69b/merge.py
+
+      - name: Commit updated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add output/
+          git diff --cached --quiet || git commit -m "chore: update listado 69-B [skip ci]"
+          git push

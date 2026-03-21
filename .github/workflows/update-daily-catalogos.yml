@@ -1,0 +1,44 @@
+name: Update catalogos (daily)
+
+on:
+  schedule:
+    - cron: '0 7 * * *'   # every day at 7am UTC
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Force re-download all files'
+        type: boolean
+        default: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v3
+
+      - name: Restore CSV cache
+        uses: actions/cache/restore@v4
+        with:
+          path: hf/csv
+          key: hf-csv-${{ runner.os }}
+
+      - name: Scrape SAT
+        run: |
+          if [ "${{ inputs.force }}" = "true" ]; then
+            uv run scripts/catalogos/scrape.py --force
+          else
+            uv run scripts/catalogos/scrape.py
+          fi
+
+      - name: Extract CSVs
+        run: uv run scripts/catalogos/extract.py
+
+      - name: Commit updated catalog_state.csv
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add catalog_state.csv output/
+          git diff --cached --quiet || git commit -m "chore: update catalog_state.csv [skip ci]"
+          git push
