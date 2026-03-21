@@ -403,11 +403,11 @@ def scrape_detail_page(page: Page, url: str, debug_dir: Path | None) -> list[dic
         (debug_dir / f"detail_{slug}.html").write_text(page.content(), encoding="utf-8")
 
     # Version/revision come from the tab content text (shared across all panels)
-    ver_raw = page.evaluate(f"""() => {{
+    ver_raw = page.evaluate(rf"""() => {{
         const content = document.querySelector(".tab-content");
         if (!content) return null;
         const desc = content.textContent || "";
-        const vm = desc.match(/[Vv]ersi[oó]n\\s*([\\d][\\d.]*)(?:\\s+[Rr]evisión\\s+(\\w+))?/);
+        const vm = desc.match(/[Vv]ersi[oó]n\s*([\d][\d.]*)(?:\s+[Rr]evisión\s+(\w+))?/);
         return vm ? {{ version: vm[1], revision: vm[2] || null }} : {{ version: null, revision: null }};
     }}""")
 

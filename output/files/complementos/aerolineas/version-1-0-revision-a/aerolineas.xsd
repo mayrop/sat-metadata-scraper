@@ -6,7 +6,7 @@
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="OtrosCargos" minOccurs="0">
+				<xs:element name="OtrosCargos" minOccurs="01">
 					<xs:annotation>
 						<xs:documentation>Nodo opcional para expresar otros cargos aplicables</xs:documentation>
 					</xs:annotation>

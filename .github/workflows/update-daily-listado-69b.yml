@@ -13,6 +13,9 @@ on:
 permissions:
   contents: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -42,3 +45,17 @@ jobs:
           git add output/
           git diff --cached --quiet || git commit -m "chore: update listado 69-B [skip ci]"
           git push
+
+      - name: Job summary
+        run: |
+          echo "## Listado 69-B update" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          CHANGED=$(git show --stat HEAD 2>/dev/null | grep '|' || echo "")
+          if [ -n "$CHANGED" ]; then
+            echo "### Updated files" >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+            echo "$CHANGED" >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+          else
+            echo "No changes." >> $GITHUB_STEP_SUMMARY
+          fi
