@@ -34,7 +34,7 @@ jobs:
           if [ "${{ inputs.force }}" = "true" ]; then
             uv run scripts/catalogos/scrape.py --force
           else
-            uv run scripts/catalogos/scrape.py
+            uv run scripts/catalogos/scrape.py --verify
           fi
 
       - name: Extract CSVs
