@@ -63,12 +63,7 @@ jobs:
           uv run scripts/catalogos/extract.py $SECTION_ARG
 
       - name: Generate derived tables
-        run: |
-          if find hf/csv/anexo20/factura -name "c_UsoCFDI.csv" -type f 2>/dev/null | grep -q .; then
-            uv run scripts/catalogos/generate_uso_regimen_table.py
-          else
-            echo "Skipping: c_UsoCFDI.csv not found under hf/csv/anexo20/factura"
-          fi
+        run: uv run scripts/catalogos/generate_uso_regimen_table.py
 
       - name: Commit changes
         run: |

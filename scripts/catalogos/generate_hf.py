@@ -197,46 +197,63 @@ def generate(csv_dir: Path, state_file: Path, output_dir: Path, xls_dir: Path | 
         print(f"No catalog state found at {state_file}. Run scripts/catalogos/extract.py first.", file=sys.stderr)
         return 1
 
-    # Group by (section_rel, catalogo), keeping only the latest version per catalog.
-    # section_rel: for versioned dirs (folder_version starts with digit) = section field;
-    #              for flat dirs (section slug, no version) = section/folder_version.
-    latest: dict[tuple[str, str], dict] = {}
+    # Collect all rows, annotating each with section_rel and is_versioned.
+    # section_rel: for versioned dirs (folder_version starts with a digit) = section field;
+    #              for flat dirs (no numeric version) = section/folder_version.
+    # All versions are exported; versioned configs include the version in their name
+    # (e.g. anexo20__4_0__c_uso_cfdi) while non-versioned configs use the plain name.
+    all_rows: list[dict] = []
+    seen_nonversioned: set[tuple[str, str]] = set()
     for row in state_rows:
-        section       = row.get("section", "")
+        section        = row.get("section", "")
         folder_version = row.get("folder_version", "")
-        catalogo      = row.get("catalogo", "")
+        catalogo       = row.get("catalogo", "")
         if not section or not catalogo:
             continue
         is_versioned = _is_version_folder(folder_version)
         section_rel  = section if is_versioned else f"{section}/{folder_version}".strip("/")
-        key = (section_rel, catalogo)
-        prev = latest.get(key)
-        if prev is None or _ver_key(folder_version) > _ver_key(prev.get("_folder_version", "")):
-            latest[key] = {**row, "_section_rel": section_rel, "_is_versioned": is_versioned,
-                           "_folder_version": folder_version}
+        # Non-versioned entries are unique by (section_rel, catalogo) — skip duplicates
+        if not is_versioned:
+            key = (section_rel, catalogo)
+            if key in seen_nonversioned:
+                continue
+            seen_nonversioned.add(key)
+        all_rows.append({**row, "_section_rel": section_rel, "_is_versioned": is_versioned,
+                         "_folder_version": folder_version})
+
+    # Sort: by (namespace slug, catalog_id, version) so versions appear together
+    all_rows.sort(key=lambda r: (
+        _section_slug(r["_section_rel"]),
+        _catalog_slug(f"{r.get('catalogo', '')}.csv"),
+        _ver_key(r["_folder_version"]),
+    ))
 
     entries: list[dict] = []
     copied = 0
     missing_locally = 0
 
-    for (section_rel, catalogo), row in sorted(latest.items()):
+    for row in all_rows:
         folder_version = row["_folder_version"]
         is_versioned   = row["_is_versioned"]
+        section_rel    = row["_section_rel"]
         section_field  = row.get("section", "")
+        catalogo       = row.get("catalogo", "")
 
         slug         = _section_slug(section_rel)
         section_path = "/".join(_slugify(p) for p in section_rel.split("/"))
-        version      = folder_version if is_versioned else None
         catalog_slug = _catalog_slug(f"{catalogo}.csv")
-        config_name  = f"{slug}__{catalog_slug}"
-        dest_rel     = (
-            f"{section_path}/{version}/{catalog_slug}.csv"
-            if version else
-            f"{section_path}/{catalog_slug}.csv"
-        )
+
+        if is_versioned:
+            version_slug = _slugify(folder_version)
+            config_name  = f"{slug}__{version_slug}__{catalog_slug}"
+            dest_rel     = f"{section_path}/{folder_version}/{catalog_slug}.csv"
+        else:
+            config_name  = f"{slug}__{catalog_slug}"
+            dest_rel     = f"{section_path}/{catalog_slug}.csv"
+
         dest = output_dir / dest_rel
 
-        # CSV lives at csv_dir / section / folder_version / catalogo.csv for both layouts
+        # CSV lives at csv_dir / section / folder_version / catalogo.csv
         src = csv_dir / section_field / folder_version / f"{catalogo}.csv"
         if src.exists():
             dest.parent.mkdir(parents=True, exist_ok=True)
@@ -250,12 +267,12 @@ def generate(csv_dir: Path, state_file: Path, output_dir: Path, xls_dir: Path | 
         source_xls = row.get("source_xls", "")
         latest_val = latest_map.get(source_xls, "")
         entry = {
-            "config_name":  config_name,
-            "namespace":    slug,
-            "catalog_id":   catalog_slug,
-            "path":         dest_rel,
+            "config_name":    config_name,
+            "namespace":      slug,
+            "catalog_id":     catalog_slug,
+            "path":           dest_rel,
             "source_version": folder_version,
-            "latest":       latest_val,
+            "latest":         latest_val,
         }
         for k, v in row.items():
             if k not in entry and not k.startswith("_"):
