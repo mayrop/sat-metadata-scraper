@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 import re
 import sys
@@ -70,7 +71,7 @@ _DATE_COLS: list[tuple[str, str, str]] = [
 ]
 
 OUTPUT_FIELDS: list[str] = [
-    "articulo", "id", "numero", "rfc", "nombre_contribuyente", "situacion_contribuyente",
+    "articulo", "numero", "rfc", "nombre_contribuyente", "situacion_contribuyente",
     "presuncion_oficio_sat",          "presuncion_oficio_sat_original",          "presuncion_fecha_sat",
     "presuncion_oficio_dof",          "presuncion_oficio_dof_original",          "presuncion_fecha_dof",
     "presuncion_tiene_extra",
@@ -83,6 +84,7 @@ OUTPUT_FIELDS: list[str] = [
     "sentencia_favorable_oficio_sat", "sentencia_favorable_oficio_sat_original", "sentencia_favorable_fecha_sat",
     "sentencia_favorable_oficio_dof", "sentencia_favorable_oficio_dof_original", "sentencia_favorable_fecha_dof",
     "sentencia_favorable_tiene_extra",
+    "row_hash",
 ]
 
 _SITUACION_MAP: dict[str, str] = {
@@ -148,10 +150,9 @@ def _normalize_situacion(text: str) -> str:
     return _SITUACION_MAP.get(text.strip().lower(), text.strip().upper().replace(" ", "_"))
 
 
-def _transform(row: dict, row_id: int) -> dict:
+def _transform(row: dict) -> dict:
     out: dict = {
         "articulo":                row.get("articulo", ""),
-        "id":                      row_id,
         "numero":                  row.get("No", ""),
         "rfc":                     row.get("RFC", ""),
         "nombre_contribuyente":    row.get("Nombre del Contribuyente", ""),
@@ -172,6 +173,9 @@ def _transform(row: dict, row_id: int) -> dict:
     out["desvirtuados_tiene_extra"]        = int(phase_extra.get("desvirtuados", False))
     out["definitivos_tiene_extra"]         = int(phase_extra.get("definitivos", False))
     out["sentencia_favorable_tiene_extra"] = int(phase_extra.get("sentencia_favorable", False))
+    row_hash_fields = [field for field in OUTPUT_FIELDS if field != "row_hash"]
+    row_hash_value = "|".join(str(out.get(field, "")) for field in row_hash_fields)
+    out["row_hash"] = hashlib.sha256(row_hash_value.encode("utf-8")).hexdigest()
     return out
 
 
@@ -190,8 +194,6 @@ def merge(manifest_path: Path, output_dir: Path, output_merged: Path) -> int:
 
     all_rows_a: list[dict] = []
     all_rows_b: list[dict] = []
-    id_counter = 1
-
     for key, clean_name in _CLEAN_NAME.items():
         article = articles.get(key)
         if not article:
@@ -210,14 +212,12 @@ def merge(manifest_path: Path, output_dir: Path, output_merged: Path) -> int:
         # Transform and assign IDs
         transformed: list[dict] = []
         for row in raw_rows:
-            transformed.append(_transform(row, id_counter))
-            id_counter += 1
+            transformed.append(_transform(row))
 
-        # Write clean individual file (no articulo column)
+        # Write clean individual file and keep articulo so each export is self-describing.
         dest = output_dir / clean_name
-        ind_fields = [f for f in OUTPUT_FIELDS if f != "articulo"]
         with dest.open("w", newline="", encoding="utf-8") as f:
-            writer = csv.DictWriter(f, fieldnames=ind_fields, extrasaction="ignore")
+            writer = csv.DictWriter(f, fieldnames=OUTPUT_FIELDS, extrasaction="ignore")
             writer.writeheader()
             writer.writerows(transformed)
         print(f"  {key}  →  {dest}  ({len(transformed)} rows)", file=sys.stderr)

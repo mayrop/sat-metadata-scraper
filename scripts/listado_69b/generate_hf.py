@@ -11,8 +11,9 @@ different repository without touching any other code.
 Output layout:
     hf/dataset/listado-69b/
     ├── README.md
-    ├── listado-69.csv    ← merged 69-B + 69-B Bis
-    └── metadata.csv       ← source info (urls, dates, hashes)
+    ├── 69b.csv
+    ├── 69b-bis.csv
+    └── metadata.csv
 
 Usage:
   uv run scripts/listado_69b/generate_hf.py
@@ -23,7 +24,6 @@ from __future__ import annotations
 import argparse
 import csv
 import json
-import shutil
 import sys
 from datetime import timezone
 from email.utils import parsedate_to_datetime
@@ -55,7 +55,12 @@ def _build_readme(repo_id: str, articles: list[dict] | None = None) -> str:
         "- config_name: listado_69b",
         "  data_files:",
         "    - split: train",
-        "      path: listado-69b.csv",
+        "      path: 69b.csv",
+        "",
+        "- config_name: listado_69b_bis",
+        "  data_files:",
+        "    - split: train",
+        "      path: 69b-bis.csv",
         "",
         "- config_name: metadata",
         "  data_files:",
@@ -81,9 +86,13 @@ def _build_readme(repo_id: str, articles: list[dict] | None = None) -> str:
         "```python",
         "from datasets import load_dataset",
         "",
-        "# Listado combinado (69-B + 69-B Bis)",
+        "# Listado 69-B",
         f'ds = load_dataset("{repo_id}", "listado_69b")',
         'df = ds["train"].to_pandas()',
+        "",
+        "# Listado 69-B Bis",
+        f'ds_bis = load_dataset("{repo_id}", "listado_69b_bis")',
+        'df_bis = ds_bis["train"].to_pandas()',
         "```",
         "",
         "## Columnas",
@@ -91,8 +100,7 @@ def _build_readme(repo_id: str, articles: list[dict] | None = None) -> str:
         "| Columna | Descripción |",
         "|---------|-------------|",
         "| `articulo` | Fuente: `69-B` o `69-B Bis` |",
-        "| `id` | ID único del registro |",
-        "| `numero` | Número de registro en el listado original |",
+        "| `numero` | Consecutivo `No` del listado original del SAT; reinicia en cada archivo |",
         "| `rfc` | RFC del contribuyente |",
         "| `nombre_contribuyente` | Razón social |",
         "| `situacion_contribuyente` | `PRESUNTO` / `DESVIRTUADO` / `DEFINITIVO` / `SENTENCIA_FAVORABLE` |",
@@ -124,6 +132,7 @@ def _build_readme(repo_id: str, articles: list[dict] | None = None) -> str:
         "| `sentencia_favorable_oficio_dof_original` | Texto completo |",
         "| `sentencia_favorable_fecha_dof` | Fecha de publicación DOF (YYYY-MM-DD) |",
         "| `sentencia_favorable_tiene_extra` | `1` si hay más de un oficio/fecha en la etapa de sentencia favorable |",
+        "| `row_hash` | Hash SHA-256 estable del registro transformado |",
         "",
     ]
     return "\n".join(lines)
@@ -165,16 +174,25 @@ def _write_metadata(manifest_path: Path, dest: Path) -> None:
 
 
 def generate(csv_dir: Path, manifest_path: Path, output_dir: Path, repo_id: str) -> int:
-    merged_src = csv_dir / "listado-69b.csv"
-    if not merged_src.exists():
-        print(f"ERROR: {merged_src} not found. Run scripts/listado_69b/merge.py first.", file=sys.stderr)
+    source_files = {
+        "listado_69b": csv_dir / "69b.csv",
+        "listado_69b_bis": csv_dir / "69b-bis.csv",
+    }
+    missing = [str(path) for path in source_files.values() if not path.exists()]
+    if missing:
+        print(
+            "ERROR: missing cleaned CSVs. Run scripts/listado_69b/merge.py first: "
+            + ", ".join(missing),
+            file=sys.stderr,
+        )
         return 1
 
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    # Merged data file
-    shutil.copy2(merged_src, output_dir / "listado-69b.csv")
-    print(f"  listado-69b  →  {output_dir / 'listado-69b.csv'}", file=sys.stderr)
+    for config_name, src in source_files.items():
+        dest = output_dir / src.name
+        dest.write_bytes(src.read_bytes())
+        print(f"  {config_name:<15} →  {dest}", file=sys.stderr)
 
     # Metadata CSV
     meta_dest = output_dir / "metadata.csv"
