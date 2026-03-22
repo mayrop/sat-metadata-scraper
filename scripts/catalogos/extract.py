@@ -6,7 +6,7 @@ scrape.py (those stored under hf/xls/), then extracts every sheet whose name
 starts with "c_" into hf/csv/ mirroring the same directory structure.
 
 Example outputs:
-    hf/xls/anexo20/catCFDI40.xls        → hf/csv/anexo20/c_uso_cfdi.csv …
+    hf/xls/anexo20/cfdi/catCFDI40.xls   → hf/csv/anexo20/cfdi/c_uso_cfdi.csv …
     hf/xls/complementos/carta-porte/x.xls → hf/csv/complementos/carta-porte/c_estaciones.csv …
 
 Usage:
@@ -487,7 +487,7 @@ def parse_args(argv: Sequence[str]) -> argparse.Namespace:
         "--sections", nargs="+", metavar="SECTION",
         help=(
             "Only extract XLS files under these section paths. "
-            "Examples: anexo20/factura  anexo20/retenciones  complementos"
+            "Examples: anexo20/cfdi  anexo20/retenciones  complementos"
         ),
     )
     return parser.parse_args(argv)

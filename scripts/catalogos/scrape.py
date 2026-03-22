@@ -1095,7 +1095,7 @@ def _comp_hf_section(comp: dict) -> str:
     """Return the HF section path for a comp entry (mirrors download_complemento routing)."""
     prefix = comp.get("_section", "complementos")
     if prefix == "anexo-20":
-        return "anexo20/retenciones" if "retenciones" in comp["name"].lower() else "anexo20/factura"
+        return "anexo20/retenciones" if "retenciones" in comp["name"].lower() else "anexo20/cfdi"
     name_slug = slugify(re.sub(r"\s*\(.*?\)", "", comp["name"]).strip())
     return f"complementos/{name_slug}"
 
@@ -1120,7 +1120,7 @@ def download_complemento(
 
     # HF XLS subpath routing:
     #   anexo-20 retenciones → hf/xls/anexo20/retenciones/
-    #   anexo-20 factura     → hf/xls/anexo20/factura/
+    #   anexo-20 cfdi        → hf/xls/anexo20/cfdi/
     #   complementos/*       → hf/xls/complementos/{slug}/
     hf_subpath = _comp_hf_section(comp)
 
@@ -1352,7 +1352,7 @@ def main() -> int:
         help=(
             "Only download XLS for these sections. "
             "Shortcuts: anexo20, complementos, all. "
-            "Can also use full paths: anexo20/factura complementos/carta-porte"
+            "Can also use full paths: anexo20/cfdi complementos/carta-porte"
         ),
     )
     parser.add_argument(
@@ -1472,7 +1472,7 @@ def main() -> int:
         prev_lm.clear()
 
     _SECTION_SHORTCUTS = {
-        "anexo20":      ["anexo20/factura", "anexo20/retenciones"],
+        "anexo20":      ["anexo20/cfdi", "anexo20/retenciones"],
         "complementos": ["complementos"],
         "all":          [],  # empty = no filter
     }

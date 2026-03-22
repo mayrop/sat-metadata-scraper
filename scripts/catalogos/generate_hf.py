@@ -49,8 +49,8 @@ CATALOG_CSV    = Path("output/catalog.csv")
 
 # Override: map section_rel path → friendly slug used in config names and output subdir.
 _SECTION_SLUG_OVERRIDES: dict[str, str] = {
-    "anexo20/factura":                       "anexo20",
-    "anexo20/retenciones":                   "retenciones",
+    "anexo20/cfdi":                          "anexo20__cfdi",
+    "anexo20/retenciones":                   "anexo20__retenciones",
     "complementos/recibo-de-pago-de-nomina": "complemento_nomina",
     "complementos/carta-porte":              "complemento_carta_porte",
     "complementos/recepcion-de-pagos":       "complemento_recepcion_pagos",
@@ -59,8 +59,8 @@ _SECTION_SLUG_OVERRIDES: dict[str, str] = {
 
 # Map slug → flat subdirectory path within the dataset
 _SLUG_TO_SUBDIR: dict[str, str] = {
-    "anexo20":                       "anexo20",
-    "retenciones":                   "retenciones",
+    "anexo20__cfdi":                 "anexo20/cfdi",
+    "anexo20__retenciones":          "anexo20/retenciones",
     "complemento_nomina":            "complementos/nomina",
     "complemento_carta_porte":       "complementos/carta_porte",
     "complemento_recepcion_pagos":   "complementos/recepcion_pagos",
@@ -164,7 +164,7 @@ def _build_readme(entries: list[dict]) -> str:
     )
     example_config = (
         uso_cfdi[-1]["config_name"] if uso_cfdi
-        else (entries[0]["config_name"] if entries else "anexo20__4_0__c_uso_cfdi")
+        else (entries[0]["config_name"] if entries else "anexo20__cfdi__4_0__c_uso_cfdi")
     )
     lines.append("```python")
     lines.append("from datasets import load_dataset, get_dataset_config_names\n")
@@ -213,7 +213,7 @@ def generate(csv_dir: Path, state_file: Path, output_dir: Path, xls_dir: Path | 
     # section_rel: for versioned dirs (folder_version starts with a digit) = section field;
     #              for flat dirs (no numeric version) = section/folder_version.
     # All versions are exported; versioned configs include the version in their name
-    # (e.g. anexo20__4_0__c_uso_cfdi) while non-versioned configs use the plain name.
+    # (e.g. anexo20__cfdi__4_0__c_uso_cfdi) while non-versioned configs use the plain name.
     all_rows: list[dict] = []
     seen_nonversioned: set[tuple[str, str]] = set()
     for row in state_rows:

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Generate uso-regimen/persona rows derived from c_UsoCFDI.
 
-Reads c_UsoCFDI.csv from the latest version folder under hf/csv/anexo20/factura/
-and writes the derived table to hf/csv/anexo20/factura/{version}/c_UsoCFDI_Regimen.csv.
+Reads c_UsoCFDI.csv from the latest version folder under hf/csv/anexo20/cfdi/
+and writes the derived table to hf/csv/anexo20/cfdi/{version}/c_UsoCFDI_Regimen.csv.
 
 Also upserts the entry into catalog_state.csv so generate_hf.py includes it
 in the HF dataset index automatically.
@@ -14,7 +14,7 @@ the XLS was unchanged). The CSV is only re-generated when the input file exists.
 
 Usage:
   uv run scripts/catalogos/generate_uso_regimen_table.py
-  uv run scripts/catalogos/generate_uso_regimen_table.py --input hf/csv/anexo20/factura/4-0/c_UsoCFDI.csv
+  uv run scripts/catalogos/generate_uso_regimen_table.py --input hf/csv/anexo20/cfdi/4-0/c_UsoCFDI.csv
 """
 from __future__ import annotations
 
@@ -25,10 +25,10 @@ from pathlib import Path
 from typing import Iterable
 
 HF_CSV_DIR     = Path("hf/csv")
-_FACTURA_DIR   = HF_CSV_DIR / "anexo20" / "factura"
+_FACTURA_DIR   = HF_CSV_DIR / "anexo20" / "cfdi"
 CATALOG_STATE  = Path("catalog_state.csv")
 
-_SECTION   = "anexo20/factura"
+_SECTION   = "anexo20/cfdi"
 _CATALOGO  = "c_UsoCFDI_Regimen"
 _SOURCE    = "c_UsoCFDI"
 
@@ -46,7 +46,7 @@ def _ver_key(v: str) -> tuple:
 
 
 def _latest_version_from_state(state_file: Path) -> str | None:
-    """Return the highest folder_version for c_UsoCFDI in section=anexo20/factura."""
+    """Return the highest folder_version for c_UsoCFDI in section=anexo20/cfdi."""
     if not state_file.exists():
         return None
     with state_file.open(newline="", encoding="utf-8") as f:
