@@ -131,7 +131,7 @@ def _build_readme(repo_id: str, articles: list[dict] | None = None) -> str:
 
 # ── metadata CSV ───────────────────────────────────────────────────────────────
 
-_METADATA_FIELDS = ["key", "name", "url", "info_date", "last_modified", "size"]
+_METADATA_FIELDS = ["key", "name", "url", "info_date", "last_modified", "size", "hash"]
 
 
 def _fmt_date(value: str) -> str:
