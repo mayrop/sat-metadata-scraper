@@ -157,10 +157,19 @@ def _build_readme(entries: list[dict]) -> str:
     lines.append("Incluye los catálogos del Anexo 20 (factura electrónica y retenciones)")
     lines.append("y los complementos de carta porte, nómina, comercio exterior y recepción de pagos.\n")
     lines.append("## Uso\n")
+    # Pick a concrete example config: prefer the latest c_uso_cfdi, fall back to first entry
+    uso_cfdi = sorted(
+        (e for e in entries if "c_uso_cfdi" in e["config_name"] and "regimen" not in e["config_name"]),
+        key=lambda e: _ver_key(e.get("source_version", "")),
+    )
+    example_config = (
+        uso_cfdi[-1]["config_name"] if uso_cfdi
+        else (entries[0]["config_name"] if entries else "anexo20__4_0__c_uso_cfdi")
+    )
     lines.append("```python")
     lines.append("from datasets import load_dataset, get_dataset_config_names\n")
     lines.append("# Cargar un catálogo específico")
-    lines.append('ds = load_dataset("mayrop/sat-catalogos", "anexo20__c_uso_cfdi")')
+    lines.append(f'ds = load_dataset("mayrop/sat-catalogos", "{example_config}")')
     lines.append('df = ds["train"].to_pandas()\n')
     lines.append("# Cargar todos los catálogos de una vez")
     lines.append('configs = get_dataset_config_names("mayrop/sat-catalogos")')
