@@ -174,12 +174,15 @@ def _build_readme(entries: list[dict]) -> str:
     lines.append("| Complementos | [sat.gob.mx/portal/public/tramites/complementos-de-factura](https://www.sat.gob.mx/portal/public/tramites/complementos-de-factura) |")
     lines.append("")
     lines.append("## Catálogos disponibles\n")
-    current_ns = None
+    current_group: tuple | None = None
     for e in entries:
-        ns = e["namespace"]
-        if ns != current_ns:
-            lines.append(f"\n### {ns}\n")
-            current_ns = ns
+        ns  = e["namespace"]
+        ver = e.get("source_version", "")
+        group = (ns, ver)
+        if group != current_group:
+            heading = f"### {ns} — {ver}" if ver else f"### {ns}"
+            lines.append(f"\n{heading}\n")
+            current_group = group
         desc = e.get("descripcion", "") or e.get("description", "")
         desc_str = f" — {desc}" if desc else ""
         lines.append(f"- `{e['config_name']}`{desc_str}")
@@ -221,11 +224,11 @@ def generate(csv_dir: Path, state_file: Path, output_dir: Path, xls_dir: Path | 
         all_rows.append({**row, "_section_rel": section_rel, "_is_versioned": is_versioned,
                          "_folder_version": folder_version})
 
-    # Sort: by (namespace slug, catalog_id, version) so versions appear together
+    # Sort: by (namespace slug, version, catalog_id) so each section+version is a contiguous block
     all_rows.sort(key=lambda r: (
         _section_slug(r["_section_rel"]),
-        _catalog_slug(f"{r.get('catalogo', '')}.csv"),
         _ver_key(r["_folder_version"]),
+        _catalog_slug(f"{r.get('catalogo', '')}.csv"),
     ))
 
     entries: list[dict] = []

@@ -60,7 +60,11 @@ jobs:
           if [ "${{ inputs.section }}" != "" ] && [ "${{ inputs.section }}" != "all" ]; then
             SECTION_ARG="--sections ${{ inputs.section }}"
           fi
-          uv run scripts/catalogos/extract.py $SECTION_ARG
+          if [ "${{ inputs.force }}" = "true" ]; then
+            uv run scripts/catalogos/extract.py --force $SECTION_ARG
+          else
+            uv run scripts/catalogos/extract.py $SECTION_ARG
+          fi
 
       - name: Generate derived tables
         run: uv run scripts/catalogos/generate_uso_regimen_table.py
