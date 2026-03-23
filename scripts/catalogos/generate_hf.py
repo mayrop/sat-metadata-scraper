@@ -183,6 +183,19 @@ def _build_readme(entries: list[dict]) -> str:
     lines.append("| Complementos | [sat.gob.mx/portal/public/tramites/complementos-de-factura](https://www.sat.gob.mx/portal/public/tramites/complementos-de-factura) |")
     lines.append("")
     lines.append("## Catálogos disponibles\n")
+    # Build ordered list of unique (namespace, version) groups
+    groups_seen: list[tuple[str, str]] = []
+    for e in entries:
+        g = (e["namespace"], e.get("source_version", ""))
+        if g not in groups_seen:
+            groups_seen.append(g)
+    # Quick index
+    for ns, ver in groups_seen:
+        label = f"{ns} — {ver}" if ver else ns
+        anchor = re.sub(r"[^a-z0-9]+", "-", label.lower()).strip("-")
+        lines.append(f"- [{label}](#{anchor})")
+    lines.append("")
+    # Full listing
     current_group: tuple | None = None
     for e in entries:
         ns  = e["namespace"]
