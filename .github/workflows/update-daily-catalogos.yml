@@ -11,9 +11,10 @@ on:
         default: all
         options:
           - all
-          - anexo20/factura
+          - anexo20/cfdi
           - anexo20/retenciones
           - complementos
+          - complementos/comercio-exterior
       force:
         description: 'Force re-download all files'
         type: boolean
@@ -83,6 +84,10 @@ jobs:
             git show --stat HEAD | grep '|' >> $GITHUB_ENV
             echo "EOF" >> $GITHUB_ENV
           fi
+
+      - name: Extract all CSVs for HF
+        if: env.FILES_CHANGED != '' || inputs.force_upload == true
+        run: uv run scripts/catalogos/extract.py --force
 
       - name: Generate HF dataset
         if: env.FILES_CHANGED != '' || inputs.force_upload == true

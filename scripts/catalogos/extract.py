@@ -394,7 +394,15 @@ def extract_workbook(xls_path: Path, output_dir: Path, header_style: str) -> tup
         except ValueError as exc:
             print(f"  SKIP {sheet_name!r}: {exc}", file=sys.stderr)
             continue
-        base_name = base_catalog_name(sheet_name)
+        # For single-catalog XLS files (stem starts with c_), use the XLS stem
+        # as the catalog name so that e.g. c_FraccionArancelaria_v17_rA.xls
+        # produces c_FraccionArancelaria_v17_rA.csv instead of colliding with
+        # c_FraccionArancelaria.csv.
+        xls_stem = xls_path.stem
+        if xls_stem.lower().startswith("c_"):
+            base_name = xls_stem
+        else:
+            base_name = base_catalog_name(sheet_name)
         record = catalogs[base_name]
         if record["headers"] is None:
             record["headers"] = parsed.headers

@@ -184,7 +184,7 @@ def _resolve_catalog_url(url: str) -> list[dict]:
     try:
         req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
         with urllib.request.urlopen(req, timeout=20) as r:
-            html = r.read().decode("utf-8", errors="replace")
+            html_content = r.read().decode("utf-8", errors="replace")
 
         base_url = url.rsplit("/", 1)[0] + "/"
         file_ext_re = re.compile(r"\.(xls|xlsx|zip|pdf|xsd|xslt|xml)$", re.IGNORECASE)
@@ -233,7 +233,7 @@ def _resolve_catalog_url(url: str) -> list[dict]:
                     self.groups.append({"version": self._cur_version, "files": self._cur_files})
 
         parser = _CatalogParser()
-        parser.feed(html)
+        parser.feed(html_content)
         parser.close()
         groups = parser.groups
 
@@ -863,19 +863,13 @@ def _flatten_catalogos(complementos: list[dict]) -> None:
 
 
 def _group_all_catalogos(complementos: list[dict]) -> None:
-    """Convert each version's catalogos from a list to a dict.
-
-    Key is ``{type}`` when no catalog_version, or ``{type}.{catalog_version_slug}``
-    when the entry came from a versioned HTML section.  Values are single dicts.
-    """
+    """Convert each version's catalogos from a list to a dict keyed by type (e.g. ``xls``)."""
     for comp in complementos:
         for ver in comp.get("versions", []):
             grouped: dict[str, dict] = {}
             for cat in ver.get("catalogos", []):
                 t = _catalog_type(cat)
-                cv = cat.get("catalog_version")
-                key = f"{t}.{slugify(cv)}" if cv else t
-                grouped[key] = {k: v for k, v in cat.items() if k not in ("name", "catalog_version")}
+                grouped[t] = {k: v for k, v in cat.items() if k not in ("name", "catalog_version")}
             ver["catalogos"] = grouped
 
 
@@ -1027,7 +1021,15 @@ def _download_catalog(
     # --verify bypasses this to always fetch and compare hash in memory.
     # _prev.cat_fp is what was stored in the manifest; cat_fp is what was just scraped.
     _prev = prev or _PrevState()
-    if not force and not verify and cat_fp and _prev.files and all(fe.get("hash") for fe in _prev.files):
+    _prev_files_valid = (
+        bool(_prev.files)
+        and all(fe.get("hash") for fe in _prev.files)
+        and not any(
+            Path(fe.get("local_file", "")).suffix.lower() in {".htm", ".html"}
+            for fe in _prev.files
+        )
+    )
+    if not force and not verify and cat_fp and _prev_files_valid:
         if _prev.cat_fp is None or cat_fp == _prev.cat_fp:
             cat["files"] = _prev.files
             for fe in _prev.files:
@@ -1044,15 +1046,24 @@ def _download_catalog(
 
     file_entries = []
     any_written = False
-    hf_idx = 0
+    used_hf_fnames: set[str] = set()
     for file_url in files:
         fname = _filename(file_url)
         ext = Path(fname.lower()).suffix
         if hf_xls_dir and ext in (".xls", ".xlsx"):
-            original_stem = _clean_stem(Path(fname).stem)
-            idx_suffix = f"-{hf_idx}" if hf_idx > 0 else ""
-            hf_fname = f"{original_stem}{idx_suffix}{ext}"
-            hf_idx += 1
+            stem = Path(fname).stem
+            # Preserve original name for single-catalog files (c_*) so that
+            # e.g. c_FraccionArancelaria_v17_rA.xls stays distinct from
+            # c_FraccionArancelaria.xls. Clean stems only for multi-catalog
+            # bundles (e.g. catCFDI_V_4_20260313 → catCFDI).
+            original_stem = stem if stem.lower().startswith("c_") else _clean_stem(stem)
+            hf_fname = f"{original_stem}{ext}"
+            if hf_fname in used_hf_fnames:
+                idx = 2
+                while f"{original_stem}-{idx}{ext}" in used_hf_fnames:
+                    idx += 1
+                hf_fname = f"{original_stem}-{idx}{ext}"
+            used_hf_fnames.add(hf_fname)
             # Download to flat path first, then move into version subfolder if found
             dest = hf_xls_dir / hf_subpath / hf_fname
             rel = str(dest)
