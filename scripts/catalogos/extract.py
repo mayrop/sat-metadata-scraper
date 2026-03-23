@@ -589,7 +589,19 @@ def main(argv: Sequence[str] | None = None) -> int:
             if k not in index_keys:
                 index_keys.append(k)
 
-    merged_rows = list(merged.values())
+    def _ver_key(v: str) -> tuple:
+        parts = []
+        for p in v.split("-"):
+            try:
+                parts.append(int(p))
+            except ValueError:
+                parts.append(p)
+        return tuple(parts)
+
+    merged_rows = sorted(
+        merged.values(),
+        key=lambda r: (r.get("section", ""), _ver_key(r.get("folder_version", "")), r.get("catalogo", "")),
+    )
     if merged_rows:
         args.state_file.parent.mkdir(parents=True, exist_ok=True)
         write_csv(args.state_file, index_keys, [[r.get(k, "") for k in index_keys] for r in merged_rows])

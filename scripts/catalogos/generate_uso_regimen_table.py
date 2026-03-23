@@ -134,6 +134,7 @@ def _upsert_state(state_file: Path, new_entry: dict) -> None:
         if k not in fieldnames:
             fieldnames.append(k)
 
+    new_rows.sort(key=lambda r: (r.get("section", ""), _ver_key(r.get("folder_version", "")), r.get("catalogo", "")))
     state_file.parent.mkdir(parents=True, exist_ok=True)
     with state_file.open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
@@ -168,11 +169,11 @@ def main() -> int:
 
     input_path = args.input or (_FACTURA_DIR / version / f"{_SOURCE}.csv")
 
+    headers = ["uso_clave", "tipo_persona", "regimen_fiscal"]
     file_hash = ""
     if input_path.exists():
         output = input_path.parent / f"{_CATALOGO}.csv"
         rows = list(generate_rows(input_path))
-        headers = ["uso_clave", "tipo_persona", "regimen_fiscal"]
         output.parent.mkdir(parents=True, exist_ok=True)
         with output.open("w", newline="", encoding="utf-8") as handle:
             writer = csv.writer(handle)
@@ -181,8 +182,14 @@ def main() -> int:
         print(f"Wrote {output} ({len(rows)} rows)")
         file_hash = hashlib.sha256(output.read_bytes()).hexdigest()
     else:
-        headers = ["uso_clave", "tipo_persona", "regimen_fiscal"]
         print(f"Skipping CSV generation: {input_path} not available locally.")
+        # Preserve any existing file_hash so we don't lose it on runs where
+        # the source CSV is not locally available.
+        _, existing_rows = _load_state(args.state_file)
+        for row in existing_rows:
+            if row.get("section") == _SECTION and row.get("catalogo") == _CATALOGO:
+                file_hash = row.get("file_hash", "") or ""
+                break
 
     entry: dict = {
         "section":           _SECTION,

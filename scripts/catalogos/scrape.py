@@ -1515,6 +1515,19 @@ def main() -> int:
         ]
         all_complementos = all_complementos + prev_other
 
+    def _vk(s: str) -> tuple:
+        parts = []
+        for p in re.split(r"[.\-]", s):
+            try:
+                parts.append((0, int(p)))
+            except ValueError:
+                parts.append((1, p))
+        return tuple(parts)
+
+    all_complementos.sort(key=lambda c: (c.get("_section", ""), c.get("name", "")))
+    for comp in all_complementos:
+        comp.get("versions", []).sort(key=lambda v: (_vk(v.get("version") or ""), _vk(v.get("revision") or "")))
+
     prev_scraped_at = prev_manifest.get("scraped_at") if prev_manifest else None
     scraped_at = datetime.now().isoformat() if any_files_changed or not prev_scraped_at else prev_scraped_at
     manifest = {"scraped_at": scraped_at, "complementos": all_complementos}
