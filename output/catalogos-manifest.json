@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-03-22T20:09:06.856344",
+  "scraped_at": "2026-03-23T00:13:53.056612",
   "complementos": [
     {
       "name": "Aerolíneas",
@@ -197,9 +197,74 @@
               "last_modified": null,
               "files": [
                 {
-                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/catalogos_emision_cfdi_complemento_ce.htm",
-                  "local_file": "complementos/comercio-exterior/version-2-0/catalogos_emision_cfdi_complemento_ce.htm",
-                  "hash": "aea119fd49f1e6bbc02067f3a88b6834f76dabf73a4bcb5787cbf47b5f548bf7"
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_ClavePedimento20.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/2-0/c_ClavePedimento20.xls",
+                  "hash": "b1db80a510c05538016315c4ab3e3e4c196d340ae5824a48a5cbd3bed21a759b"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_Colonia20.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/2-0/c_Colonia20.xls",
+                  "hash": "e187eff43ae8219125e548940a105dfac9e9c12b79c7fcbb7009f24dcbc80513"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_CodigoPostal_V_4_20231219.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/2-0/c_CodigoPostal_V_4_20231219.xls",
+                  "hash": "49b7ca23c1ec92d3bbfa6d8f5dedf4217b662c043d618afe45ce5c0c4ad591fe"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/C_Estado20.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/2-0/C_Estado20.xls",
+                  "hash": "f1f9c2b6b6fccb9b695ef790587785d53d1dbce914f09981260440a4f30df3d8"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_FraccionArancelaria_20240513.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/2-0/c_FraccionArancelaria_20240513.xls",
+                  "hash": "d05ed4431731f5e5620da61c5d770b4ec2caae3a4723cbb3a49ff1b68eba6a4b"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_INCOTERM20.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/2-0/c_INCOTERM20.xls",
+                  "hash": "87bafb29fafdc03d555df80868f62985a2ef661fc1564bf238c4d90ac9855644"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_Localidad20.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/2-0/c_Localidad20.xls",
+                  "hash": "5c0853d504f56d103c55555c9231d3f831858104937c30cf84297a9c9e34f11e"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_Moneda20.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/2-0/c_Moneda20.xls",
+                  "hash": "ef1d265c60d7552b21aca397e005d086b382a264ba6fa53e43ca33275fc11e53"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_MotivoTraslado20.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/2-0/c_MotivoTraslado20.xls",
+                  "hash": "57b5f35f0e3c64bdfec84b871069c4c7ea73f93143668873b82c19a57c1b24fd"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_Municipio20.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/2-0/c_Municipio20.xls",
+                  "hash": "3805d274faf53c22fc2219aa189f163152273ea5ea4a862906c58c6e22fdb5e9"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_Pais20.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/2-0/c_Pais20.xls",
+                  "hash": "2da5ce8802fea0d4694a06cc3c104be5e9a14f0a86255444e7cd1096c78e3047"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_RegimenFiscal20.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/2-0/c_RegimenFiscal20.xls",
+                  "hash": "bdd5cf9b5ce651cc9e801a92516ce6ce8ea8b01d902bf3ea0bc480903a9fe15d"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_TipoOperacion20.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/2-0/c_TipoOperacion20.xls",
+                  "hash": "5161ea4b97dd98614b3ca78e477bee3fd8bcd8715e629a94338362592a2a6db6"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_UnidadAduana20.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/2-0/c_UnidadAduana20.xls",
+                  "hash": "26a5687018bbfe88f2299e70edf63f87b4e38f268503549b11a9c49943ab77e8"
                 }
               ]
             },
@@ -211,6 +276,105 @@
                   "url": "https://d1kv9jqywn0dfi.cloudfront.net/sitio_internet/cfd/catalogos/ComExt/catComExt.xsd",
                   "local_file": "complementos/comercio-exterior/version-2-0/catComExt.xsd",
                   "hash": "6c2d60cb8f92810db0fc82b83571d714244bc701b510d9fac4021c2b99dfcfbb"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "version": "1.1",
+          "revision": null,
+          "files": {
+            "estandar": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null
+            },
+            "xsd": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null
+            },
+            "xslt": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null
+            }
+          },
+          "catalogos": {
+            "xls": {
+              "source_url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/catalogos_emision_cfdi_complemento_ce.htm",
+              "last_modified": null,
+              "files": [
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_ClavePedimento20.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/1-1/c_ClavePedimento20.xls",
+                  "hash": "b1db80a510c05538016315c4ab3e3e4c196d340ae5824a48a5cbd3bed21a759b"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_Colonia20.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/1-1/c_Colonia20.xls",
+                  "hash": "e187eff43ae8219125e548940a105dfac9e9c12b79c7fcbb7009f24dcbc80513"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_CodigoPostal_V_4_20231219.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/1-1/c_CodigoPostal_V_4_20231219.xls",
+                  "hash": "49b7ca23c1ec92d3bbfa6d8f5dedf4217b662c043d618afe45ce5c0c4ad591fe"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/C_Estado20.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/1-1/C_Estado20.xls",
+                  "hash": "f1f9c2b6b6fccb9b695ef790587785d53d1dbce914f09981260440a4f30df3d8"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_FraccionArancelaria_20240513.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/1-1/c_FraccionArancelaria_20240513.xls",
+                  "hash": "d05ed4431731f5e5620da61c5d770b4ec2caae3a4723cbb3a49ff1b68eba6a4b"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_INCOTERM20.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/1-1/c_INCOTERM20.xls",
+                  "hash": "87bafb29fafdc03d555df80868f62985a2ef661fc1564bf238c4d90ac9855644"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_Localidad20.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/1-1/c_Localidad20.xls",
+                  "hash": "5c0853d504f56d103c55555c9231d3f831858104937c30cf84297a9c9e34f11e"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_Moneda20.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/1-1/c_Moneda20.xls",
+                  "hash": "ef1d265c60d7552b21aca397e005d086b382a264ba6fa53e43ca33275fc11e53"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_MotivoTraslado20.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/1-1/c_MotivoTraslado20.xls",
+                  "hash": "57b5f35f0e3c64bdfec84b871069c4c7ea73f93143668873b82c19a57c1b24fd"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_Municipio20.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/1-1/c_Municipio20.xls",
+                  "hash": "3805d274faf53c22fc2219aa189f163152273ea5ea4a862906c58c6e22fdb5e9"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_Pais20.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/1-1/c_Pais20.xls",
+                  "hash": "2da5ce8802fea0d4694a06cc3c104be5e9a14f0a86255444e7cd1096c78e3047"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_RegimenFiscal20.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/1-1/c_RegimenFiscal20.xls",
+                  "hash": "bdd5cf9b5ce651cc9e801a92516ce6ce8ea8b01d902bf3ea0bc480903a9fe15d"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_TipoOperacion20.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/1-1/c_TipoOperacion20.xls",
+                  "hash": "5161ea4b97dd98614b3ca78e477bee3fd8bcd8715e629a94338362592a2a6db6"
+                },
+                {
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_UnidadAduana20.xls",
+                  "local_file": "hf/xls/complementos/comercio-exterior/1-1/c_UnidadAduana20.xls",
+                  "hash": "26a5687018bbfe88f2299e70edf63f87b4e38f268503549b11a9c49943ab77e8"
                 }
               ]
             }
