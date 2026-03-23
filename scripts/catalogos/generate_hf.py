@@ -90,9 +90,24 @@ def _ver_key(name: str) -> tuple:
     return tuple(parts)
 
 
+def _clean_stem(stem: str) -> str:
+    """Strip version numbers, dates, and hashes from a catalog stem.
+
+    Mirrors scrape.py _clean_stem so config names stay stable across SAT file renames.
+    """
+    s = stem
+    s = re.sub(r"_[Vv]_?\d+[\d.]*", "", s)                        # _V_4, _v17
+    s = re.sub(r"_\d{6,8}(?=_|$)", "", s)                         # _20231219
+    s = re.sub(r"\d*_[0-9a-f]{8,}$", "", s, flags=re.IGNORECASE)  # _8ca5655de2
+    s = re.sub(r"_[rR][A-Za-z0-9]{1,2}$", "", s)                  # _rA, _rB
+    s = re.sub(r"_\d+$", "", s)                                    # _1, _2
+    s = re.sub(r"(?<=[A-Za-z])\d{1,4}$", "", s)                   # Moneda20, CFDI40
+    return s.strip("_") or stem
+
+
 def _catalog_slug(csv_name: str) -> str:
-    """c_UsoCFDI.csv → c_uso_cfdi"""
-    return _slugify(Path(csv_name).stem)
+    """c_UsoCFDI.csv → c_uso_cfdi  (version suffixes stripped)"""
+    return _slugify(_clean_stem(Path(csv_name).stem))
 
 
 def _section_slug(section_rel: str) -> str:
@@ -192,7 +207,8 @@ def _build_readme(entries: list[dict]) -> str:
     # Quick index
     for ns, ver in groups_seen:
         label = f"{ns} — {ver}" if ver else ns
-        anchor = re.sub(r"[^a-z0-9]+", "-", label.lower()).strip("-")
+        anchor = re.sub(r"[^\w\s-]", "", label.lower())  # drop em-dash and other punctuation
+        anchor = re.sub(r" ", "-", anchor)              # each space → hyphen
         lines.append(f"- [{label}](#{anchor})")
     lines.append("")
     # Full listing
