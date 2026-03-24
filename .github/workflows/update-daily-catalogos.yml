@@ -89,9 +89,9 @@ jobs:
         if: env.FILES_CHANGED != '' || inputs.force_upload == true
         run: uv run scripts/catalogos/extract.py --force
 
-      - name: Copy static catalogs into HF csv
+      - name: Import static catalogs
         if: env.FILES_CHANGED != '' || inputs.force_upload == true
-        run: mkdir -p hf/csv/anexo20/extra && cp static/unspsc/*.csv hf/csv/anexo20/extra/
+        run: uv run scripts/catalogos/import_unspsc_hierarchy.py
 
       - name: Generate HF dataset
         if: env.FILES_CHANGED != '' || inputs.force_upload == true

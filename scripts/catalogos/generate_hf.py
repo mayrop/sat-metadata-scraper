@@ -51,7 +51,7 @@ CATALOG_CSV    = Path("output/catalog.csv")
 _SECTION_SLUG_OVERRIDES: dict[str, str] = {
     "anexo20/cfdi":                          "anexo20__cfdi",
     "anexo20/retenciones":                   "anexo20__retenciones",
-    "anexo20/extra":                         "extra_unspsc",
+    "extra/unspsc":                          "extra_unspsc",
     "complementos/recibo-de-pago-de-nomina": "complemento_nomina",
     "complementos/carta-porte":              "complemento_carta_porte",
     "complementos/recepcion-de-pagos":       "complemento_recepcion_pagos",
