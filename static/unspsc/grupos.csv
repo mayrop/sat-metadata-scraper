@@ -1,0 +1,422 @@
+tipo,codigo_division,nombre_division,codigo_grupo,nombre_grupo,row_hash
+Producto,50,"Alimentos, Bebidas y Tabaco",5015,Aceites y grasas comestibles,33ae2e2648c57083efa47e91765cedc46d50535aee89d24fd31cd715cc77b724
+Producto,50,"Alimentos, Bebidas y Tabaco",5019,Alimentos preparados y conservados,05ed565256e74044811060e51df68316299e3561e97368e15d4117feba2230ff
+Producto,50,"Alimentos, Bebidas y Tabaco",5020,Bebidas,b7611884f874a9045bf89e4687795244c016ad3a912e75711a3f15ca3cda4b63
+Producto,50,"Alimentos, Bebidas y Tabaco",5016,"Chocolates, azúcares, edulcorantes y productos de confitería",3df2f4ab50004157d20f6072676aa96bf07dc5721e5bb4fbe125fe2950728509
+Producto,50,"Alimentos, Bebidas y Tabaco",5017,Condimentos y conservantes,332a90d4b52cd2f13920117f5eae70a05fe4cd88ebceab6127767f6a1b5c1033
+Producto,50,"Alimentos, Bebidas y Tabaco",5034,Fruta congelada,b2525e3c85a440c40091d1e4ea24b897f7b2a126f7fb672f778f2f7703151701
+Producto,50,"Alimentos, Bebidas y Tabaco",5036,Fruta en lata o en frasco,3a8c5a3585f7743bbeceba4bd2e07c71826a69c8bc2cae42102030ab78d9968e
+Producto,50,"Alimentos, Bebidas y Tabaco",5030,Fruta fresca,15be58cbeb342224c21e757ab7e07842b35ef6f285d055b43b0b92c34b717062
+Producto,50,"Alimentos, Bebidas y Tabaco",5035,Fruta orgánica congelada,afe9b30d1777db90f4698d616420892ccd62e02db345bbff35550c25b0d6822a
+Producto,50,"Alimentos, Bebidas y Tabaco",5037,Fruta orgánica en lata o en frasco,1a34e4f3c5f4f378e2f1488617126eda71d9b862142f4b942a53931b91bd2e52
+Producto,50,"Alimentos, Bebidas y Tabaco",5031,Fruta orgánica fresca,152cab44753b6d19988a2a866a417c56c0884f57297f1ef330a5175e8d39db83
+Producto,50,"Alimentos, Bebidas y Tabaco",5033,Fruta orgánica seca,ffe0b5ea24d6efadaa02b1652ad8c93bfd8914fad58d4ceb0684fe89058f8dc2
+Producto,50,"Alimentos, Bebidas y Tabaco",5032,Fruta seca,e259123e91728290f1d8eee157a9d43f373259eced179bb98ccfc0bbc03ae557
+Producto,50,"Alimentos, Bebidas y Tabaco",5010,Frutos secos,7a9aee65362e3ac1d5dc2b98c4128ce6fe8d6ce3e194c713da9476aeb1c20580
+Producto,50,"Alimentos, Bebidas y Tabaco",5012,Pescados y mariscos,709239168534a5f891a8c893a7f6342b5833f21fd925d15aea828e35a3fbee2d
+Producto,50,"Alimentos, Bebidas y Tabaco",5011,Productos de carne y aves de corral,3fea79e9cc40850f53a7409e9c0076391e3112870ba353bdae983a89d94340f0
+Producto,50,"Alimentos, Bebidas y Tabaco",5022,Productos de cereales y legumbres,a0420adb1eb38ebb08522fcc725e3b6c91a8400c5fe8973829946f5c214682ab
+Producto,50,"Alimentos, Bebidas y Tabaco",5018,Productos de panadería,764bfcc1c23ebb4721b6546342b47da6e8b1c131ef645cbfa4653213e416023c
+Producto,50,"Alimentos, Bebidas y Tabaco",5013,Productos lácteos y huevos,5c070b77699c6bef33acca91451af28894b398abd840a3adb6fdbe760c7e11f1
+Producto,50,"Alimentos, Bebidas y Tabaco",5038,Puré de frutas,59ffa636c58739e67a20f8fe1627db787f544da43a669fd3f0daf220cb2dc4ab
+Producto,50,"Alimentos, Bebidas y Tabaco",5021,Tabaco y productos de fumar y substitutos,f3d509ea87dfdc82529106503c3cc373f8d04391e376c1369c7a0534e973e785
+Producto,50,"Alimentos, Bebidas y Tabaco",5044,Vegetales congelados,1698e1fef4d0b39f1eb7c7edb9dd4e6beb0010b377d4b77276aa746852fa2fef
+Producto,50,"Alimentos, Bebidas y Tabaco",5046,Vegetales en lata o en frasco,f4c3059ef4ccb1376d3e8e1b9c812e20bf2d3323f3057304e4bb16b89a6c38ba
+Producto,50,"Alimentos, Bebidas y Tabaco",5040,Vegetales frescos,48ebc5b596e6394d1db109c0e622a35ee145677295fd5efb097f90d697ed9273
+Producto,50,"Alimentos, Bebidas y Tabaco",5045,Vegetales orgánicos congelados,4c7e6f5217d854195703b712c5b959c873eb7c73091cbf883b8f21d3915b077a
+Producto,50,"Alimentos, Bebidas y Tabaco",5047,Vegetales orgánicos en lata o en frasco,e93dc28d11b4aea700b1fd4c374865fdf2cf09dc32ae059e107edc53e9a5088c
+Producto,50,"Alimentos, Bebidas y Tabaco",5041,Vegetales orgánicos frescos,75a9eb65728a7c853760c8391415e8ef5a4d02984dad8cae43ac14ae2c0cfb7c
+Producto,50,"Alimentos, Bebidas y Tabaco",5043,Vegetales orgánicos secos,535d5467b7017a5234e5457f3a3d6ca5411f810dce3bff457243beaea87987a4
+Producto,50,"Alimentos, Bebidas y Tabaco",5042,Vegetales secos,7086dfed7c4b34fb88a154aa2582a1fb3f26b5191044fdfea62bd6f27a43dea2
+Producto,52,"Artículos Domésticos, Suministros y Productos Electrónicos de Consumo",5214,Aparatos electrodomésticos,1d3c3c37e23c93ca9353cceef167d59491c2427bc718eb1e7d5375b34ffe57f8
+Producto,52,"Artículos Domésticos, Suministros y Productos Electrónicos de Consumo",5216,Electrónica de consumo,503fd089d30fb64fd20656b7a155ff914aa38a36ea41d9486e1e3cc023adaab7
+Producto,52,"Artículos Domésticos, Suministros y Productos Electrónicos de Consumo",5210,Revestimientos de suelos,ac4a566d3c5415978fa616d8d1dbc86a02cb173b2f59858ddfd609ade55c9757
+Producto,52,"Artículos Domésticos, Suministros y Productos Electrónicos de Consumo",5212,"Ropa de cama, mantelerías, paños de cocina y toallas",2e3c506a0ab5370103b6616ea3f1c9df52782cc74370747c44520276470c38bc
+Producto,52,"Artículos Domésticos, Suministros y Productos Electrónicos de Consumo",5217,Tratamientos de pared doméstica,e3973b9fa8187d137290a7ca7be06fb3653e140187a067496318f71fcb4260b1
+Producto,52,"Artículos Domésticos, Suministros y Productos Electrónicos de Consumo",5213,Tratamientos de ventanas,602d9668228736b4cdf77b25f323f568654c2b518fd0e4911e5b00039edb46c1
+Producto,52,"Artículos Domésticos, Suministros y Productos Electrónicos de Consumo",5215,Utensilios de cocina domésticos,00e71c72f5b62114bc4c76a88c813cc3ed0ca09df2ac680a79d43c6d7275fd4d
+Producto,40,Componentes y Equipos para Distribución y Sistemas de Acondicionamiento,4015,Bombas y compresores industriales,7b96df6dc43b31009a8a3396bba6089cf3dbb68943271125609b06c51e97709a
+Producto,40,Componentes y Equipos para Distribución y Sistemas de Acondicionamiento,4010,"Calefacción, ventilación y circulación del aire",061cac7dcdc8852aa4a73f5fa812ef1447c9828ce939e5b81dfffd0a61780e9a
+Producto,40,Componentes y Equipos para Distribución y Sistemas de Acondicionamiento,4014,Distribución de fluidos y gas,e41c3228d2468e213de7be72b956eb8271369028db0e0c49b980ef605b582490
+Producto,40,Componentes y Equipos para Distribución y Sistemas de Acondicionamiento,4016,Filtrado y purificación industrial,64f889f0e8d8f8a8524854c166f95026e9f826b20f237bc599e93bcc017b8399
+Producto,40,Componentes y Equipos para Distribución y Sistemas de Acondicionamiento,4017,Instalaciones de tubos y entubamientos,44ed636c71da0b78dd15466d4fe3ed6b91c52ee926b27fe185589db9953d67f0
+Producto,40,Componentes y Equipos para Distribución y Sistemas de Acondicionamiento,4018,Instalaciones de tubos y tuberías,3b02816b9edad391e9b4839c856442ac6debddcfd5a9d17caa9871f25deb4f05
+Producto,31,Componentes y Suministros de Manufactura,3120,Adhesivos y selladores,3edaa90cedabe93b1a8b7e8c7d016ec5116062fd1a2529f97fc83034fa7192c4
+Producto,31,Componentes y Suministros de Manufactura,3128,Componentes de placa y estampados,106b36113606a5d5bb8aa66f32e6c67e7389c784808395cbcbf04c70ec6859c7
+Producto,31,Componentes y Suministros de Manufactura,3126,"Cubiertas, cajas y envolturas",616020e58ac38d6afadf2f44eab1de23e5f0e7905b1b0b9eaa16c2bb70aad47d
+Producto,31,Componentes y Suministros de Manufactura,3115,"Cuerda, cadena, cable, alambre y correa",087fcfe614628fe820b6b4fbfdf5631f56265a1c0337d147b2da57c3ee1b9eb2
+Producto,31,Componentes y Suministros de Manufactura,3140,Empaques,1e16ade12f3b51e854f8958be9579a7c203d59b7678babbba4143b5fcb00a809
+Producto,31,Componentes y Suministros de Manufactura,3118,"Empaques, glándulas, fundas y cubiertas",00f46d81b250bb5a6398ae961ce6156d4105ee183db935b551980e27c0fc545d
+Producto,31,Componentes y Suministros de Manufactura,3134,Ensambles de lámina fabricado,8d1b10ade6b503dc1ea99bf69b5d8e0bef6e5c809663c8e9ed8636beddf2a981
+Producto,31,Componentes y Suministros de Manufactura,3136,Ensambles de placa fabricados,0be42377fb123cb3f29a371822cdfda2339f2b146693e43028714de7782a3f12
+Producto,31,Componentes y Suministros de Manufactura,3135,Ensambles de tubería fabricada,bd8115ace8624836133b8be6fa1d0a8f8329f397152d3775372462de67d373e3
+Producto,31,Componentes y Suministros de Manufactura,3131,Ensambles de tubería fabricada,9ca91abb8e230a54d7192f3be2941e6bffb2a2de3d5db788d78438c624d3dacf
+Producto,31,Componentes y Suministros de Manufactura,3133,Ensambles estructurales fabricados,39b66e68cff40a724f624bc41ef157df0e96d8736526808592e322a1c63aa330
+Producto,31,Componentes y Suministros de Manufactura,3132,Ensambles fabricados de material en barras,ffb463aa664a63be68ec9fa36e8042270f58ba757f7dd88cfcdcf3a96d03088b
+Producto,31,Componentes y Suministros de Manufactura,3122,Extractos de teñir y de curtir,cb98c03b69abd4a40f0cc3aa2138b21154c5b6099e7f1da5f54eafea290a258d
+Producto,31,Componentes y Suministros de Manufactura,3111,Extrusiones,9c5cf50bd78fd9fe1fefacbed71de3ebaeec8d02d7b2c83cf5c5c23ebb778711
+Producto,31,Componentes y Suministros de Manufactura,3129,Extrusiones maquinadas,f77a9d1903dd173a5979b3984b60e53f4a4605bafeae0cdec55c3abf8eede088
+Producto,31,Componentes y Suministros de Manufactura,3116,Ferretería,a61088fbad7a6516c0d0d20784e7409d65dd9d10a61b8c362633e21711fa763e
+Producto,31,Componentes y Suministros de Manufactura,3113,Forjaduras,690aebc2297a4da38962ef6e9d2655cfb86cb1efbb959672e08f7b33b4931ebf
+Producto,31,Componentes y Suministros de Manufactura,3130,Forjas labradas,7ce9f4affb3588e289917cd22ade50a58c0b557fa4419e31aebb1e2cbdae8259
+Producto,31,Componentes y Suministros de Manufactura,3138,Imanes y materiales magnéticos,417319883f8a25ae9ec5899a964bfda5ec40adf9674107bff039c060e387a083
+Producto,31,Componentes y Suministros de Manufactura,3139,Maquinados,f50cf9554d3d1535258bcfe5825d4238a8902f833d190121d88974391e64eb92
+Producto,31,Componentes y Suministros de Manufactura,3123,Materia prima en placas o barras labradas,4db2f39e342c86e5566ce1543478c8329cd9e17d491cce432222254eb470b9cc
+Producto,31,Componentes y Suministros de Manufactura,3119,Materiales de afilado pulido y alisado,7a82fc2f2e334392feb30c3d21dce563f569ec8c61cc0e743d5d3cfcd29cdbd0
+Producto,31,Componentes y Suministros de Manufactura,3114,Molduras,24a5afc2215c2d4ba789fb044c9268fa46a01583702e272caadfd9e06eb16734
+Producto,31,Componentes y Suministros de Manufactura,3124,Óptica industrial,3e059da40556d2807efce77e78bd0e6b8c54beacb13eae80dbaddf9a2ad56ddc
+Producto,31,Componentes y Suministros de Manufactura,3142,Partes sinterizadas,3cd77d4af3053824f85a59da69d38ece19a3abe4daa0daf7a66c5efdfaf50997
+Producto,31,Componentes y Suministros de Manufactura,3110,Piezas de fundición y ensambles de piezas de fundición,a926b194d5f8ba719878a619a70282ef02518b8b06c156c964268d7e9eec5e78
+Producto,31,Componentes y Suministros de Manufactura,3112,Piezas fundidas maquinadas,6ae8b3d61bad98954bc5ac4840a7b7e54cb711f900b562dec1ffce6ae30439f6
+Producto,31,Componentes y Suministros de Manufactura,3127,Piezas hechas a máquina,f5f3e2bc1f9e994c9a6ee75da12c77bf85b91f73d72a6d9c5026e7136e32747a
+Producto,31,Componentes y Suministros de Manufactura,3121,Pinturas y bases y acabados,536246b5658ce57fd2ce341423fa1a37d99ffb3fb01e8fa784f3e7a2b0689e51
+Producto,31,Componentes y Suministros de Manufactura,3137,Refractarios,5c3193ab7057455ec18ad68a5cbb3fe82c6957b8d0f48b4bbdc589ccd62fb0d9
+Producto,31,Componentes y Suministros de Manufactura,3117,"Rodamientos, cojinetes ruedas y engranajes",a57057ea8efeeb8ce2eb7e4c31bf6e9036533a7e7a350cc82065e3fd9a6a4105
+Producto,31,Componentes y Suministros de Manufactura,3141,Sellos,fd2013056a8a247f7c68e547fdc9ab873a48f7fbac4bc7be457b3a90df94d391
+Producto,31,Componentes y Suministros de Manufactura,3125,"Sistemas de control neumático, hidráulico o eléctrico",79aced93fad8e52330324a4f41bf383c174528c07461528a64df85d1321888b6
+Producto,32,Componentes y Suministros Electrónicos,3210,"Circuitos impresos, circuitos integrados y micro ensamblajes",65fa33d9ae7065d7f8b2734e084b9fa11b92ab8af9f9acf06a63aec0c608d2f7
+Producto,32,Componentes y Suministros Electrónicos,3212,Componentes pasivos discretos,edd95c962189d45adc0ee9a480c55084160a2fb167ad2dfa3de95072a23f61c3
+Producto,32,Componentes y Suministros Electrónicos,3211,Dispositivo semiconductor discreto,6bba9808cb13fc678a252e751d20e6df3bbde2587878256196c0b9706ee7c1eb
+Producto,32,Componentes y Suministros Electrónicos,3214,Dispositivos de tubo electrónico y accesorios,c7d3026f88feb22f65094eca7aa134e098e9c4ebf3f2e6da3f8a26c8de3f8c47
+Producto,32,Componentes y Suministros Electrónicos,3215,Dispositivos y componentes y accesorios de control de automatización,5b1b528138beef83f8c752764a4721c6d845dce04ad5f32d86758dd136807f2e
+Producto,32,Componentes y Suministros Electrónicos,3213,Piezas de componentes y hardware electrónicos y accesorios,5fe235f74bdac212c9fe1c6dcfd00c80b9be0a19d61b4657df22ddb0345b2e72
+Producto,30,"Componentes y Suministros para Estructuras, Edificación, Construcción y Obras Civiles",3014,Aislamiento,5a5c42b1340b51b0603aceaabc933b7e7a3aa230aaed6b1db69efaff0905d3cd
+Producto,30,"Componentes y Suministros para Estructuras, Edificación, Construcción y Obras Civiles",3012,Carreteras y paisaje,85d7d41c62859bc91de4a8b71604b07870dae293e46fe28b1d698ab8d0171d12
+Producto,30,"Componentes y Suministros para Estructuras, Edificación, Construcción y Obras Civiles",3024,Componentes de construcción de estructura portátil,eb85b9908e8f6d934a3702ea37ad8363e98608fb27e5a584015afe3e63150434
+Producto,30,"Componentes y Suministros para Estructuras, Edificación, Construcción y Obras Civiles",3010,Componentes estructurales y formas básicas,ef868124e320629d8b0a92d9eeb0140f55a9273e147ad65ed2cfa0952b66cf8c
+Producto,30,"Componentes y Suministros para Estructuras, Edificación, Construcción y Obras Civiles",3019,Equipo de apoyo para Construcción y Mantenimiento,3f5d8acb0159ef1eba6b700d9d89410645b788662ed6b0eca54c1eaca6e4c62b
+Producto,30,"Componentes y Suministros para Estructuras, Edificación, Construcción y Obras Civiles",3025,Estructuras y materiales de minería subterránea,d0a0559edd457886a5e2fcbe22124b683dfed33f18c434be97eee2b1dad89c95
+Producto,30,"Componentes y Suministros para Estructuras, Edificación, Construcción y Obras Civiles",3011,"Hormigón, cemento y yeso",86aa3401f4df5b0248441ac8fe44749117e93ecd0db2e42b0e1dc40cc6a4ef61
+Producto,30,"Componentes y Suministros para Estructuras, Edificación, Construcción y Obras Civiles",3018,Instalaciones de plomería,e351f19f3071e8731ff73a009ffed56f5a7eaffc8047817f1d7dcd8b275a0807
+Producto,30,"Componentes y Suministros para Estructuras, Edificación, Construcción y Obras Civiles",3016,Materiales de acabado de interiores,2030a4a122cd8acb45c3cfdb56dd97bfa529f3d011d55916234b195fb106bd0b
+Producto,30,"Componentes y Suministros para Estructuras, Edificación, Construcción y Obras Civiles",3026,Materiales estructurales,8e36fdcd94df497ae4f666664f174240c735748c68423cfc21128c7263e4b49f
+Producto,30,"Componentes y Suministros para Estructuras, Edificación, Construcción y Obras Civiles",3015,Materiales para acabado de exteriores,c0192b2d07eb179d2c69f34d3ec7d83272f8d988c7e37303d359dd36a1d5d39d
+Producto,30,"Componentes y Suministros para Estructuras, Edificación, Construcción y Obras Civiles",3013,Productos de construcción estructurales,2d8856cc8078abc09256901cf1fe52dcb82fb2461535ea3f014a02e535dfd748
+Producto,30,"Componentes y Suministros para Estructuras, Edificación, Construcción y Obras Civiles",3017,Puertas y ventanas y vidrio,e1e2e0a2bf6dc04940828dd489c754b044725f279b7fddc002ddcd2cc6341053
+Producto,39,"Componentes, Accesorios y Suministros de Sistemas Eléctricos e Iluminación",3913,Dispositivos y accesorios y suministros de manejo de cable eléctrico,28fe62b782d720521b603c2bb82586335f4cd85487b7f720fceed85f2bc0995f
+Producto,39,"Componentes, Accesorios y Suministros de Sistemas Eléctricos e Iluminación",3912,"Equipos, suministros y componentes eléctricos",80e02f6db6e09a4b9339e5a3306741ccb1103e71a39d82591ebf5c0b067c48b0
+Producto,39,"Componentes, Accesorios y Suministros de Sistemas Eléctricos e Iluminación",3911,"Iluminación, artefactos y accesorios",6f7a3cd2f3d82bf420dce97f1b6dd7fa6460fff04e85be69a1d88c0149756f51
+Producto,39,"Componentes, Accesorios y Suministros de Sistemas Eléctricos e Iluminación",3910,Lámparas y bombillas y componentes para lámparas,cb728f37f912ab3caa4e6f863ab29857df18879b865b4e29015116b1bb147b6f
+Producto,43,Difusión de Tecnologías de Información y Telecomunicaciones,4320,"Componentes para tecnología de la información, difusión o telecomunicaciones",a12cedb6111fa6e49aa4e6e4b2f4cb0fe816b6ca865d095982f6b282f0a1611e
+Producto,43,Difusión de Tecnologías de Información y Telecomunicaciones,4319,Dispositivos de comunicaciones y accesorios,a6d4f0ba08d2f147f3bf84d9616e2aa242d5069735702421af3fb947bd2f3f72
+Producto,43,Difusión de Tecnologías de Información y Telecomunicaciones,4321,Equipo informático y accesorios,bdfc082ff049239ab361a79f76745eb94a2fe07422f348e85bc701bcc12a52a7
+Producto,43,Difusión de Tecnologías de Información y Telecomunicaciones,4322,Equipos o plataformas y accesorios de redes multimedia o de voz y datos,f5b21030ad7689444ff756530fcc2a7106d48717c8b2047f4e04439ea74eed7b
+Producto,43,Difusión de Tecnologías de Información y Telecomunicaciones,4323,Software,8335e6857d8c1ed46812781a6c5ab6f31a183750282a29e85cbce757abb6d7e7
+Producto,42,"Equipo Médico, Accesorios y Suministros",4221,Ayuda para personas con desafíos físicos para vivir independiente,23123782ceacc9766aa6cbb760e983e0ae3c2861878acca5c2f743ef15339dcf
+Producto,42,"Equipo Médico, Accesorios y Suministros",4216,Equipo de diálisis y suministros,517a03a277ac96e005eafaf8252de582c35d4bd540a34d9cc6ecc803919e82fb
+Producto,42,"Equipo Médico, Accesorios y Suministros",4226,Equipo y suministros post mortem y funerarios,86083aa731d6b8d5d45d3cb5b777abc672754ea64e4e9bf67aa2f6822d28ac81
+Producto,42,"Equipo Médico, Accesorios y Suministros",4215,Equipos y suministros dentales,e5df14488e87dff4b28b8eb2bb300a5ca00de47ae1f6855b1fb7a0ffdabbd201
+Producto,42,"Equipo Médico, Accesorios y Suministros",4212,Equipos y suministros veterinarios,39b75f47c0db4c668b21c3f4ba249b82db6ed66051ad71d43aef514bbc138554
+Producto,42,"Equipo Médico, Accesorios y Suministros",4232,Implantes ortopédicos quirúrgicos,dacf71aa16fcf2f7cc89a64f405f160fd93a3b7367274f709562c29a6da2df0e
+Producto,42,"Equipo Médico, Accesorios y Suministros",4223,Nutrición clínica,e961d380fd190662f7c8f98068fc1752695f0c78d13fcd029b3efed1624c15ec
+Producto,42,"Equipo Médico, Accesorios y Suministros",4219,Productos de centro médico,d4db6693f1f9c71bd29b0140de72c6963ffb6672d330f60d43f9ba1eecc3437e
+Producto,42,"Equipo Médico, Accesorios y Suministros",4218,Productos de examen y control del paciente,9a6bbfb9b41c1d801aad8c5e6d44123bee2a9cd2e1d0e7e5331a3c353c5ab7df
+Producto,42,"Equipo Médico, Accesorios y Suministros",4220,Productos de hacer imágenes diagnósticas médicas y de medicina nuclear,ac58c60a1a164ea2457f6bbd56371e7e141a243bcbd0b2d1127c581dbd8e16ba
+Producto,42,"Equipo Médico, Accesorios y Suministros",4225,Productos de rehabilitación y terapia ocupacional y física,ca01a70ee22c3df531ba032689b215c319e3a24de3857032fa97e4345a7e1eaa
+Producto,42,"Equipo Médico, Accesorios y Suministros",4227,"Productos de resucitación, anestesia y respiratorio",d5cee95387a3e57c26572faac4cf15a2eb84b42ea47925a05adbe312774c4c3d
+Producto,42,"Equipo Médico, Accesorios y Suministros",4224,Productos medicinales de deportes y ortopédicos y prótesis,555d3d228bdacdd13a93b4369feaa55392c5ea3c0cc5eb9c68048e937004d514
+Producto,42,"Equipo Médico, Accesorios y Suministros",4222,Productos para administración intravenosa y arterial,ac1fab696933d2d9b757c5c7c1086ca63eb3622a29342f9854c86d2a30105aaf
+Producto,42,"Equipo Médico, Accesorios y Suministros",4231,Productos para el cuidado de heridas,d60ed2314d4b56b646b981146c7a9e1546bfa9eab7b97f710b67fb6f7f6dbaf8
+Producto,42,"Equipo Médico, Accesorios y Suministros",4228,Productos para la esterilización médica,67304f3ad42632f6175defd38cc296e97a9d7b91ac70f1607a0e962e058ad35c
+Producto,42,"Equipo Médico, Accesorios y Suministros",4217,Productos para los servicios médicos de urgencias y campo,e768f82267607ed9b8e3777deba56b00a80b40fa2f2073a6cd7badb3c56270b2
+Producto,42,"Equipo Médico, Accesorios y Suministros",4229,Productos quirúrgicos,5d5ab4da78cc6dd8f5cd68f72aee1a541d8b22d9ee794bea725c2bbda17ef9f7
+Producto,42,"Equipo Médico, Accesorios y Suministros",4230,Suministros para formación y estudios de medicina,2e9bffeea25ec47b1e2a1c68e7156403d81d80905dfa9fb1fdf828908627d2ef
+Producto,42,"Equipo Médico, Accesorios y Suministros",4214,"Suministros, productos de tratamiento y cuidado del enfermo",3a440e15e173dab03520b89155b7fb72c1378f73fd7215288065e52cfb8f3630
+Producto,42,"Equipo Médico, Accesorios y Suministros",4213,Telas y vestidos médicos,6810e36e8f9095b550ed8be64bfa0bd0876782f5020c59c795085ac8bff00420
+Producto,47,Equipos de Limpieza y Suministros,4712,Equipo de aseo,c7069ad3aaf65a30dbfacb63b16b20e749ee541654e14a37446b2991b5636419
+Producto,47,Equipos de Limpieza y Suministros,4711,Equipo industrial de lavandería y lavado en seco,1a768a19a53b1f17abac59f393791f1c1b2ad64c404141d75792c664068f4bf4
+Producto,47,Equipos de Limpieza y Suministros,4713,Suministros de aseo y limpieza,bd10bf136466924af6d04df6afa4a3acc332be9f3f926a8c1c0e0cfa9c5188ae
+Producto,47,Equipos de Limpieza y Suministros,4710,"Tratamiento, suministros y eliminación de agua y aguas residuales",62f4516ab351c4ab3c2c97bf72a91c2f554095b26377db84a65a725a387547ef
+Producto,44,"Equipos de Oficina, Accesorios y Suministros",4411,Accesorios de oficina y escritorio,69d1a7a4a9137d546a2f6cbd25a43b3d173f0f476fb92c4b1a612c6585fbf192
+Producto,44,"Equipos de Oficina, Accesorios y Suministros",4410,"Maquinaria, suministros y accesorios de oficina",be5a5f735a9591eb9904a05ef029660e9366d24698fd0421e732f6ca34ba4fb3
+Producto,44,"Equipos de Oficina, Accesorios y Suministros",4412,Suministros de oficina,3677b64b95034ed392604bc687b16f4cc3a1f80900b33de2177c60c6f1098bd4
+Producto,46,"Equipos y Suministros de Defensa, Orden Publico, Proteccion, Vigilancia y Seguridad",4611,Armas de guerra convencionales,7e178f3ac6459c08db0d7cbe2336d59ea8109531725444771f764feb04958752
+Producto,46,"Equipos y Suministros de Defensa, Orden Publico, Proteccion, Vigilancia y Seguridad",4610,Armas ligeras y munición,acdaf540172971ca191f15691524999b3f15756dacc33c6735253a09f6df2ab0
+Producto,46,"Equipos y Suministros de Defensa, Orden Publico, Proteccion, Vigilancia y Seguridad",4613,Cohetes y subsistemas,b10cda13461b66a54f948f420c1f5c43aec40f6b0eecea9b44c7f759fe15689a
+Producto,46,"Equipos y Suministros de Defensa, Orden Publico, Proteccion, Vigilancia y Seguridad",4620,"Equipo de entrenamiento de seguridad física e industrial, defensa y orden público",96d2dec4c6271665b236ee2d9eb9fc21e0bc51c4ebdafa9e8421a97b058c1870
+Producto,46,"Equipos y Suministros de Defensa, Orden Publico, Proteccion, Vigilancia y Seguridad",4614,Lanzadores,713738f61a415c3295bd2335c524a74c3f4e3caca57713d266475233d6fcc79e
+Producto,46,"Equipos y Suministros de Defensa, Orden Publico, Proteccion, Vigilancia y Seguridad",4612,Misiles,79d556dedaa2dc2071b32e3aa124a8799adfc51ee8a775054ddd5f5e38f1b904
+Producto,46,"Equipos y Suministros de Defensa, Orden Publico, Proteccion, Vigilancia y Seguridad",4619,Protección contra incendios,d721a1134e608d4d416ce36bb8b6bb7d8a50089211429628435b312c9c14dcf2
+Producto,46,"Equipos y Suministros de Defensa, Orden Publico, Proteccion, Vigilancia y Seguridad",4615,Protección del Orden Público,b223271bd79977b8eb6f7373cd5e0d8d6a53fffa8fa4c3235f07123fbcd6ce66
+Producto,46,"Equipos y Suministros de Defensa, Orden Publico, Proteccion, Vigilancia y Seguridad",4616,Seguridad y control público,6b26009b5a1cced3defb88a40d16269880f8469bc1d675b159b594a18e3dc77d
+Producto,46,"Equipos y Suministros de Defensa, Orden Publico, Proteccion, Vigilancia y Seguridad",4618,Seguridad y protección personal,4531d73ccc308332c26beff1650137eabeed31165d04e3d6c20072fa60141f0f
+Producto,46,"Equipos y Suministros de Defensa, Orden Publico, Proteccion, Vigilancia y Seguridad",4617,"Seguridad, vigilancia y detección",875613d6a477c30dfa6b11ec432527fb277adb0132e3a34ba20df77f292212b5
+Producto,41,"Equipos y Suministros de Laboratorio, de Medición, de Observación y de Pruebas",4110,Equipo de laboratorio y científico,bc37a534b9a401adb2d630b43f00c4549a02dc85ab446803c79681909d492374
+Producto,41,"Equipos y Suministros de Laboratorio, de Medición, de Observación y de Pruebas",4111,"Instrumentos de medida, observación y ensayo",c6413b5926f101989aecdc42041073da35cbacb8569b416cbc4a74eda7e57b43
+Producto,41,"Equipos y Suministros de Laboratorio, de Medición, de Observación y de Pruebas",4112,Suministros y accesorios de laboratorio,59d0223996433e0923de26d89806279960204232c9c78ab3da2c80d5ef716b5b
+Producto,45,"Equipos y Suministros para Impresión, Fotografia y Audiovisuales",4510,Equipo de imprenta y publicación,ba32627710a765caffd00d81b9f5cb0e5f2839d539e717c4d2751ec1333fa7e9
+Producto,45,"Equipos y Suministros para Impresión, Fotografia y Audiovisuales",4512,"Equipo de vídeo, filmación o fotografía",bcdbb8c362eba5973b5e44a1d4199b2f78141c52e14011f6eedbe5e32e6f3dd3
+Producto,45,"Equipos y Suministros para Impresión, Fotografia y Audiovisuales",4511,Equipos de audio y video para presentación y composición,537dcfc099193c090a52842d1607740ca9070961b23f037bf91cb8e163a91785
+Producto,45,"Equipos y Suministros para Impresión, Fotografia y Audiovisuales",4513,Medios fotográficos y de grabación,8e5d67b82f52ac73bd80de8aa7ac57a8e70edf06c68bf88dc90997ac5654ea6f
+Producto,45,"Equipos y Suministros para Impresión, Fotografia y Audiovisuales",4514,Suministros fotográficos para cine,21d7340d29df5f7708f474eb84f9d4e56fa5574a717a3bad4da9b35d198d7527
+Producto,49,"Equipos, Suministros y Accesorios para Deportes y Recreación",4910,Coleccionables y condecoraciones,61263b72d61ed7da3849626b287872339e9e48fe8944d8af931ec5adea4e51ef
+Producto,49,"Equipos, Suministros y Accesorios para Deportes y Recreación",4924,"Equipo de recreo, parques infantiles y equipo y suministros de natación y de spa",ca587e6c9e5d7a353b9a71a48e10370ba3a2f25ab53709df02f9ae03b03f49ad
+Producto,49,"Equipos, Suministros y Accesorios para Deportes y Recreación",4920,Equipo para entrenamiento físico,481d464b597c9ccc91271ae72f20e6ef1f06103c55402ee7c3ba89f3d23b5b64
+Producto,49,"Equipos, Suministros y Accesorios para Deportes y Recreación",4922,Equipo y accesorios para deportes,784f91af1b4db9c33e2f3c265ab86de0acbcef799748632de5dcff26ddbbb1ce
+Producto,49,"Equipos, Suministros y Accesorios para Deportes y Recreación",4917,Equipos de gimnasia y boxeo,eee20ba71e8b8448e7d765f86b448535cf9b534c7419df044062e6e703f81d21
+Producto,49,"Equipos, Suministros y Accesorios para Deportes y Recreación",4913,Equipos de pesca y caza,062351fdf1d85b0f7c4b40dfe82ed2c079106de947f0201f9304d44e3e251e0d
+Producto,49,"Equipos, Suministros y Accesorios para Deportes y Recreación",4916,Equipos deportivos para campos y canchas,a0d5ef0a3d82122ad3ae26a35b67625d04e806fb959eea15bdb1de447c436919
+Producto,49,"Equipos, Suministros y Accesorios para Deportes y Recreación",4914,Equipos para deportes acuáticos,ab4cb35bca71f0a05d3db85dca7c06e1cb99f676d5da1bac5d229e407a0c3950
+Producto,49,"Equipos, Suministros y Accesorios para Deportes y Recreación",4915,Equipos para deportes de invierno,f43f4e1a8ef5c145383256b5f4d5fb2b2bcbea32a073ee6ae6c00c4f4f9770ea
+Producto,49,"Equipos, Suministros y Accesorios para Deportes y Recreación",4912,Equipos y accesorios para acampada y exteriores,bbb45e43ed4eb34917560603e840cc192fd7b91e10f203ec1300f5de3e4a3541
+Producto,49,"Equipos, Suministros y Accesorios para Deportes y Recreación",4918,"Juegos, equipo de tiro y mesa",bf449032c05c368a67c15a459bdb203a8f52b7290e64a65995ace12b8c3d9c34
+Producto,49,"Equipos, Suministros y Accesorios para Deportes y Recreación",4921,Otros deportes,84fec0a055e05e3afe32bc0c3ecf68df4a4b2441db85007da134e1537adab605
+Producto,27,Herramientas y Maquinaria General,2711,Herramientas de mano,3a8033fead017004b7da77e6ff2717c1cd0bf15b93c8914894eea3498c56ebd9
+Producto,27,Herramientas y Maquinaria General,2714,Herramientas especializadas automotrices,bc59d5952f50b7bb59710c1c9c05341cd4fd89719b2368d22ae9fd2bd39c20ae
+Producto,27,Herramientas y Maquinaria General,2712,Maquinaria y equipo hidráulico,238d3cec83c49f4dce9bd86c8b70a90acd3a0f22b9375052de399bbe3572ae3e
+Producto,27,Herramientas y Maquinaria General,2713,Maquinaria y equipo neumático,aded6f17cb51fe110d82c340c8ee6182b1420d5cf66ea52b10c9e121b933848d
+Producto,64,"Instrumentos financieros, productos, contratos y acuerdos",6412,Contratos de intereses asegurables,925254229bdcd2ba542f025f68b9557650360f049ad441a4a1e09be4affc6b18
+Producto,60,"Instrumentos Musicales, Juegos, Juguetes, Artes, Artesanías y Equipo educativo, Materiales, Accesorios y Suministros",6011,Decoraciones y suministros del aula,f07e7a94f6b34ca4855ded33a20e261d77dc1af0709b57435c1a735d931573cf
+Producto,60,"Instrumentos Musicales, Juegos, Juguetes, Artes, Artesanías y Equipo educativo, Materiales, Accesorios y Suministros",6012,"Equipo, accesorios y suministros de arte y manualidades",9e2e486fe7bdf90691de7ef991ae9ceb02801c85f88232eae662dd770991b564
+Producto,60,"Instrumentos Musicales, Juegos, Juguetes, Artes, Artesanías y Equipo educativo, Materiales, Accesorios y Suministros",6013,"Instrumentos musicales, piezas y accesorios",94f362eb2aedf0e6f889b2687c09200e96c2a38c93a87331c29236bbe16c8b29
+Producto,60,"Instrumentos Musicales, Juegos, Juguetes, Artes, Artesanías y Equipo educativo, Materiales, Accesorios y Suministros",6014,Juguetes y juegos,e7a46e07ab2bf337f0b9dc090f7a73f799667e507ded23b10e6c6f030791ec2f
+Producto,60,"Instrumentos Musicales, Juegos, Juguetes, Artes, Artesanías y Equipo educativo, Materiales, Accesorios y Suministros",6010,Materiales didácticos profesionales y de desarrollo y accesorios y suministros,ca32636b6ff64a5c3370ee1366cadaf35d5921f9995fa30f34f894f8f181cebe
+Producto,20,Maquinaria y Accesorios de Minería y Perforación de Pozos,2011,Equipo de perforación y explotación de pozos,5cfc80bf259bc98e8c36ecc59f9e2a8cf5e309d5e46ed836fc0809dda6b94eaf
+Producto,20,Maquinaria y Accesorios de Minería y Perforación de Pozos,2014,Equipo de producción y operación de petróleo y gas,3c6480e26359217d95a5a0575af0a943e1a985addc5d88e6dd35da26eb2ef376
+Producto,20,Maquinaria y Accesorios de Minería y Perforación de Pozos,2012,Equipo para perforación y exploración de petróleo y gas,63f739cebeb259f6a966ea9742841d7a9a61b179454929dbcb4505632dc8d7b3
+Producto,20,Maquinaria y Accesorios de Minería y Perforación de Pozos,2010,Maquinaria y equipo de minería y explotación de canteras,4f7c4dbc7a92d1d7c4fd1b658254ead3bb22032c4d047affd09f40e71f78b925
+Producto,20,Maquinaria y Accesorios de Minería y Perforación de Pozos,2013,Materiales para perforación y operaciones de petróleo y gas,17ab8585966270aaa66242352b20766c9a7ff85a46a06fa564f9f6bcdd00d044
+Producto,21,"Maquinaria y Accesorios para Agricultura, Pesca, Silvicultura y Fauna",2111,Equipo de pesca y acuicultura,e51f2819e427353fc555c5ef9c93b19a20cb448a59c005419a4777b278b24f81
+Producto,21,"Maquinaria y Accesorios para Agricultura, Pesca, Silvicultura y Fauna",2110,"Maquinaria y equipo para agricultura, silvicultura y paisajismo",1a5ceab8a7f10278cfcb1c800f8a522273ebb5470938b61357a960163a1259a9
+Producto,22,Maquinaria y Accesorios para Construcción y Edificación,2210,Maquinaria y equipo pesado de construcción,77dadc4f6b0f06bd87c8045b6a7d114dcb82ab8adddfbe091a85723a2eae2660
+Producto,26,Maquinaria y Accesorios para Generación y Distribución de Energía,2612,"Alambres, cables y arneses",c2d21fbf9b1b70b83ab2efee66a84c043a2e45d0cbc998d95d0bb16d9a63ccee
+Producto,26,Maquinaria y Accesorios para Generación y Distribución de Energía,2611,Baterías y generadores y transmisión de energía cinética,571128da26adf3be20062360b10fe4aed19bf5cd6c571f1fb6b7acb9374fcbff
+Producto,26,Maquinaria y Accesorios para Generación y Distribución de Energía,2610,Fuentes de energía,cd18b2bcb541aa32e747019bdca146db552af04b728bfc400571be447a7c9937
+Producto,26,Maquinaria y Accesorios para Generación y Distribución de Energía,2613,Generación de energía,4dbea1be117d4861366dea1f1b625aefa132c8cc21c0462c9e693624fad380ed
+Producto,26,Maquinaria y Accesorios para Generación y Distribución de Energía,2614,Maquinaria y equipo para energía atómica o nuclear,b4e59d4b9e69e520dbcbc78695a7d51fb5dce9a25e7f14589238ac854ca3226a
+Producto,23,Maquinaria y Accesorios para Manufactura y Procesamiento Industrial,2320,Equipamiento para transferencia de masa,c2433d71d3aff104c795e77aaa7f2b2d5aadaca653d0d1e67da615454e45e8d9
+Producto,23,Maquinaria y Accesorios para Manufactura y Procesamiento Industrial,2318,Equipo industrial para alimentos y bebidas,6f02c83aa3a04aa901487f6e10ce84059308585bc6e9e1888ef8f5d36eae5d5b
+Producto,23,Maquinaria y Accesorios para Manufactura y Procesamiento Industrial,2323,Equipo y maquinaria de procesamiento de madera y aserrado,b6c1012242ec92769d8bf45a42ce26aaa409b1034a2dc50f818feff39a722024
+Producto,23,Maquinaria y Accesorios para Manufactura y Procesamiento Industrial,2322,Equipo y maquinaria de procesamiento de pollos,0bd874aacc44c62308b1b54912cf4dcb2afaaf434a73336be8b77662dbdae8d2
+Producto,23,Maquinaria y Accesorios para Manufactura y Procesamiento Industrial,2329,Herramientas de maquinado industrial,f82b62901469fc1b0c546502c3c6a5dada812cb8084980155ea0be2c432d04ad
+Producto,23,Maquinaria y Accesorios para Manufactura y Procesamiento Industrial,2321,"Maquinaria de fabricación electrónica, equipo y accesorios",5f4056ad17d0384f7ec9856a57b488155f4caedd7469c22ade132eba4ccead95
+Producto,23,Maquinaria y Accesorios para Manufactura y Procesamiento Industrial,2314,Maquinaria de reparación y accesorios para marroquinería,f603d47cb01e48a6917297c2253b08e080021e1d33fe7031490a47e4b0864831
+Producto,23,Maquinaria y Accesorios para Manufactura y Procesamiento Industrial,2310,Maquinaria para el procesamiento de materias primas,52b222db7eaa0717ee198fe78e5e46245ba9bf1d99ae4768d608be3c844bc479
+Producto,23,Maquinaria y Accesorios para Manufactura y Procesamiento Industrial,2311,Maquinaria para el procesamiento de petróleo,093b7800d3b30dc39cdc2ed4db4d355275283d55608b53ea7a2d1508664aff56
+Producto,23,Maquinaria y Accesorios para Manufactura y Procesamiento Industrial,2328,Maquinaria para el tratamiento de metal,9982442d6ed223ad8d81eb766698af6273d10b6c52134bc517d9d85eabb423af
+Producto,23,Maquinaria y Accesorios para Manufactura y Procesamiento Industrial,2312,Maquinaria y accesorios de textiles y tejidos,03afb59cfa78c9c9be8b4559ece6a3ecb123525a05cf5f027a17549d1d8c58fb
+Producto,23,Maquinaria y Accesorios para Manufactura y Procesamiento Industrial,2324,Maquinaria y accesorios para cortar metales,ba15834e48bb5840155724b0779baf747b44947018cfe2483835204ef662b728
+Producto,23,Maquinaria y Accesorios para Manufactura y Procesamiento Industrial,2325,Maquinaria y accesorios para el formado de metales,648860e155280a7a48237cfa4b422563cc57176d72b96c5246edb0c7054f6877
+Producto,23,Maquinaria y Accesorios para Manufactura y Procesamiento Industrial,2326,Maquinaria y accesorios para hacer prototipos rápidos,bf18ed08f879d5726f9e255192f356a3181265edb9c1b7e667ea12fea6601fb0
+Producto,23,Maquinaria y Accesorios para Manufactura y Procesamiento Industrial,2327,Maquinaria y accesorios y suministros para soldadura de todas las clases,1ba9a4babe0718089774073bc3b74da5e6998540985f6417cfd57917d64194e8
+Producto,23,Maquinaria y Accesorios para Manufactura y Procesamiento Industrial,2330,Maquinaria y equipo para cable,6506440874ff55686a55441fd90c31ac19f86b0310893ae2da77ef3ef5bbf2f9
+Producto,23,Maquinaria y Accesorios para Manufactura y Procesamiento Industrial,2313,Maquinaria y equipos lapidarios,5f340f7d36f749f3adbe6aa033b2fe33fe6468f31f29d77fbc4879f6ebebc28b
+Producto,23,Maquinaria y Accesorios para Manufactura y Procesamiento Industrial,2315,"Maquinaria, equipo y suministros de procesos industriales",93dfd531cb43e829c92820f70a109b58e4a6bbf40d8b5eadbab9a98547ab0a27
+Producto,23,Maquinaria y Accesorios para Manufactura y Procesamiento Industrial,2316,"Máquinas, equipo y suministros para fundición",4d7861c91c409839309d28353945622db7c69d6bf0df9b0c54a7957c514f869c
+Producto,23,Maquinaria y Accesorios para Manufactura y Procesamiento Industrial,2319,Mezcladores y sus partes y accesorios,3d9287ec95dc1c17ff793ff3ea2123053848391a288506f25e6ac94270ef5660
+Producto,24,"Maquinaria, Accesorios y Suministros para Manejo, Acondicionamiento y Almacenamiento de Materiales",2410,Maquinaria y equipo para manejo de materiales,87fc514871d9e51e66bbb336f8c58452a8814a1ed84705e36a0501f0a2903740
+Producto,24,"Maquinaria, Accesorios y Suministros para Manejo, Acondicionamiento y Almacenamiento de Materiales",2412,Materiales de empaque,c7f81bfe2c354071381ce6b1ca25269ab64571e9381370e483e52221cc641ba5
+Producto,24,"Maquinaria, Accesorios y Suministros para Manejo, Acondicionamiento y Almacenamiento de Materiales",2411,Recipientes y almacenamiento,5c0b263f44bf1c2ab1b75cb2ff94a8e7a51f5a702783af98db94595c1cbd80b8
+Producto,24,"Maquinaria, Accesorios y Suministros para Manejo, Acondicionamiento y Almacenamiento de Materiales",2413,Refrigeración industrial,73600919a62ad23f53a2566614dcaef443f70d07be81347e67563638dfc80277
+Producto,24,"Maquinaria, Accesorios y Suministros para Manejo, Acondicionamiento y Almacenamiento de Materiales",2414,Suministros de embalaje,262f7a5e55efd684e52d72f74701ea3fa79ea6dfba51bc6088aac2a2c5712132
+Producto,48,"Maquinaria, Equipo y Suministros para la Industria de Servicios",4812,Equipo de Juego o de Apostar,f967b7f2b97cc537229176151263bdf353f67fc0eec02f3c4a8139b9ae6f6c15
+Producto,48,"Maquinaria, Equipo y Suministros para la Industria de Servicios",4813,Equipo y materiales funerarios,bb08f4c3e92714bd2a1b0624121ced296d3ded567eeafe2aae0c39b923f17125
+Producto,48,"Maquinaria, Equipo y Suministros para la Industria de Servicios",4810,Equipos de servicios de alimentación para instituciones,d8f5d6eaf41b62ef1cc4c5c6909d3a6bb44e60fcc3d893e9625c17a531345eba
+Producto,48,"Maquinaria, Equipo y Suministros para la Industria de Servicios",4811,Máquinas expendedoras,f8eaf097ccdc274b6d53a998d733ac191e90731dae4b602bdcced3ac16ff92ae
+Producto,11,"Material Mineral, Textil y Vegetal y Animal No Comestible",1117,Aleaciones,79600e3ad75186e4f7db35f7ed06e7f2296c798029e6d833071db9b29c4981c7
+Producto,11,"Material Mineral, Textil y Vegetal y Animal No Comestible",1114,Chatarra y materiales de desecho,fb1f4cfaed0a998fea453d0084c064d1548df6af8979b2758533766e37a7d747
+Producto,11,"Material Mineral, Textil y Vegetal y Animal No Comestible",1119,Desechos metálicos y chatarra,1e8921060a6c87e32425dd0f6d30f08810722aaca3a67754270907c26218c159
+Producto,11,"Material Mineral, Textil y Vegetal y Animal No Comestible",1115,"Fibra, hilos e hilados",835be7e70e3a0a0b5c15eb26f47f0958c19a5795d48a1fdb9fa1e1d93c827253
+Producto,11,"Material Mineral, Textil y Vegetal y Animal No Comestible",1110,"Minerales, minerales metálicos y metales",d0286e512424a87327a1c4342bc93880e890fe5741a1bfd60e490515b7483973
+Producto,11,"Material Mineral, Textil y Vegetal y Animal No Comestible",1118,Óxido metálico,b5e3feb9e69674562e2042a131f92c975802bf40ea79392ae3a7d3897413ad9e
+Producto,11,"Material Mineral, Textil y Vegetal y Animal No Comestible",1113,Productos animales no comestibles,b79a232e5f311845b29dacf847808eaede3fd0c71dcb581067b8369ab41efe10
+Producto,11,"Material Mineral, Textil y Vegetal y Animal No Comestible",1112,Productos no comestibles de planta y silvicultura,d4c9b6b0e2e53f6ce9693d84eb483c285db25ffd46d7da8dd640aab16e2056c9
+Producto,11,"Material Mineral, Textil y Vegetal y Animal No Comestible",1116,Tejidos y materiales de cuero,9562e795de1c4238f0bfffe3f8f8b1b4b99b6c711ae9f440a6460ca03d293a4c
+Producto,11,"Material Mineral, Textil y Vegetal y Animal No Comestible",1111,Tierra y piedra,c474f5a76062ac67b929c71a5a62827be12af0607cada59e0ac08a350c727075
+Producto,12,Material Químico incluyendo Bioquímicos y Materiales de Gas,1216,Aditivos,6b35c3a12fcd1088194dbc92c23b37eefc53b33baf7cb9df365d7ff6d242c49b
+Producto,12,Material Químico incluyendo Bioquímicos y Materiales de Gas,1218,Ceras y aceites,c75203bb4fe7c33a9072d7263fc38be149f5cb49f0101a56c6f98db5b7acc91e
+Producto,12,Material Químico incluyendo Bioquímicos y Materiales de Gas,1217,Colorantes,946bc24bb366e1e4c27fd50b9ad26a8a0b3fa054054a926639738aef62370488
+Producto,12,Material Químico incluyendo Bioquímicos y Materiales de Gas,1235,Compuestos y mezclas,805eb9c33a50ff23ec7799dab40f4c20152b2f68eb3c2d706291a8252e718f77
+Producto,12,Material Químico incluyendo Bioquímicos y Materiales de Gas,1214,Elementos y gases,bbdb7fd46389a4305f3a84c468ba3c76f8f7d40beb39fccda202f31e251eb3b3
+Producto,12,Material Químico incluyendo Bioquímicos y Materiales de Gas,1213,Materiales explosivos,97a43b648d6b17acdbeea09bacd7148e166901dab92d75712eebd4a4cf180cae
+Producto,12,Material Químico incluyendo Bioquímicos y Materiales de Gas,1219,Solventes,6ccb5430a4f05a2caa5fca993060172a059dc246c080cba0ed55d1493c99e0da
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1010,Animales vivos,e0204009db11a4951e88315b3727fc7ee40ee95b68aa8bdd9502e98187ddaaa8
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1031,Bouquets cortados frescos de especies o variedades de flores altas,d0909b64b75a939452eec45f37bb73ba1e9657df898e1d1ea58621a47f9a4769
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1032,Bouquets cortados frescos de especies o variedades de flores bajas,defb7ceabfc5f54d6c9cca938ee9e8d092ae139736ff4d64aba3f079b8ba78e4
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1041,Bouquets cortados secos de especies o variedades de flores altas,a10cc660575b59925368076943c0e633a1d549e7879b7cb222f776d56d8c5d2b
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1042,Bouquets cortados secos de especies o variedades de flores bajas,279d5b823417c1286a5bb957476dcefcc57eb1bf556c0adf4f59470ae4c3643d
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1034,Bouquets florales cortados frescos,d66503d1a8af1b7980cef15086299aefded313815f183266b6df8a6e831d5295
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1035,Claveles cortados frescos,00dab7d1650f41e337d7627a20122c788bf38aaaee51527fa41c0621600fe088
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1044,Claveles cortados secos,cbba1db874d4ae0a81bed36e9b63e4ed552c872b04618395d82b2a5e9503a195
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1024,Claveles vivos,0bd42db47a5da3a122df01bbf5c0f04113b5e172a18bcfe09d3b8d46012c2b63
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1012,Comida de animales,e04845466f958728a6c419d539c5ae143b0d01642f683b6d61c38b6a26f757a9
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1033,Crisantemos cortados frescos,30adfe6eb90538e48bb375df64fc7cbed67c262e145e65d341e8929b9cb19940
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1043,Crisantemos cortados secos,fa20db0295acb1d46683f08eee1ee5add6979c3c919b8f395cb5427210d9ca25
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1023,Crisantemos vivos,9d78a9e01459fe515369606002c0d9bd5552b4d782bec9f91b922d406c78b9f3
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1017,Fertilizantes y nutrientes para plantas y herbicidas,005dc7d2b4d7e841c97c5a23d1eb717d21e5e1c0f22ae4fd5067cad991bf378c
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1050,Follaje cortado fresco,db33e5436ecc6d657a5711f4267309b64eb33aae2e4550a9b99ba1409f1a8f70
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1036,Orquídeas cortadas frescas,228355bca4aca51bd056b34e0b9cf91091d657ffbb67bb131e46396bd5105d80
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1045,Orquídeas cortadas secas,85fd2a174c0aaf3a4f03d41cf86d04ed5959492d6536780449204a6ccdce63c2
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1025,Orquídeas vivas,b8e04b4cebf59ed34057d7b0b6d50d996423470a9a321b675149fa988cc5a48b
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1021,Plantas vivas de especies o variedades de flores altas,5cd3f80b62840ee906e5ee293c6250273c143a583c5b2f67a93c71c36a12e35f
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1022,Plantas vivas de especies o variedades de flores bajas,3ca5a9c6c69e9dcff672cf1594ae363b02d3cf89bf2cffc825953ef50af3e492
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1016,Productos de floricultura y silvicultura,51b13f03acfce7ec1127751e13488fb77e54fb46046f95d2ddcf51091b4a6de6
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1014,Productos de talabartería y arreo,d698a9b8d2711e9d50a5595177fc30126863e1c36beadfdd233fe3edfbd819f3
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1011,Productos para animales domésticos,e03b59745b13d0d904dee085eca87754a29705e6294191e91d8739b57d496ac2
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1019,Productos para el control de plagas,46e14c63f1602f8762621de578030723a920c1b1f20e72f35befac3d5b12c18a
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1013,Recipientes y hábitat para animales,466ab407965200992a1e73ebe599aefc21c7e5fdcf285b8bb6da222fc7ac791d
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1020,Rosales vivos,7edfdeab447f86b6417b98d005dffcfd343fe7dfddad2840e0f1479ba1b437f0
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1040,Rosas cortadas secas,4de85947bfa669e03ffbaa0648267e7540736c338d66060375c72f1827b08c09
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1030,Rosas frescas cortadas,67702d570112ba29e2e77e537f458a9725ea14a015afd5a5178c392be06ea82f
+Producto,10,"Material Vivo Vegetal y Animal, Accesorios y Suministros",1015,"Semillas, bulbos, plántulas y esquejes",81139f4e75c90f8087d6502a234ea9118efb4dc9c802351859a6ba9fc3c18a0c
+Producto,15,"Materiales Combustibles, Aditivos para Combustibles, Lubricantes y Anticorrosivos",1513,Combustible para reactores nucleares,34fa1340894847d5abf54c14fed6cb22ad0d120262abeca4ee51997e5918e6d9
+Producto,15,"Materiales Combustibles, Aditivos para Combustibles, Lubricantes y Anticorrosivos",1510,Combustibles,787a3bf340993476f895b13a579ffce3631ab77cf13e3d7c8fa1415cb778bdf6
+Producto,15,"Materiales Combustibles, Aditivos para Combustibles, Lubricantes y Anticorrosivos",1511,Combustibles gaseosos y aditivos,5465cc694facaca23d4a55c6f528eca8826777690e2de18e5142d046c55e798b
+Producto,15,"Materiales Combustibles, Aditivos para Combustibles, Lubricantes y Anticorrosivos",1512,"Lubricantes, aceites, grasas y anticorrosivos",d8331dc206364ae508749e66c1a5bca56815bb77abd2f32e6fd2ff60d1900454
+Producto,13,"Materiales de Resina, Colofonia, Caucho, Espuma, Película y Elastómericos",1310,Caucho y elastómeros,ebe69dc8d8a1bf3c949d5d90c0dcdc2af69af7184d54a0cfaf9e402c77fd9da2
+Producto,13,"Materiales de Resina, Colofonia, Caucho, Espuma, Película y Elastómericos",1311,Resinas y colofonias y otros materiales derivados de resina,2e1848873b8714b5bb41d914c7dd863e6eecad875219602d95272e160d2636ff
+Producto,14,Materiales y Productos de Papel,1410,Materiales de papel,31813619679a7c8a247a50a70b26f13e29b44d67b86c62b45034800f4e8425a2
+Producto,14,Materiales y Productos de Papel,1412,Papel para uso industrial,f1668a0643d45b47543b7737f379381bac8d1c5ab7e4efa7ad4a7a86f54d291c
+Producto,14,Materiales y Productos de Papel,1411,Productos de papel,8158f6c592a6e8c1e534b52d5702e5c3fef45bb0842c86b1727071847314c6af
+Producto,51,Medicamentos y Productos Farmacéuticos,5111,Agentes antitumorales,d69c7cbb3da988e7a9e310c12e806c3bedfaaa2df7a277360549de39cf6c892d
+Producto,51,Medicamentos y Productos Farmacéuticos,5119,Agentes que afectan el agua y los electrolitos,d4ff523ce49405d8566444f2e921df0b9926a73fd2cf6ebf5c663c76bf52039a
+Producto,51,Medicamentos y Productos Farmacéuticos,5121,Categorías de medicamentos varios,ec0677d3e126945f0a2d813d77f0aac6641b54b332239e327ae350954222acf6
+Producto,51,Medicamentos y Productos Farmacéuticos,5124,"Fármacos que afectan a los oídos, los ojos, la nariz y la piel",c2104f667bc485d2cbebfdf87b3805773e1319fb05ed42e9ee88149a900e7896
+Producto,51,Medicamentos y Productos Farmacéuticos,5118,Hormonas y antagonistas hormonales,23bc055385dd379a80c7fa91597325570c55c50cf15a3d8b96c73b51736a24ce
+Producto,51,Medicamentos y Productos Farmacéuticos,5110,Medicamentos antiinfecciosos,382bcc0aef6c9feaf2d26fdb76a51d6f4f89622ac6e586727bc71c296f5dd202
+Producto,51,Medicamentos y Productos Farmacéuticos,5112,Medicamentos cardiovasculares,f99c3517dd0cfd3967a2114884292123c610cde253986625a9fb4c2da153c786
+Producto,51,Medicamentos y Productos Farmacéuticos,5113,Medicamentos hematólogos,c238cf18c751756ef0e1c412a89d85e9ab9daea73804ea13b3b02bdc96048dc7
+Producto,51,Medicamentos y Productos Farmacéuticos,5120,Medicamentos inmunomoduladores,3b92f0ccb4934e8472fb5b038ce662a90162c9b3936de1bf94ba38e66c456869
+Producto,51,Medicamentos y Productos Farmacéuticos,5115,Medicamentos para el sistema nervioso autónomo,f28217848079a77ec5844c5aab5d66a58bc5756dfe15fad391704a75a5aa95bc
+Producto,51,Medicamentos y Productos Farmacéuticos,5114,Medicamentos para el sistema nervioso central,bc21aa9a6573aad9525ecabb727ed42451abc13eaf0936bd241f9033e2313e6a
+Producto,51,Medicamentos y Productos Farmacéuticos,5117,Medicamentos que afectan al sistema gastrointestinal,b5ee2284a926fd915b59205b59f9a4ec50132bef7b80580eb159953449475d35
+Producto,51,Medicamentos y Productos Farmacéuticos,5116,Medicamentos que afectan al sistema respiratorio,b2709e06370ffd02bf714844838533b4dddaef12f530d2ada059465fb0550f64
+Producto,51,Medicamentos y Productos Farmacéuticos,5125,Suplementos alimenticios veterinarios,cd25cc675f89b36354c830b9fe4876719fffdd1e4868657d11a7e5f624506981
+Producto,56,"Muebles, Mobiliario y Decoración",5614,Adornos para el hogar,810d7676e22fa637711cd8c6470d7dd00c8dc3101d50869f265d621060899646
+Producto,56,"Muebles, Mobiliario y Decoración",5612,"Mobiliario institucional, escolar y educativo y accesorios",f3754d147567db0b4b6ad20a332a0ad29a3a16ff499aef28e44cf7edd6a1f265
+Producto,56,"Muebles, Mobiliario y Decoración",5611,Muebles comerciales e industriales,e7523f15d6361ff6252b4b11a990f3e720895966dea6844e693c8827884fe7b8
+Producto,56,"Muebles, Mobiliario y Decoración",5610,Muebles de alojamiento,3a2cd83a43e4379c8479b490c8ae9099756d7176ed2f967db4a9ae4e4853f28d
+Producto,56,"Muebles, Mobiliario y Decoración",5613,Muebles y accesorios para merchandising,763a4371b429b88ad4d653ae9b2b650203718b7ce8f970d8ee384adceb9f0216
+Producto,54,"Productos para Relojería, Joyería y Piedras Preciosas",5412,Gemas,e07ac1c2dca959b77ae4e06ea8181627a648d2a9f9f58ee231b6156b628829f0
+Producto,54,"Productos para Relojería, Joyería y Piedras Preciosas",5410,Joyería,4536c00c5f55ea7f24af846d12a1300c97e25c10a67d541b91dcafcd9d2e2735
+Producto,54,"Productos para Relojería, Joyería y Piedras Preciosas",5411,Relojes,9b87a35042cde39d57f35a1179bc0768af924171eefed74975b379373a4d70d5
+Producto,55,"Publicaciones Impresas, Publicaciones Electrónicas y Accesorios",5512,Etiquetado y accesorios,ac8509eb9c5e1ac9d3577cd4d293256e9a7eece2e73fd46947c349e2990b174a
+Producto,55,"Publicaciones Impresas, Publicaciones Electrónicas y Accesorios",5511,Material electrónico de referencia,0881eb7998c1298878eb38f60c951bff6305d78b587c861902851c35e9acfb3f
+Producto,55,"Publicaciones Impresas, Publicaciones Electrónicas y Accesorios",5510,Medios impresos,3c6484ddf47262378b5866ac43a4a1e30f7af911ea943753217a5a0dd71bebed
+Producto,53,"Ropa, Maletas y Productos de Aseo Personal",5313,Artículos de tocador y cuidado personal,8f5b64600975efe680a49dbbb4ed6fc4c8f35d44488eb4e5115d41efb61a2adc
+Producto,53,"Ropa, Maletas y Productos de Aseo Personal",5311,Calzado,fdb5ae387e1048c7eb92e13bf79e85126feb3b6c123a0138aa0d73f7ed06f434
+Producto,53,"Ropa, Maletas y Productos de Aseo Personal",5314,Fuentes y accesorios de costura,538a345c789c52561439f019d7298c2ad24f8e77647f6315801888cb82dfb7d2
+Producto,53,"Ropa, Maletas y Productos de Aseo Personal",5312,"Maletas, bolsos de mano, mochilas y estuches",e596038e48662a17137207cc3864a2f9f20d7d94e1cb61a7d18ead445705b514
+Producto,53,"Ropa, Maletas y Productos de Aseo Personal",5310,Ropa,10e06b9ccafad9a138746bc4f78fc6188d4fe322c879a3c87a759ae4edbf9bc8
+Producto,95,"Terrenos, Edificios, Estructuras y Vías",9513,Estructuras y edificios móviles,41a277ec48ab1a8f215fdf4f87026b771966cc6534ca45d6c4bfe4b86a6cb218
+Producto,95,"Terrenos, Edificios, Estructuras y Vías",9512,Estructuras y edificios permanentes,39baefa7b482b64d3ba51c894f17bb382cff2392ae763e01af56b7482a637dee
+Producto,95,"Terrenos, Edificios, Estructuras y Vías",9514,Estructuras y edificios prefabricados,b0920907cb547bfb0e81785d7a15ef61865b7e9d349c9e4d5cf9eaae4763c8b3
+Producto,95,"Terrenos, Edificios, Estructuras y Vías",9510,Parcelas de tierra,6242137e8f0d7a6de8f704918e48c7cf577623516f748c0c2b5fa804567698d2
+Producto,95,"Terrenos, Edificios, Estructuras y Vías",9511,Vías,bd5eccbd21ecdf11d0bea36414e57733be17239d72f6409b75ccbe2009da577a
+Producto,25,"Vehículos Comerciales, Militares y Particulares, Accesorios y Componentes",2513,Aeronaves,9ed1198a2c659421497262f03d150ab2414a7b581a43eebedac2d69963d0a315
+Producto,25,"Vehículos Comerciales, Militares y Particulares, Accesorios y Componentes",2516,Bicicletas no motorizadas,f110bf784f50bd409a31d348c01243c1d5c73ff92d2041a078fde7c24cc9b2a3
+Producto,25,"Vehículos Comerciales, Militares y Particulares, Accesorios y Componentes",2518,Carrocerías y remolques,43651fe8d76811d39025f2458266f343748994d055a39c263a1b40b968e327ca
+Producto,25,"Vehículos Comerciales, Militares y Particulares, Accesorios y Componentes",2517,Componentes y sistemas de transporte,600d06a19f7814c7b435314ad5feb70f8f15cdd8d3c9cb92b0edfadbdbcd41f9
+Producto,25,"Vehículos Comerciales, Militares y Particulares, Accesorios y Componentes",2519,Equipo para servicios de transporte,12280b098f26ccf467cb61b5c15f6b8630c596b9c6621ef370dcbbf71ee3f18e
+Producto,25,"Vehículos Comerciales, Militares y Particulares, Accesorios y Componentes",2512,Maquinaria y equipo para ferrocarril y tranvías,6904383f4e79e6359f8cc16f3a54548518e19c888154b31bffaa5a47db21333d
+Producto,25,"Vehículos Comerciales, Militares y Particulares, Accesorios y Componentes",2515,Naves espaciales,aef8b67576c0101f65e945120e45ce47b5d3e01acb1652c4231d6dfacafc938d
+Producto,25,"Vehículos Comerciales, Militares y Particulares, Accesorios y Componentes",2520,Sistemas y componentes y equipos aeroespaciales,45e5e790e88c8dc17f884f53eda2fe7f494377ad959f976d129409363fa98e4e
+Producto,25,"Vehículos Comerciales, Militares y Particulares, Accesorios y Componentes",2511,Transporte marítimo,f93bc7101d011c1edbe724747e730bf6c1a9b09e39ec18eb4862b03f659074fb
+Producto,25,"Vehículos Comerciales, Militares y Particulares, Accesorios y Componentes",2510,Vehículos de motor,4a9be8964361eca404bfc5a46f3ab5cabbeb168b44bad7c6b9b3197c6dde7339
+Servicio,94,Organizaciones y Clubes,9412,Clubes,ab96a12abea41d89d2db411d8fc4a02c0d4dcdf217fef844ff4d651213a70b71
+Servicio,94,Organizaciones y Clubes,9410,Organizaciones laborales,ec78a2927483fbb5efba930c1861f79585123c7e195512e86c5462439e304d16
+Servicio,94,Organizaciones y Clubes,9411,Organizaciones religiosas,dc4541fae1141109f59d95fde8e54e3e0f28a03a4293db4073155c024aaaf5b3
+Servicio,94,Organizaciones y Clubes,9413,"Organizaciones, asociaciones y movimientos cívicos",db4fa599d4c258599f4d886b2179031f9fc3048301927ce737657c2c33ca105a
+Servicio,81,"Servicios Basados en Ingeniería, Investigación y Tecnología",8112,Economía,c4c6ed9369200f3777cb11185a881c97e30b25c02be19dedc33092d88b3e77e6
+Servicio,81,"Servicios Basados en Ingeniería, Investigación y Tecnología",8116,Entrega de servicios de tecnología de información,4e05ae7b075f3ea6e092b0403463ea41b722b547afba22fd6d8aacc85900f898
+Servicio,81,"Servicios Basados en Ingeniería, Investigación y Tecnología",8113,Estadística,e60a75b88e6d5d318d86dda82157392b98ef2b9f84df38231bf0c7f8d84cdb20
+Servicio,81,"Servicios Basados en Ingeniería, Investigación y Tecnología",8115,Servicios de pedología,6613945108f086cc900576c336e69490d421e9ea5e00d2b6161fe2bbe6e3f128
+Servicio,81,"Servicios Basados en Ingeniería, Investigación y Tecnología",8111,Servicios informáticos,2e107953a2a56245e2b8b08aeb1aec75ffd5bf1c3945d422e7b9e9591964695c
+Servicio,81,"Servicios Basados en Ingeniería, Investigación y Tecnología",8110,Servicios profesionales de ingeniería,2ca341946b74a44b1248eaca8d004292cdf935dcd7234f54db7914ba6ce9a111
+Servicio,81,"Servicios Basados en Ingeniería, Investigación y Tecnología",8114,Tecnologías de fabricación,d47ab4d73cf2c836710ad3a9543bda07fbd9426c3ba4837afaab835202121454
+Servicio,70,"Servicios de Contratación Agrícola, Pesquera, Forestal y de Fauna",7017,Desarrollo y vigilancia de recursos hidráulicos,2c3e47de4c7f826d2111aabe953591260e6c1985257231e9bc12fa32f3ff1c65
+Servicio,70,"Servicios de Contratación Agrícola, Pesquera, Forestal y de Fauna",7016,Fauna y flora silvestres,0028e9ff742efac07180c3957a08d8edcf0b79917bb2f508c6fbeaf838f7ea86
+Servicio,70,"Servicios de Contratación Agrícola, Pesquera, Forestal y de Fauna",7011,Horticultura,210c45caa047e82e9ff5b48871c640e64fc208b66cf712a8763b7fa35125862d
+Servicio,70,"Servicios de Contratación Agrícola, Pesquera, Forestal y de Fauna",7010,Pesquerías y acuicultura,6b53f2bbbf823a900c3ec63174fb3f30059d7aef2b996bb35db23e8bdf6ea8d7
+Servicio,70,"Servicios de Contratación Agrícola, Pesquera, Forestal y de Fauna",7013,"Preparación, gestión y protección del terreno y del suelo",417f33e55ab1675c76f7832d26743ba30849126ea63e5b8285a6dca5e4c62ef5
+Servicio,70,"Servicios de Contratación Agrícola, Pesquera, Forestal y de Fauna",7014,"Producción, gestión y protección de cultivos",7f018893174a03647ba826edbfe4c1a5a8d5adf2554483d6954bc128a308d846
+Servicio,70,"Servicios de Contratación Agrícola, Pesquera, Forestal y de Fauna",7012,Servicios de animales vivos,33766a3cb4ca4b2bfde8bfbc953ee986c15060818a7e3e4c464f59c7281ff459
+Servicio,70,"Servicios de Contratación Agrícola, Pesquera, Forestal y de Fauna",7015,Silvicultura,471448db690c05d06c8a9488e34f777a27a1817c136a5f9a7b4a0fb4e807bb69
+Servicio,92,"Servicios de Defensa Nacional, Orden Publico, Seguridad y Vigilancia",9210,Orden público y seguridad,d43e92437c4cdd0fde3b61bf9ee2622f645f00bf0b1a85d0a0cf6610114e903c
+Servicio,92,"Servicios de Defensa Nacional, Orden Publico, Seguridad y Vigilancia",9212,Seguridad y protección personal,58dff0f3cb6037926efef79e07476ccec1a7eba5ed1da5139c35acbe9793cf4d
+Servicio,92,"Servicios de Defensa Nacional, Orden Publico, Seguridad y Vigilancia",9211,Servicios militares o defensa nacional,6461c38b4db4afc0b06359105cf89598d9f8e7bb3e33583cc8b21d4d3c1e1dd8
+Servicio,72,"Servicios de Edificación, Construcción de Instalaciones y Mantenimiento",7212,Servicios de construcción de edificaciones no residenciales,d5fa729cc437421c9c975f36d99cd740021c98ba2ff6923121b31d5af338b156
+Servicio,72,"Servicios de Edificación, Construcción de Instalaciones y Mantenimiento",7211,Servicios de construcción de edificaciones residenciales,8619aa726279588333c1fbf2b66fb3c54adef7bf8451ee6b873090af40e42232
+Servicio,72,"Servicios de Edificación, Construcción de Instalaciones y Mantenimiento",7214,Servicios de construcción pesada,61c8897f62987ea2b93618f20ef30e45f638647583ace841cfed897409e90e1b
+Servicio,72,"Servicios de Edificación, Construcción de Instalaciones y Mantenimiento",7215,Servicios de mantenimiento y construcción de comercio especializado,ec522b2423afc2762bbc2e9723859954b0e4ca6b56b1927c60050d2e8002bb8a
+Servicio,72,"Servicios de Edificación, Construcción de Instalaciones y Mantenimiento",7210,Servicios de mantenimiento y reparaciones de construcciones e instalaciones,ab14f91845710f3b8f0995a653eb27cb5b58484673ed1f41990c77b833c1e836
+Servicio,80,"Servicios de Gestión, Servicios Profesionales de Empresa y Servicios Administrativos",8014,Comercialización y distribución,6f4936c0f3d7fb4bcc2f785d24e67116537fe28555fa09af4c71abddb6c0dc32
+Servicio,80,"Servicios de Gestión, Servicios Profesionales de Empresa y Servicios Administrativos",8015,Política comercial y servicios,1ba6107b0fa1d8dabfefe3223ed34fe3203a9d3e04aa35db425404339d0cb44d
+Servicio,80,"Servicios de Gestión, Servicios Profesionales de Empresa y Servicios Administrativos",8016,Servicios de administración de empresas,4214bb1550275f6b6cb093fbb5f36291a36c8bf69f9feca8927dcc5c5512621c
+Servicio,80,"Servicios de Gestión, Servicios Profesionales de Empresa y Servicios Administrativos",8010,Servicios de asesoría de gestión,25edd3a6572a3b226fd560c33ee99991e1322c5705d26f2f2c705662d271b9ad
+Servicio,80,"Servicios de Gestión, Servicios Profesionales de Empresa y Servicios Administrativos",8011,Servicios de recursos humanos,d38b5b0b01cfcec5de9cf1084a5c4cef90f578683a079d2d5fa9f5d09f3f0d67
+Servicio,80,"Servicios de Gestión, Servicios Profesionales de Empresa y Servicios Administrativos",8013,Servicios inmobiliarios,3b79e4083e5935b69e41a3022fb178014f2e47bb47ccafef97bc372b209eaa91
+Servicio,80,"Servicios de Gestión, Servicios Profesionales de Empresa y Servicios Administrativos",8012,Servicios legales,dee12df3aab04acec31254a6c6a49bddb03b5dd18e478684bb435baf5db6b1d8
+Servicio,76,"Servicios de Limpieza, Descontaminación y Tratamiento de Residuos",7612,Eliminación y tratamiento de desechos,8fdd695ad796dfe961a4bbb3b390441c44247b4a9e6626355759b612703a2a97
+Servicio,76,"Servicios de Limpieza, Descontaminación y Tratamiento de Residuos",7613,Limpieza de residuos tóxicos y peligrosos,6c5940f951cb4544227999068fa416a4ba35c157d9778cb8596f682719d67530
+Servicio,76,"Servicios de Limpieza, Descontaminación y Tratamiento de Residuos",7611,Servicios de aseo y limpieza,5bcc3cd33128c71cc2a2f944c81c6ad70f30f2f0033e35146a4461875a3e89b8
+Servicio,76,"Servicios de Limpieza, Descontaminación y Tratamiento de Residuos",7610,Servicios de descontaminación,7be2c4d8bc187c2f89fb2c214c180ba90a69298477a82d119421604679cca26b
+Servicio,71,"Servicios de Minería, Petróleo y Gas",7113,Servicios de aumento de la extracción y producción de gas y petróleo,a3fc5c503a5f60c2b7f25cfe5664ec77492f33e7e72c9e7b6fb5f91c1ea5b601
+Servicio,71,"Servicios de Minería, Petróleo y Gas",7112,Servicios de construcción y perforación de pozos,28ad850c71ced4fa317bb568235ca84c7f32dd30e47fb861b0318e082bc1b7b5
+Servicio,71,"Servicios de Minería, Petróleo y Gas",7116,Servicios de gerencia de proyectos en pozos de petróleo y gas,1f9d21c31bf703df0074f882b713a96fce30428d9a832898b6c063caaabc0449
+Servicio,71,"Servicios de Minería, Petróleo y Gas",7110,Servicios de minería,550d195ee050b493cd2fed0fd725f9a548eb24d449dbed0e51994fdf55a67a28
+Servicio,71,"Servicios de Minería, Petróleo y Gas",7111,Servicios de perforación y prospección petrolífera y de gas,25d962ff82af330d721e64a907caf03e03a48eca55cbd73f09357656d1db63b3
+Servicio,71,"Servicios de Minería, Petróleo y Gas",7115,Servicios de procesamiento y gestión de datos de petróleo y gas,81203c2ed2ff74c8ec17e0b9c791a9d5216407c8d56448a79d094c922b973773
+Servicio,71,"Servicios de Minería, Petróleo y Gas",7114,Servicios de restauración y recuperación de gas y petróleo,6e48d71b001ce4c26b8da5f8b437ee4549808a6fe4058b81a3f5d01fd3de4b51
+Servicio,73,Servicios de Producción Industrial y Manufactura,7316,Fabricación de maquinaria y equipo de transporte,807e1d81df0b0575b77f9e9425e4d32525088871a72ed25beed464e7c7aac926
+Servicio,73,Servicios de Producción Industrial y Manufactura,7317,Fabricación de productos eléctricos e instrumentos de precisión,d3d5714baa958428350254264b6ba4034ebcfedae7c26a473f36705e035e3c59
+Servicio,73,Servicios de Producción Industrial y Manufactura,7313,Industrias de alimentos y bebidas,a2d4004ed001fc414d6e234033a475be60ec7ba0169d919820758b28c9ad6bb1
+Servicio,73,Servicios de Producción Industrial y Manufactura,7314,"Industrias de fibras, textiles y de tejidos",eff01a8339bfaa3ea5fd5028b8c0a173ec33f5a3f12b70e5187a9cec65644679
+Servicio,73,Servicios de Producción Industrial y Manufactura,7311,Industrias de la madera y el papel,601becdc51e04eb8222f32492d275831b52f23f8a7068cf52c1d9c5ce0d9618a
+Servicio,73,Servicios de Producción Industrial y Manufactura,7310,Industrias de plásticos y productos químicos,77b7b65afd692aeda33af88b3c238c4a33b59214d3e769d7132030dc3bd75b2d
+Servicio,73,Servicios de Producción Industrial y Manufactura,7312,Industrias del metal y de minerales,90b9e71e82f64f6389ff2d08d0d1ac1d47c8523e33d14ebd2544f300a03ac4fa
+Servicio,73,Servicios de Producción Industrial y Manufactura,7315,Servicios de apoyo a la fabricación,425203be00b36d2916e18cdce97a1566f9e2b8fba954cffd7adef66392341674
+Servicio,73,Servicios de Producción Industrial y Manufactura,7318,Servicios de maquinado y procesado,b0d43ec62be9b28f10fff5be19480baef123f85d9b5b59a8b95abae6f97d300a
+Servicio,85,Servicios de Salud,8513,"Ciencia médica, investigación y experimentación",e956c1659996f3611537ec5e9fea65e881b8c4ecbd009f65d12807d4c4df1bd4
+Servicio,85,Servicios de Salud,8514,Medicina alternativa y holística,27313f65271177bec3f2cb5f4518764dfac3570611793d2614bcdc9895cc50d9
+Servicio,85,Servicios de Salud,8512,Práctica médica,74da9bba233e610852285106f1550c4f73e6a7f388b866de864142bb1029b6c5
+Servicio,85,Servicios de Salud,8511,Prevención y control de enfermedades,2d1f401b190f6f072022025a0a66ecc02cf37f9434c7d9aba4d1416c85a5d8bf
+Servicio,85,Servicios de Salud,8515,Servicios alimenticios y de nutrición,85c5a7c11e23a5a14edf005a3e57a068d3248a696d11f0e58230e430bbe7bc0f
+Servicio,85,Servicios de Salud,8516,"Servicios de mantenimiento, renovación y reparación de equipo médico quirúrgico",1ad65b10fdc666562ff892d05d8f1dd41a6d0b9065a30b3e2c28ede045584bd1
+Servicio,85,Servicios de Salud,8517,Servicios de muerte y soporte al fallecimiento,f46e7663dd170ba0994e083fad7f1a4568fd56d566ba6cb1b304a4d51ffd745d
+Servicio,85,Servicios de Salud,8510,Servicios integrales de salud,fc0fd1f04b03ca78d851f9e7aca4770df519da74594b73ef4662c44cca556072
+Servicio,78,"Servicios de Transporte, Almacenaje y Correo",7813,Almacenaje,538cf6ee23a39a4312fbab00f1a38407dae52071afa545e84f89f37b2e253af7
+Servicio,78,"Servicios de Transporte, Almacenaje y Correo",7812,Manejo y embalaje de material,7e6450509e6523720e35abe4af4654e739d2231d3a28012cd53c8988adf03395
+Servicio,78,"Servicios de Transporte, Almacenaje y Correo",7818,Servicios de mantenimiento o reparaciones de transportes,b31f5a0db18254fb1a59f09c73d938cba6c14c77e70d3cc0727a05f53a011bab
+Servicio,78,"Servicios de Transporte, Almacenaje y Correo",7814,Servicios de transporte,c992f8be2f2c809e85c73714f68bf40c45dd1048c02e6d3467e5a1f9b3a9924a
+Servicio,78,"Servicios de Transporte, Almacenaje y Correo",7810,Transporte de correo y carga,8fe35b972c5a94f3574828400f26381db5291feb79e7f624b91d6f158607a1db
+Servicio,78,"Servicios de Transporte, Almacenaje y Correo",7811,Transporte de pasajeros,3d75e6ad418adac83d3f221913f2cbfdf7171bd5a8c45548294707dedc0e5b83
+Servicio,90,"Servicios de Viajes, Alimentación, Alojamiento y Entretenimiento",9013,Artes interpretativas,6910a3ccfc0ad6b853d4c28009ecaad5ef0f47b2ba0b2c5d62eaf0e7ad9c5c65
+Servicio,90,"Servicios de Viajes, Alimentación, Alojamiento y Entretenimiento",9014,Deportes comerciales,8d6b503a2412324a9e1d1fd258f2aee8075f32af815702fe3e40f73623fc8e62
+Servicio,90,"Servicios de Viajes, Alimentación, Alojamiento y Entretenimiento",9012,Facilitación de viajes,e45fff9d1c933779462743fb70feb3acf09281bd23a07451567ef177e4204b85
+Servicio,90,"Servicios de Viajes, Alimentación, Alojamiento y Entretenimiento",9011,"Instalaciones hoteleras, alojamientos y centros de encuentros",af1dd1cd2acdc118e047edde26b7902ab3a647cf0ec5060ccd3de18e5835662e
+Servicio,90,"Servicios de Viajes, Alimentación, Alojamiento y Entretenimiento",9010,Restaurantes y catering (servicios de comidas y bebidas),26a62929c11218e88e04e19a2ebd952e9f5d137ecf2c1538da7d39e1751f62bf
+Servicio,90,"Servicios de Viajes, Alimentación, Alojamiento y Entretenimiento",9015,Servicios de entretenimiento,32f85ee38e499afc82881d17b87f659facf04f40416423af328db2c098c3fde3
+Servicio,82,"Servicios Editoriales, de Diseño, de Artes Graficas y Bellas Artes",8215,Artistas e intérpretes profesionales,f5c89f9b9b9f4ef92c5ced4c70f11efeb80e2a949dcc858b6534ade313e1676e
+Servicio,82,"Servicios Editoriales, de Diseño, de Artes Graficas y Bellas Artes",8214,Diseño gráfico,28a748409877c9c218082d4b5c38d4a768f996dae6ba6e7576d6fc6427a7468c
+Servicio,82,"Servicios Editoriales, de Diseño, de Artes Graficas y Bellas Artes",8211,Escritura y traducciones,7d15ebd0969442b2986eab695f0a5c406fbeed50d1687cfa145b47f28491bc94
+Servicio,82,"Servicios Editoriales, de Diseño, de Artes Graficas y Bellas Artes",8210,Publicidad,965923669184801cdc9d352df6b717d7dd711238e7c5860ba73bd2f9f4167fbc
+Servicio,82,"Servicios Editoriales, de Diseño, de Artes Graficas y Bellas Artes",8212,Servicios de reproducción,e2d7df7feba3279a792625f92629691aabbb56147df71d07465986cd7b4728ba
+Servicio,82,"Servicios Editoriales, de Diseño, de Artes Graficas y Bellas Artes",8213,Servicios fotográficos,4d871bbe391549372892625ed6ab10b280a5a0278022484d778c74ce8b8d0be0
+Servicio,86,Servicios Educativos y de Formación,8610,Formación profesional,fc28615653ec63438f2d954dedc689b06be02d1bd83641fa769a2943145234b8
+Servicio,86,Servicios Educativos y de Formación,8614,Instalaciones educativas,875c647cc234c27c7035de94cf6740a35dda97fd4a6c9c6610d315551ca05373
+Servicio,86,Servicios Educativos y de Formación,8612,Instituciones educativas,ec18a2702f891f8df8becf44cac49960735b99102a1bd1617ca949f595082bf2
+Servicio,86,Servicios Educativos y de Formación,8613,Servicios educativos especializados,4e6eb8406c5ea5231a032b638c7119522bbc4f298c6a56d97a72b2c2a63af875
+Servicio,86,Servicios Educativos y de Formación,8611,Sistemas educativos alternativos,6d59bb549744c835a600d6fd423ca8f2fcd33655df3680a54ea3e398d1dd70a7
+Servicio,84,Servicios Financieros y de Seguros,8414,Agencias de crédito,98086524869a9abaa2c79f3a11f0d734447adbf58f7ef2904d7e8d909e4f09eb
+Servicio,84,Servicios Financieros y de Seguros,8412,Banca e inversiones,b80a2cc9f0a48d0178766544267697b6eba1dd350b00221e1ed9fa20084b3c8e
+Servicio,84,Servicios Financieros y de Seguros,8410,Finanzas de desarrollo,dc73d06fc68f06f2d39ee7936ffe8aaa893ff1cb0dbfc641268fc3e8c97a6100
+Servicio,84,Servicios Financieros y de Seguros,8411,Servicios de contabilidad y auditorias,c89f8a0fd2f1e903008281e3581d04196e7a6b72c4637cfa8be9d810e1b6f61a
+Servicio,84,Servicios Financieros y de Seguros,8413,Servicios de seguros y pensiones,48db9bfef759a8b59f760155606b9df17a70229d938d7b4ca6574582de5e3380
+Servicio,77,Servicios Medioambientales,7710,Gestión medioambiental,c7b28068acb4f599bcc6f69fb32b1bbde8ae8210cdbf76da71956ea636513024
+Servicio,77,Servicios Medioambientales,7711,Protección medioambiental,c91f21d8cb4f7c2b71cf597f83f5aeb31399c033ea0345932200f56f03b762d4
+Servicio,77,Servicios Medioambientales,7712,"Seguimiento, control y rehabilitación de la contaminación",ad41a22ee317dc048eabf95c32e39386ce454d6e3e9957163ac552910432c6af
+Servicio,77,Servicios Medioambientales,7713,"Servicios de seguimiento, control o rehabilitación de contaminantes",385eaa7cdb482ace40106909d86d3f9e08e8a71c7bb1f9bdf748b0f2b9993e1b
+Servicio,91,Servicios Personales y Domésticos,9111,Asistencia doméstica y personal,6b4c3f1819b269aca415eef22b6a13a2fc3df9b9f9a48a8bcddebcc92dfc4ec8
+Servicio,91,Servicios Personales y Domésticos,9110,Aspecto personal,71834bf8591414d355dda279f870c3ddf0499086519dce22c6cf41ff079065ec
+Servicio,93,Servicios Políticos y de Asuntos Cívicos,9313,Ayuda y asistencia humanitaria,dca5c22a7dff305dcadd6502c74a3cedcb6a1030b088fdf0717bb14e0860aa88
+Servicio,93,Servicios Políticos y de Asuntos Cívicos,9311,Condiciones sociopolíticas,258fac657ad27fa1d1eeb4c1c87bcf479715c6ba4ed4ce97123f8255a8fb0e6b
+Servicio,93,Servicios Políticos y de Asuntos Cívicos,9317,Política y regulación comercial,026739132cb51852cd5dab55e46d238919c415670f91014330c0c1d63b31b0a2
+Servicio,93,Servicios Políticos y de Asuntos Cívicos,9312,Relaciones internacionales,88a4a7018ee8520c5d6bed970e62e0f5a80d689322a8839063b7d94edddfe6ef
+Servicio,93,Servicios Políticos y de Asuntos Cívicos,9314,Servicios comunitarios y sociales,c29288157761a7e7968beb8e55ccd68b62714ce7c4f7f0c8319dcef7ba546d82
+Servicio,93,Servicios Políticos y de Asuntos Cívicos,9315,Servicios de administración y financiación pública,99af46979a02f39a2012edced74aca7cf7d9382855828170e4ab2f48f54440ee
+Servicio,93,Servicios Políticos y de Asuntos Cívicos,9310,Sistemas e instituciones políticas,1fa7d86646d1e80f126b39426d7ad9a2ed0d492ccaba08ce80ac94aa4d3d4f1f
+Servicio,93,Servicios Políticos y de Asuntos Cívicos,9316,Tributación,d4590c1a000141d7eb8e4b7c6f818e967fad1ae90833c631339fbbc1301328e7
+Servicio,83,Servicios Públicos y Servicios Relacionados con el Sector Público,8312,Servicios de información,18d5f6a3fdfbef89803d1cf012d146e8cd8a57c8486095216af40657e901debe
+Servicio,83,Servicios Públicos y Servicios Relacionados con el Sector Público,8311,Servicios de medios de telecomunicaciones,ed7c1f583794f50792537d0872c492fe307127df8d0d2ce7af8d1873ed7dbda3
+Servicio,83,Servicios Públicos y Servicios Relacionados con el Sector Público,8310,Servicios públicos,d302d2d62f8827d72ab920866c9e55603c1221dc9377365e27d722b21314ea26

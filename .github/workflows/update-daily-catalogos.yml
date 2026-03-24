@@ -89,6 +89,10 @@ jobs:
         if: env.FILES_CHANGED != '' || inputs.force_upload == true
         run: uv run scripts/catalogos/extract.py --force
 
+      - name: Import PyS hierarchy into HF index
+        if: env.FILES_CHANGED != '' || inputs.force_upload == true
+        run: uv run scripts/catalogos/import_pys_hierarchy.py
+
       - name: Generate HF dataset
         if: env.FILES_CHANGED != '' || inputs.force_upload == true
         run: uv run scripts/catalogos/generate_hf.py
