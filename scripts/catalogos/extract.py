@@ -24,10 +24,11 @@ import sys
 import unicodedata
 from collections import defaultdict
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import date, datetime, time
 from pathlib import Path
-from typing import Dict, Iterable, List, Sequence
+from typing import Any, Dict, Iterable, List, Sequence
 
+import openpyxl
 import xlrd
 
 # ── constants ──────────────────────────────────────────────────────────────────
@@ -127,9 +128,71 @@ def format_number(value: float) -> str:
     return ("%s" % value).rstrip("0").rstrip(".")
 
 
-def format_cell(
-    workbook: xlrd.book.Book, sheet: xlrd.sheet.Sheet, row_idx: int, col_idx: int
-) -> str:
+def is_xlsx_workbook(workbook: Any) -> bool:
+    return isinstance(workbook, openpyxl.Workbook)
+
+
+def sheet_nrows(sheet: Any) -> int:
+    return sheet.max_row if hasattr(sheet, "max_row") else sheet.nrows
+
+
+def sheet_ncols(sheet: Any) -> int:
+    return sheet.max_column if hasattr(sheet, "max_column") else sheet.ncols
+
+
+def sheet_row_len(sheet: Any, row_idx: int) -> int:
+    if hasattr(sheet, "max_column"):
+        return sheet.max_column
+    return sheet.row_len(row_idx)
+
+
+def raw_cell_value(sheet: Any, row_idx: int, col_idx: int) -> Any:
+    if hasattr(sheet, "cell") and hasattr(sheet, "max_row"):
+        return sheet.cell(row_idx + 1, col_idx + 1).value
+    return sheet.cell(row_idx, col_idx).value
+
+
+def row_values_raw(sheet: Any, row_idx: int) -> list[Any]:
+    width = sheet_row_len(sheet, row_idx)
+    return [raw_cell_value(sheet, row_idx, col_idx) for col_idx in range(width)]
+
+
+def sheet_label(sheet: Any) -> str:
+    return getattr(sheet, "name", getattr(sheet, "title", "<unknown>"))
+
+
+def raw_text(value: Any) -> str:
+    if value is None:
+        return ""
+    return str(value).strip()
+
+
+def format_cell(workbook: Any, sheet: Any, row_idx: int, col_idx: int) -> str:
+    if is_xlsx_workbook(workbook):
+        cell = sheet.cell(row_idx + 1, col_idx + 1)
+        value = cell.value
+        if value is None:
+            return ""
+        if isinstance(value, datetime):
+            if value.time() == datetime.min.time():
+                return value.date().isoformat()
+            return value.isoformat()
+        if isinstance(value, date):
+            return value.isoformat()
+        if isinstance(value, time):
+            return value.isoformat()
+        if isinstance(value, bool):
+            return "TRUE" if value else "FALSE"
+        if isinstance(value, (int, float)):
+            fmt_str = (cell.number_format or "").split(";")[0].strip()
+            if fmt_str and re.fullmatch(r"0+", fmt_str):
+                width = len(fmt_str)
+                return f"{int(round(float(value))):0{width}d}"
+            return format_number(float(value))
+        if cell.data_type == "e":
+            return "#ERROR"
+        return str(value).strip()
+
     cell = sheet.cell(row_idx, col_idx)
     if cell.ctype in (xlrd.XL_CELL_EMPTY, xlrd.XL_CELL_BLANK):
         return ""
@@ -161,37 +224,44 @@ def detect_header_row(sheet: xlrd.sheet.Sheet) -> int:
     Fallback: find the last empty-row separator in the first 10 rows, then return
     the next non-empty row after it (Carta Porte / complement-style sheets).
     """
-    for row_idx in range(sheet.nrows):
-        row_cells = [str(cell.value).strip() for cell in sheet.row(row_idx)]
+    for row_idx in range(sheet_nrows(sheet)):
+        row_cells = [raw_text(value) for value in row_values_raw(sheet, row_idx)]
         if sheet_is_empty(row_cells):
             continue
         if any(CATALOG_HEADER_PATTERN.match(value) for value in row_cells if value):
             return row_idx
+        normalized = [normalize_token(value) for value in row_cells if value]
+        if (
+            len(normalized) >= 2
+            and any("descripcion" in value for value in normalized)
+            and not any(value == "version" or "fecha de publicacion" in value for value in normalized)
+        ):
+            return row_idx
 
     # Fallback: header follows the last empty separator in the metadata block
     last_empty = None
-    for row_idx in range(min(10, sheet.nrows)):
-        row_cells = [str(cell.value).strip() for cell in sheet.row(row_idx)]
+    for row_idx in range(min(10, sheet_nrows(sheet))):
+        row_cells = [raw_text(value) for value in row_values_raw(sheet, row_idx)]
         if sheet_is_empty(row_cells):
             last_empty = row_idx
     if last_empty is not None:
-        for row_idx in range(last_empty + 1, sheet.nrows):
-            row_cells = [str(cell.value).strip() for cell in sheet.row(row_idx)]
+        for row_idx in range(last_empty + 1, sheet_nrows(sheet)):
+            row_cells = [raw_text(value) for value in row_values_raw(sheet, row_idx)]
             if not sheet_is_empty(row_cells):
                 return row_idx
 
-    raise ValueError(f"Header row not found in sheet {sheet.name!r}")
+    raise ValueError(f"Header row not found in sheet {sheet_label(sheet)!r}")
 
 
 def gather_header_rows(sheet: xlrd.sheet.Sheet, start_idx: int) -> List[int]:
     rows = [start_idx]
     row_idx = start_idx + 1
-    while row_idx < sheet.nrows:
-        row_values = [str(cell.value).strip() for cell in sheet.row(row_idx)]
+    while row_idx < sheet_nrows(sheet):
+        row_values = [raw_text(value) for value in row_values_raw(sheet, row_idx)]
         if sheet_is_empty(row_values):
             row_idx += 1
             continue
-        first_cell = str(sheet.cell(row_idx, 0).value).strip() if sheet.ncols else ""
+        first_cell = raw_text(raw_cell_value(sheet, row_idx, 0)) if sheet_ncols(sheet) else ""
         if not first_cell:
             rows.append(row_idx)
             row_idx += 1
@@ -201,14 +271,14 @@ def gather_header_rows(sheet: xlrd.sheet.Sheet, start_idx: int) -> List[int]:
 
 
 def combine_headers(
-    workbook: xlrd.book.Book, sheet: xlrd.sheet.Sheet, header_rows: List[int]
+    workbook: Any, sheet: Any, header_rows: List[int]
 ) -> List[tuple[int, str]]:
-    width = max(sheet.row_len(idx) for idx in header_rows)
+    width = max(sheet_row_len(sheet, idx) for idx in header_rows)
     headers: List[tuple[int, str]] = []
     for col_idx in range(width):
         parts: List[str] = []
         for row_idx in header_rows:
-            if col_idx >= sheet.row_len(row_idx):
+            if col_idx >= sheet_row_len(sheet, row_idx):
                 continue
             value = format_cell(workbook, sheet, row_idx, col_idx)
             if value:
@@ -221,10 +291,10 @@ def combine_headers(
 
 
 def find_description(sheet: xlrd.sheet.Sheet, workbook: xlrd.book.Book) -> str:
-    for row_idx in range(min(6, sheet.nrows)):
+    for row_idx in range(min(6, sheet_nrows(sheet))):
         values = [
             format_cell(workbook, sheet, row_idx, col_idx)
-            for col_idx in range(sheet.row_len(row_idx))
+            for col_idx in range(sheet_row_len(sheet, row_idx))
         ]
         cleaned = [val for val in values if val]
         if cleaned and any("catalogo" in normalize_token(val) for val in cleaned):
@@ -258,9 +328,9 @@ _METADATA_KEY_ALIASES: Dict[str, str] = {
 
 def extract_metadata(sheet: xlrd.sheet.Sheet, workbook: xlrd.book.Book) -> Dict[str, str]:
     key_row_idx = None
-    for row_idx in range(min(10, sheet.nrows)):
-        for col_idx in range(sheet.row_len(row_idx)):
-            if "version" in normalize_token(str(sheet.cell(row_idx, col_idx).value)):
+    for row_idx in range(min(10, sheet_nrows(sheet))):
+        for col_idx in range(sheet_row_len(sheet, row_idx)):
+            if "version" in normalize_token(raw_text(raw_cell_value(sheet, row_idx, col_idx))):
                 key_row_idx = row_idx
                 break
         if key_row_idx is not None:
@@ -268,13 +338,13 @@ def extract_metadata(sheet: xlrd.sheet.Sheet, workbook: xlrd.book.Book) -> Dict[
     if key_row_idx is None:
         return {}
     value_row_idx = key_row_idx + 1
-    while value_row_idx < sheet.nrows and sheet.row_len(value_row_idx) == 0:
+    while value_row_idx < sheet_nrows(sheet) and sheet_row_len(sheet, value_row_idx) == 0:
         value_row_idx += 1
-    if value_row_idx >= sheet.nrows:
+    if value_row_idx >= sheet_nrows(sheet):
         return {}
     metadata: Dict[str, str] = {}
-    for col_idx in range(sheet.row_len(key_row_idx)):
-        key_raw = str(sheet.cell(key_row_idx, col_idx).value).strip()
+    for col_idx in range(sheet_row_len(sheet, key_row_idx)):
+        key_raw = raw_text(raw_cell_value(sheet, key_row_idx, col_idx))
         if not key_raw:
             continue
         key = slugify(key_raw)
@@ -289,8 +359,8 @@ def extract_metadata(sheet: xlrd.sheet.Sheet, workbook: xlrd.book.Book) -> Dict[
 
 
 def extract_data_rows(
-    workbook: xlrd.book.Book,
-    sheet: xlrd.sheet.Sheet,
+    workbook: Any,
+    sheet: Any,
     header_rows: List[int],
     header_columns: List[tuple[int, str]],
 ) -> List[List[str]]:
@@ -298,7 +368,7 @@ def extract_data_rows(
     column_indices = [col_idx for col_idx, _ in header_columns]
     rows: List[List[str]] = []
     row_idx = first_data_row
-    while row_idx < sheet.nrows:
+    while row_idx < sheet_nrows(sheet):
         row_values = [format_cell(workbook, sheet, row_idx, col_idx) for col_idx in column_indices]
         if sheet_is_empty(row_values):
             row_idx += 1
@@ -331,7 +401,7 @@ def _merge_orphan_rows(rows: List[List[str]]) -> List[List[str]]:
     return merged
 
 
-def parse_sheet(workbook: xlrd.book.Book, sheet: xlrd.sheet.Sheet) -> SheetExtraction:
+def parse_sheet(workbook: Any, sheet: Any) -> SheetExtraction:
     header_start = detect_header_row(sheet)
     header_rows = gather_header_rows(sheet, header_start)
     header_columns = combine_headers(workbook, sheet, header_rows)
@@ -381,14 +451,21 @@ def extract_workbook(xls_path: Path, output_dir: Path, header_style: str) -> tup
     Returns (list of written csv paths, list of metadata dicts).
     Metadata is not written here — caller accumulates across workbooks and writes once per dir.
     """
-    workbook = xlrd.open_workbook(str(xls_path), formatting_info=True)
+    if xls_path.suffix.lower() == ".xlsx":
+        workbook = openpyxl.load_workbook(xls_path, data_only=True)
+        sheet_names = workbook.sheetnames
+        get_sheet = workbook.__getitem__
+    else:
+        workbook = xlrd.open_workbook(str(xls_path), formatting_info=True)
+        sheet_names = workbook.sheet_names()
+        get_sheet = workbook.sheet_by_name
     catalogs: Dict[str, Dict] = defaultdict(
         lambda: {"headers": None, "rows": [], "metadata": {}, "description": "", "sheets": []}
     )
-    for sheet_name in workbook.sheet_names():
+    for sheet_name in sheet_names:
         if not sheet_name.lower().startswith("c_"):
             continue
-        sheet = workbook.sheet_by_name(sheet_name)
+        sheet = get_sheet(sheet_name)
         try:
             parsed = parse_sheet(workbook, sheet)
         except ValueError as exc:
@@ -542,6 +619,7 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     print(f"Found {len(xls_files)} XLS file(s):", file=sys.stderr)
     total_written = 0
+    failed_files: List[tuple[Path, str]] = []
     # Accumulate new metadata rows keyed by (source_xls, catalogo)
     new_state: dict[tuple, dict] = {}
     # Accumulate per output dir so multiple XLS in the same folder merge correctly
@@ -561,7 +639,12 @@ def main(argv: Sequence[str] | None = None) -> int:
         except ValueError:
             rel_parent = xls_path.parent
         output_dir = args.csv_dir / rel_parent
-        written, meta_rows = extract_workbook(xls_path, output_dir, args.header_style)
+        try:
+            written, meta_rows = extract_workbook(xls_path, output_dir, args.header_style)
+        except Exception as exc:
+            failed_files.append((xls_path, str(exc)))
+            print(f"  ERROR {xls_path}: {exc}", file=sys.stderr)
+            continue
         total_written += len(written)
         metadata_by_dir[output_dir].extend(meta_rows)
 
@@ -611,6 +694,11 @@ def main(argv: Sequence[str] | None = None) -> int:
             f"\nState   → {args.state_file}  ({len(merged_rows)} catalogs, {updated} updated, {preserved} preserved)",
             file=sys.stderr,
         )
+
+    if failed_files:
+        print("\nErrors:", file=sys.stderr)
+        for path, message in failed_files:
+            print(f"  - {path}: {message}", file=sys.stderr)
 
     print(f"Done. Wrote {total_written} CSV file(s) to {args.csv_dir}/", file=sys.stderr)
     return 0
