@@ -8,9 +8,9 @@ Discovers download URLs from the page, uses Last-Modified + ETag as fingerprints
 and only re-downloads when content has changed (or --force).
 
 Output:
-  output/listado-69b-manifest.json                  — metadata + hashes
-  output/listado-69b/Listado_completo_69-B.csv      — raw (original filename)
-  output/listado-69b/Listado_69_B_Bis_Completo.csv  — raw (original filename)
+  output/listado-69b-manifest.json                        — metadata + hashes
+  output/files/listado-69b/Listado_completo_69-B.csv      — raw (original filename)
+  output/files/listado-69b/Listado_69_B_Bis_Completo.csv  — raw (original filename)
 
 Run scripts/listado_69b/merge.py afterwards to clean and merge into hf/csv/listado-69b/.
 
@@ -36,7 +36,7 @@ from urllib.error import HTTPError, URLError
 
 PAGE_URL   = "http://omawww.sat.gob.mx/cifras_sat/Paginas/DatosAbiertos/contribuyentes_publicados.html"
 OUTPUT_DIR = Path("output")
-RAW_DIR    = OUTPUT_DIR / "listado-69b"
+RAW_DIR    = OUTPUT_DIR / "files" / "listado-69b"
 MANIFEST   = OUTPUT_DIR / "listado-69b-manifest.json"
 
 USER_AGENT = (

@@ -142,6 +142,22 @@ def _clean_stem(stem: str) -> str:
     return s or stem  # fallback to original if everything was stripped
 
 
+def _clean_matrix_stem(stem: str) -> str:
+    """Strip dates and hashes from matrix filenames, but preserve version markers.
+
+    Examples:
+        MatrizDeErrores_CFDI_v40_20260325      -> MatrizDeErrores_CFDI_v40
+        MatrizDeErrores_CFDI_Retenciones_v20   -> MatrizDeErrores_CFDI_Retenciones_v20
+        MatrizDeErrores_CFDI_v40_8ca5655de2    -> MatrizDeErrores_CFDI_v40
+    """
+    s = stem
+    s = re.sub(r"_\d{6,8}(?=_|$)", "", s)             # _20260325
+    s = re.sub(r"_(\d+_)?[0-9a-f]{8,}$", "", s, flags=re.IGNORECASE)  # _20260325, _31_abcd..., _abcd...
+    s = re.sub(r"_\d+$", "", s)                      # trailing counters/dates after cleanup
+    s = s.strip("_")
+    return s or stem
+
+
 def abs_url(href: str) -> str:
     if not href:
         return ""
@@ -1142,6 +1158,9 @@ def download_complemento(
         if not url:
             return None
         fname = _filename(url)
+        if Path(fname).suffix.lower() in {".xls", ".xlsx"} and Path(fname).stem.startswith("MatrizDeErrores_CFDI"):
+            stem = _clean_matrix_stem(Path(fname).stem)
+            fname = f"{stem}{Path(fname).suffix}"
         rel = f"{base}/{subdir}/{fname}"
         dest = files_dir / rel
         status = download(url, dest, force=force)

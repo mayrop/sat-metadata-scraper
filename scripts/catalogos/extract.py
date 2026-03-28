@@ -36,6 +36,7 @@ import xlrd
 HF_XLS_DIR    = Path("hf/xls")
 HF_CSV_DIR    = Path("hf/csv")
 CATALOG_STATE = Path("catalog_state.csv")  # committed to git, outside hf/
+CATALOG_CSV   = Path("output/catalog.csv")
 
 CATALOG_HEADER_PATTERN = re.compile(r"^[cC]_\w+")
 PART_SUFFIX_PATTERN    = re.compile(r"(?:_Parte)?_\d+$", re.IGNORECASE)
@@ -567,6 +568,12 @@ def parse_args(argv: Sequence[str]) -> argparse.Namespace:
         default="snake",
         help="Column name format: 'original' keeps SAT names, 'snake' converts to snake_case (default: snake)",
     )
+    parser.add_argument(
+        "--catalog-file",
+        type=Path,
+        default=CATALOG_CSV,
+        help=f"Path to scraped catalog CSV for section overrides (default: {CATALOG_CSV})",
+    )
     parser.add_argument("--force", action="store_true", help="Re-extract all XLS even if unchanged")
     parser.add_argument(
         "--sections", nargs="+", metavar="SECTION",
@@ -590,6 +597,25 @@ def _load_catalog_state(state_file: Path) -> dict[str, dict]:
     return state
 
 
+def _load_source_section_overrides(catalog_file: Path) -> dict[str, str]:
+    """Map source XLS paths to desired CSV section paths using output/catalog.csv."""
+    overrides: dict[str, str] = {}
+    if not catalog_file.exists():
+        return overrides
+    with catalog_file.open(newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            if row.get("file_type") != "catalogo.xls":
+                continue
+            source_xls = row.get("local_file", "")
+            category = row.get("category", "")
+            slug = row.get("slug", "")
+            if not source_xls or not category:
+                continue
+            if category == "complementos-concepto" and slug:
+                overrides[source_xls] = f"complementos-concepto/{slug}"
+    return overrides
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     args = parse_args(argv or sys.argv[1:])
 
@@ -611,6 +637,7 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     # Load existing catalog_state.csv for skip-if-unchanged and merge
     existing_state = _load_catalog_state(args.state_file)
+    source_section_overrides = _load_source_section_overrides(args.catalog_file)
     stored_xls_hashes: dict[str, str] = {}
     for (src, _cat), row in existing_state.items():
         h = row.get("xls_hash", "")
@@ -635,7 +662,11 @@ def main(argv: Sequence[str] | None = None) -> int:
             continue
         print(f"\n[{xls_path}]", file=sys.stderr)
         try:
-            rel_parent = xls_path.parent.relative_to(args.xls_dir)
+            override_rel = source_section_overrides.get(str(xls_path))
+            if override_rel:
+                rel_parent = Path(override_rel) / xls_path.parent.name
+            else:
+                rel_parent = xls_path.parent.relative_to(args.xls_dir)
         except ValueError:
             rel_parent = xls_path.parent
         output_dir = args.csv_dir / rel_parent
