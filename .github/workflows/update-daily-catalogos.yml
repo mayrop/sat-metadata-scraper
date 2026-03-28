@@ -19,10 +19,6 @@ on:
         description: 'Force re-download all files'
         type: boolean
         default: false
-      force_upload:
-        description: 'Force generate and upload to Hugging Face'
-        type: boolean
-        default: false
 
 permissions:
   contents: write
@@ -61,11 +57,11 @@ jobs:
           if [ "${{ inputs.section }}" != "" ] && [ "${{ inputs.section }}" != "all" ]; then
             SECTION_ARG="--sections ${{ inputs.section }}"
           fi
-          if [ "${{ inputs.force }}" = "true" ]; then
-            uv run scripts/catalogos/extract.py --force $SECTION_ARG
-          else
-            uv run scripts/catalogos/extract.py $SECTION_ARG
-          fi
+          uv run scripts/catalogos/extract.py --force $SECTION_ARG
+
+      - name: Extract matrix CSVs
+        run: |
+          uv run scripts/catalogos/extract_matrices.py --force
 
       - name: Generate derived tables
         run: uv run scripts/catalogos/generate_uso_regimen_table.py
@@ -74,7 +70,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add catalog_state.csv output/
+          git add catalog_state.csv matrix_state.csv output/
           if git diff --cached --quiet; then
             echo "FILES_CHANGED=" >> $GITHUB_ENV
           else
@@ -86,19 +82,18 @@ jobs:
           fi
 
       - name: Extract all CSVs for HF
-        if: env.FILES_CHANGED != '' || inputs.force_upload == true
         run: uv run scripts/catalogos/extract.py --force
 
+      - name: Extract all matrix CSVs for HF
+        run: uv run scripts/catalogos/extract_matrices.py --force
+
       - name: Import static catalogs
-        if: env.FILES_CHANGED != '' || inputs.force_upload == true
         run: uv run scripts/catalogos/import_unspsc_hierarchy.py
 
       - name: Generate HF dataset
-        if: env.FILES_CHANGED != '' || inputs.force_upload == true
         run: uv run scripts/catalogos/generate_hf.py
 
       - name: Upload to Hugging Face
-        if: env.FILES_CHANGED != '' || inputs.force_upload == true
         run: |
           uv run python -c "
           from huggingface_hub import HfApi
