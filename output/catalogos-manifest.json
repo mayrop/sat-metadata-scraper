@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-03-27T19:38:30.668754",
+  "scraped_at": "2026-03-28T20:34:47.922986",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -199,7 +199,7 @@
             "matriz": {
               "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/MatrizDeErrores_CFDI_v40_20260325.xls",
               "last_modified": "2026-03-25",
-              "local_file": "anexo-20/formato-de-factura/version-4-0/MatrizDeErrores_CFDI_v40_20260325.xls",
+              "local_file": "anexo-20/formato-de-factura/version-4-0/MatrizDeErrores_CFDI_v40.xls",
               "hash": "bdc350035c7ed720af5be15509e01d0bda7c12cec4ad9797b0c34f889c1140a7"
             },
             "patron": {
@@ -1528,7 +1528,7 @@
               "url": "https://ampocdevbuk01a.s3.us-east-1.amazonaws.com/CC_HYP_10_8c8f96da4e.pdf",
               "last_modified": null,
               "local_file": "complementos-concepto/hidrocarburos-y-petroliferos/version-1-0/CC_HYP_10_8c8f96da4e.pdf",
-              "hash": "78d5ec8d2dc8fdacacbe7863a221a2253c417e4473e8ec3a2283647c09d3e21e"
+              "hash": "f031cd804634b3ce05b9b85d24a486c10baa971dae6a1016c9bda2cf2b99bb7f"
             },
             "xsd": {
               "url": "http://www.sat.gob.mx/sitio_internet/cfd/hidrocarburospetroliferos.xsd",
