@@ -1,0 +1,17 @@
+{
+  "fecha_extraccion": "2026-03-24T03:18:09.232866+00:00",
+  "source_url": "http://pys.sat.gob.mx/PyS/catPyS.aspx",
+  "counts": {
+    "tipos": 2,
+    "divisiones": 57,
+    "grupos": 421,
+    "clases": 3802
+  },
+  "files": {
+    "tipos": "hf/csv/sat-pys-hierarchy/tipos.csv",
+    "divisiones": "hf/csv/sat-pys-hierarchy/divisiones.csv",
+    "grupos": "hf/csv/sat-pys-hierarchy/grupos.csv",
+    "clases": "hf/csv/sat-pys-hierarchy/clases.csv",
+    "metadata": "hf/csv/sat-pys-hierarchy/metadata.csv"
+  }
+}
