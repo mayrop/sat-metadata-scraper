@@ -20,7 +20,7 @@ from html.parser import HTMLParser
 from io import BytesIO, StringIO
 from pathlib import Path
 
-RAW_DIR = Path("output/banxico-tipos-cambio/raw")
+RAW_DIR = Path("output/files/banxico-tipos-cambio/raw")
 MANIFEST = Path("output/banxico-tipos-cambio-manifest.json")
 HF_DIR = Path("hf/csv/banxico-tipos-cambio")
 

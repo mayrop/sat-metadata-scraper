@@ -6,7 +6,7 @@ Source:
 
 Outputs:
   output/deducciones-personales-manifest.json
-  output/deducciones-personales/pages/<slug>.html
+  output/files/deducciones-personales/pages/<slug>.html
   hf/csv/deducciones-personales/deducciones.csv
   hf/csv/deducciones-personales/catalogo_productos_servicios.csv
 
@@ -35,7 +35,7 @@ from urllib.parse import urljoin, urlsplit
 INDEX_URL = "https://www.sat.gob.mx/minisitio/DeduccionesPersonales/index.html"
 BASE_URL = "https://www.sat.gob.mx"
 
-OUTPUT_DIR = Path("output/deducciones-personales")
+OUTPUT_DIR = Path("output/files/deducciones-personales")
 PAGES_DIR = OUTPUT_DIR / "pages"
 MANIFEST = Path("output/deducciones-personales-manifest.json")
 HF_DIR = Path("hf/csv/deducciones-personales")
