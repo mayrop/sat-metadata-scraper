@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import functools
 import hashlib
 import html.parser
 import json
@@ -158,6 +159,11 @@ def _clean_matrix_stem(stem: str) -> str:
     return s or stem
 
 
+def _looks_like_matrix_name(name: str) -> bool:
+    token = re.sub(r"[^a-z0-9]+", "", name.lower())
+    return "matriz" in token and ("error" in token or "errores" in token)
+
+
 def abs_url(href: str) -> str:
     if not href:
         return ""
@@ -167,16 +173,47 @@ def abs_url(href: str) -> str:
 def _filename(url: str) -> str:
     """Return a safe filename for a URL.
 
-    Satellite blob URLs all resolve to 'Satellite' — we append the blobwhere
-    param as a unique suffix and add .pdf (SAT's blob server serves PDFs).
+    Satellite blob URLs all resolve to 'Satellite' — probe the response headers
+    for the real filename/extension, then fall back to a unique Satellite name.
     """
     path_part = url.split("?")[0]
     name = Path(path_part).name or "file"
     if name.lower() == "satellite":
+        probed = _probe_blob_filename(url)
+        if probed:
+            return probed
         m = re.search(r"blobwhere=(\d+)", url)
         suffix = m.group(1) if m else re.sub(r"[^a-z0-9]", "", url[-12:])
-        name = f"Satellite_{suffix}.pdf"
+        name = f"Satellite_{suffix}.bin"
     return name
+
+
+def _blob_fallback_name(url: str, suffix: str) -> str:
+    m = re.search(r"blobwhere=(\d+)", url)
+    blob_id = m.group(1) if m else re.sub(r"[^a-z0-9]", "", url[-12:])
+    return f"Satellite_{blob_id}{suffix}"
+
+
+@functools.lru_cache(maxsize=256)
+def _probe_blob_filename(url: str) -> str | None:
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+        with urllib.request.urlopen(req, timeout=20) as r:
+            filename = r.headers.get_filename()
+            if filename:
+                return filename
+            content_type = (r.headers.get_content_type() or "").lower()
+            if content_type in {"application/vnd.ms-excel", "application/msexcel"}:
+                return _blob_fallback_name(url, ".xls")
+            if content_type == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
+                return _blob_fallback_name(url, ".xlsx")
+            if content_type == "application/pdf":
+                return _blob_fallback_name(url, ".pdf")
+            if content_type in {"application/xml", "text/xml"}:
+                return _blob_fallback_name(url, ".xml")
+    except Exception:
+        return None
+    return None
 
 
 def _is_html_url(url: str) -> bool:
@@ -441,7 +478,7 @@ def scrape_detail_page(page: Page, url: str, debug_dir: Path | None) -> list[dic
             ? document.querySelector(".tab-content")
             : document.querySelectorAll(".information-procedures")[panelIdx];
         if (!container) return null;
-        const entry = {{ estandar: null, xsd: null, xslt: null, catalogos: [] }};
+        const entry = {{ estandar: null, xsd: null, xslt: null, matriz: null, catalogos: [] }};
         for (const a of container.querySelectorAll("a[href]")) {{
             const href = a.getAttribute("href") || "";
             const text = (a.textContent || "").toLowerCase().trim();
@@ -449,6 +486,8 @@ def scrape_detail_page(page: Page, url: str, debug_dir: Path | None) -> list[dic
             const lm = lastModified(a);
             if (text.includes("catálogo") || text.includes("catalogo"))
                 entry.catalogos.push({{ name: a.textContent.trim(), url: href, last_modified: lm }});
+            else if (text.includes("matriz"))
+                entry.matriz = {{ url: href, last_modified: lm }};
             else if (text.includes("estándar") || text.includes("estandar"))
                 entry.estandar = {{ url: href, last_modified: lm }};
             else if (hlow.includes(".xslt"))
@@ -477,6 +516,7 @@ def scrape_detail_page(page: Page, url: str, debug_dir: Path | None) -> list[dic
                 "estandar": _finfo(e.get("estandar")),
                 "xsd":      _finfo(e.get("xsd")),
                 "xslt":     _finfo(e.get("xslt")),
+                "matriz":   _finfo(e.get("matriz")),
             },
             "catalogos": [
                 {
@@ -698,13 +738,15 @@ _EXTRACT_MODALS_JS = f"""() => {{
         const vm = infoText.match(/[Vv]ersi[oó]n\\s*([\\d][.\\d]*)(?:\\s+[Rr]evisión\\s+(\\w+))?/);
         const entry = {{ name, detail_url,
                          version: vm ? vm[1] : null, revision: vm ? (vm[2] || null) : null,
-                         estandar_url: null, xsd_url: null, xslt_url: null, catalogos: [] }};
+                         estandar_url: null, xsd_url: null, xslt_url: null, matriz_url: null, catalogos: [] }};
         for (const a of (info?.querySelectorAll("a[href]") || [])) {{
             const href = a.getAttribute("href") || "";
             const text = (a.textContent || "").toLowerCase().trim();
             const hlow = href.toLowerCase();
             if (text.includes("catálogo") || text.includes("catalogo"))
                 entry.catalogos.push({{ name: a.textContent.trim(), url: href, last_modified: null }});
+            else if (text.includes("matriz"))
+                entry.matriz_url = href;
             else if (text.includes("estándar") || text.includes("estandar"))
                 entry.estandar_url = href;
             else if (hlow.includes(".xslt"))
@@ -719,7 +761,11 @@ _EXTRACT_MODALS_JS = f"""() => {{
 
 
 def scrape_complementos_section(
-    page: Page, debug_dir: Path | None, prev_comps: dict[str, dict] | None = None, force: bool = False
+    page: Page,
+    debug_dir: Path | None,
+    prev_comps: dict[str, dict] | None = None,
+    force: bool = False,
+    verify: bool = False,
 ) -> list[dict]:
     """Scrape all sections of the main page → list of complemento dicts.
 
@@ -779,6 +825,7 @@ def scrape_complementos_section(
                         "estandar": _finfo_url(entry.get("estandar_url")),
                         "xsd":      _finfo_url(entry.get("xsd_url")),
                         "xslt":     _finfo_url(entry.get("xslt_url")),
+                        "matriz":   _finfo_url(entry.get("matriz_url")),
                     },
                     "catalogos": catalogos,
                 }]
@@ -799,7 +846,7 @@ def scrape_complementos_section(
         if not comp.get("detail_url"):
             continue
         # Reuse previous versions if the detail URL hasn't changed and we have data
-        if not force and prev_comps:
+        if not force and not verify and prev_comps:
             prev = prev_comps.get(comp["name"])
             if prev and prev.get("detail_url") == comp["detail_url"] and prev.get("versions"):
                 comp["versions"] = prev["versions"]
@@ -1158,7 +1205,7 @@ def download_complemento(
         if not url:
             return None
         fname = _filename(url)
-        if Path(fname).suffix.lower() in {".xls", ".xlsx"} and Path(fname).stem.startswith("MatrizDeErrores_CFDI"):
+        if Path(fname).suffix.lower() in {".xls", ".xlsx"} and _looks_like_matrix_name(Path(fname).stem):
             stem = _clean_matrix_stem(Path(fname).stem)
             fname = f"{stem}{Path(fname).suffix}"
         rel = f"{base}/{subdir}/{fname}"
@@ -1233,6 +1280,14 @@ def _ver_tuple(v: str | None) -> tuple:
         return (0,)
 
 
+def _catalog_csv_file_type(cat_key: str, file_url: str | None, local_file: str | None) -> str:
+    for candidate in (local_file or "", file_url or ""):
+        stem = Path(candidate.split("?")[0]).stem
+        if _looks_like_matrix_name(stem):
+            return "matriz"
+    return f"catalogo.{cat_key}"
+
+
 def write_csv(manifest: dict, csv_path: Path, prev_csv_path: Path | None = None) -> None:
     """Write a flat CSV with one row per file across all complementos/versions."""
     scraped_at = manifest["scraped_at"]
@@ -1279,14 +1334,21 @@ def write_csv(manifest: dict, csv_path: Path, prev_csv_path: Path | None = None)
             for ftype, finfo in ver.get("files", {}).items():
                 row(v, r, ftype, finfo.get("url"), finfo.get("local_file"), finfo.get("hash"), finfo.get("last_modified"))
             for cat_key, cat in ver.get("catalogos", {}).items():
-                ftype = f"catalogo.{cat_key}"
                 lm = cat.get("last_modified")
                 files = cat.get("files") or []
                 if files:
                     for fe in files:
-                        row(v, r, ftype, fe.get("url"), fe.get("local_file"), fe.get("hash"), lm)
+                        row(
+                            v, r,
+                            _catalog_csv_file_type(cat_key, fe.get("url"), fe.get("local_file")),
+                            fe.get("url"), fe.get("local_file"), fe.get("hash"), lm,
+                        )
                 else:
-                    row(v, r, ftype, cat.get("source_url"), None, None, lm)
+                    row(
+                        v, r,
+                        _catalog_csv_file_type(cat_key, cat.get("source_url"), None),
+                        cat.get("source_url"), None, None, lm,
+                    )
 
     with open(csv_path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=CSV_FIELDS)
@@ -1439,7 +1501,13 @@ def main() -> int:
                 else route.continue_(),
             )
             try:
-                complementos = scrape_complementos_section(page, debug_dir, prev_comps=prev_comps, force=args.force)
+                complementos = scrape_complementos_section(
+                    page,
+                    debug_dir,
+                    prev_comps=prev_comps,
+                    force=args.force,
+                    verify=args.verify,
+                )
             finally:
                 ctx.close()
                 browser.close()

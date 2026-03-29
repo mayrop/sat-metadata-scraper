@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
-"""Import SAT PyS hierarchy CSVs into the HF catalog index as anexo20/extra.
+"""Import UNSPSC CSVs into the HF extra catalog index.
 
-Copies CSVs from hf/csv/sat-pys-hierarchy/ to hf/csv/anexo20/extra/ and
-upserts entries into catalog_state.csv so they appear in the HF dataset.
+Copies UNSPSC CSVs from `static/unspsc/` into `hf/csv/extra/unspsc/`
+and upserts entries into `catalog_state.csv` so they are included in
+the HF dataset as `extra/unspsc`.
 
-Run after scripts/sat_pys_hierarchy/scrape.py has produced fresh CSVs.
+Run after the UNSPSC CSVs have been refreshed in `static/unspsc/`.
 
 Usage:
-  uv run scripts/catalogos/import_pys_hierarchy.py
-  uv run scripts/catalogos/import_pys_hierarchy.py --source static/unspsc
+  uv run scripts/catalogos/import_unspsc.py
+  uv run scripts/catalogos/import_unspsc.py --source static/unspsc
 """
 from __future__ import annotations
 

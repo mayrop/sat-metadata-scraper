@@ -172,6 +172,15 @@ def discover_matrix_rows(catalog_csv: Path) -> list[dict[str, str]]:
         return [dict(row) for row in csv.DictReader(handle) if row.get("file_type") == "matriz"]
 
 
+def resolve_source_path(local_file: str) -> Path:
+    path = Path(local_file)
+    if path.is_absolute():
+        return path
+    if local_file.startswith("hf/"):
+        return path
+    return Path("output/files") / local_file
+
+
 def write_csv(path: Path, headers: Sequence[str], rows: Sequence[Sequence[str]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as handle:
@@ -211,7 +220,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         source_rel = row.get("local_file", "")
         if not source_rel:
             continue
-        source_path = Path("output/files") / source_rel
+        source_path = resolve_source_path(source_rel)
         if not source_path.exists():
             print(f"Missing source matrix: {source_path}", file=sys.stderr)
             continue

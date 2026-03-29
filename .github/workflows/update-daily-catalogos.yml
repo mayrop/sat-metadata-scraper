@@ -88,7 +88,7 @@ jobs:
         run: uv run scripts/catalogos/extract_matrices.py
 
       - name: Import static catalogs
-        run: uv run scripts/catalogos/import_unspsc_hierarchy.py
+        run: uv run scripts/catalogos/import_unspsc.py
 
       - name: Generate HF dataset
         run: uv run scripts/catalogos/generate_hf.py
