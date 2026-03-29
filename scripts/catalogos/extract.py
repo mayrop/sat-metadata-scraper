@@ -574,7 +574,6 @@ def parse_args(argv: Sequence[str]) -> argparse.Namespace:
         default=CATALOG_CSV,
         help=f"Path to scraped catalog CSV for section overrides (default: {CATALOG_CSV})",
     )
-    parser.add_argument("--force", action="store_true", help="Re-extract all XLS even if unchanged")
     parser.add_argument(
         "--sections", nargs="+", metavar="SECTION",
         help=(
@@ -635,14 +634,9 @@ def main(argv: Sequence[str] | None = None) -> int:
         print("No XLS files found — skipping extract.", file=sys.stderr)
         return 0
 
-    # Load existing catalog_state.csv for skip-if-unchanged and merge
+    # Load existing catalog_state.csv for merge
     existing_state = _load_catalog_state(args.state_file)
     source_section_overrides = _load_source_section_overrides(args.catalog_file)
-    stored_xls_hashes: dict[str, str] = {}
-    for (src, _cat), row in existing_state.items():
-        h = row.get("xls_hash", "")
-        if src and h and src not in stored_xls_hashes:
-            stored_xls_hashes[src] = h
 
     print(f"Found {len(xls_files)} XLS file(s):", file=sys.stderr)
     total_written = 0
@@ -655,10 +649,6 @@ def main(argv: Sequence[str] | None = None) -> int:
     for xls_path in xls_files:
         if not xls_path.exists():
             print(f"\n[{xls_path}] not downloaded (version unchanged) — skipping", file=sys.stderr)
-            continue
-        current_hash = hashlib.sha256(xls_path.read_bytes()).hexdigest()
-        if not args.force and stored_xls_hashes.get(str(xls_path)) == current_hash:
-            print(f"\n[{xls_path}] unchanged — skipping", file=sys.stderr)
             continue
         print(f"\n[{xls_path}]", file=sys.stderr)
         try:

@@ -196,7 +196,6 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--catalog-file", type=Path, default=CATALOG_CSV)
     parser.add_argument("--csv-dir", type=Path, default=CSV_DIR)
     parser.add_argument("--state-file", type=Path, default=STATE_FILE)
-    parser.add_argument("--force", action="store_true")
     args = parser.parse_args(argv)
 
     matrix_rows = discover_matrix_rows(args.catalog_file)
@@ -223,10 +222,6 @@ def main(argv: Sequence[str] | None = None) -> int:
         section = normalize_section(row.get("category", ""), row.get("slug", ""))
         folder_version = folder_version_from_local_file(source_rel)
         dest = args.csv_dir / section / folder_version / f"{catalogo}.csv"
-        if not args.force and existing_state.get(key, {}).get("xls_hash") == xls_hash and dest.exists():
-            new_state[key] = existing_state[key]
-            print(f"[{source_path}] unchanged — skipping", file=sys.stderr)
-            continue
 
         workbook, sheet = load_workbook(source_path)
         header_row = detect_header_row(workbook, sheet)
