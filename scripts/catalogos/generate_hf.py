@@ -286,13 +286,6 @@ def _build_readme(entries: list[dict], raw_entries: list[dict]) -> str:
     lines.append("| UNSPSC — Catálogo SAT PyS | [pys.sat.gob.mx/PyS/catPyS.aspx](http://pys.sat.gob.mx/PyS/catPyS.aspx) |")
     lines.append("| UNSPSC — Estándar internacional | [en.wikipedia.org/wiki/UNSPSC](https://en.wikipedia.org/wiki/UNSPSC) · [undp.org/unspsc](https://www.undp.org/unspsc) |")
     lines.append("")
-    if raw_entries:
-        lines.append("## Archivos fuente incluidos\n")
-        lines.append("Los archivos fuente descargados localmente se exportan en `raw/`.")
-        lines.append("")
-        for raw in raw_entries:
-            lines.append(f"- `{raw['path']}`")
-        lines.append("")
     lines.append("## Catálogos disponibles\n")
     # Build ordered list of unique (namespace, version) groups
     groups_seen: list[tuple[str, str]] = []
@@ -321,6 +314,24 @@ def _build_readme(entries: list[dict], raw_entries: list[dict]) -> str:
         desc_str = f" — {desc}" if desc else ""
         lines.append(f"- `{e['config_name']}`{desc_str}")
     lines.append("")
+    if raw_entries:
+        lines.append("## Archivos fuente incluidos\n")
+        lines.append("Los archivos fuente descargados localmente se exportan en `raw/`.")
+        lines.append("")
+        grouped_raw: dict[str, list[str]] = {}
+        for raw in raw_entries:
+            raw_path = Path(raw["path"])
+            folder = str(raw_path.parent)
+            grouped_raw.setdefault(folder, []).append(raw_path.name)
+        for folder in sorted(grouped_raw):
+            folder_path = Path(folder)
+            label_parts = []
+            for part in folder_path.parts[1:]:
+                label_parts.append(part.replace("-", " ").replace("_", " ").title())
+            label = " / ".join(label_parts) if label_parts else folder
+            files = ", ".join(f"`{name}`" for name in sorted(grouped_raw[folder]))
+            lines.append(f"- **{label}**: {files}")
+        lines.append("")
     return "\n".join(lines)
 
 
