@@ -232,36 +232,40 @@ def main(argv: Sequence[str] | None = None) -> int:
         folder_version = folder_version_from_local_file(source_rel)
         dest = args.csv_dir / section / folder_version / f"{catalogo}.csv"
 
-        workbook, sheet = load_workbook(source_path)
-        header_row = detect_header_row(workbook, sheet)
-        used_columns = detect_used_columns(workbook, sheet, header_row)
-        headers = build_headers(workbook, sheet, header_row, used_columns)
-        rows = extract_rows(workbook, sheet, header_row, used_columns)
-        out_rows = [r + [hashlib.sha256("|".join(r).encode()).hexdigest()] for r in rows]
-        out_headers = headers + ["row_hash"]
+        try:
+            workbook, sheet = load_workbook(source_path)
+            header_row = detect_header_row(workbook, sheet)
+            used_columns = detect_used_columns(workbook, sheet, header_row)
+            headers = build_headers(workbook, sheet, header_row, used_columns)
+            rows = extract_rows(workbook, sheet, header_row, used_columns)
+            out_rows = [r + [hashlib.sha256("|".join(r).encode()).hexdigest()] for r in rows]
+            out_headers = headers + ["row_hash"]
 
-        write_csv(dest, out_headers, out_rows)
-        written += 1
-        print(f"  → {dest}  ({len(rows)} rows)", file=sys.stderr)
+            write_csv(dest, out_headers, out_rows)
+            written += 1
+            print(f"  → {dest}  ({len(rows)} rows)", file=sys.stderr)
 
-        new_state[key] = {
-            "section": section,
-            "folder_version": folder_version,
-            "catalogo": catalogo,
-            "source_xls": str(source_path),
-            "xls_hash": xls_hash,
-            "descripcion": normalize_token(
-                format_cell(workbook, sheet, 0, 0) if sheet_nrows(sheet) else ""
-            ),
-            "sheets": getattr(sheet, "name", getattr(sheet, "title", "")),
-            "numero_columnas": str(len(out_headers)),
-            "nombres_columnas": "|".join(out_headers),
-            "file_hash": hashlib.sha256(dest.read_bytes()).hexdigest(),
-            "version": row.get("version", ""),
-            "revision": row.get("revision", ""),
-            "fecha_publicacion": row.get("last_modified", ""),
-            "file_type": "matriz",
-        }
+            new_state[key] = {
+                "section": section,
+                "folder_version": folder_version,
+                "catalogo": catalogo,
+                "source_xls": str(source_path),
+                "xls_hash": xls_hash,
+                "descripcion": normalize_token(
+                    format_cell(workbook, sheet, 0, 0) if sheet_nrows(sheet) else ""
+                ),
+                "sheets": getattr(sheet, "name", getattr(sheet, "title", "")),
+                "numero_columnas": str(len(out_headers)),
+                "nombres_columnas": "|".join(out_headers),
+                "file_hash": hashlib.sha256(dest.read_bytes()).hexdigest(),
+                "version": row.get("version", ""),
+                "revision": row.get("revision", ""),
+                "fecha_publicacion": row.get("last_modified", ""),
+                "file_type": "matriz",
+            }
+        except Exception as exc:
+            print(f"  ERROR {source_path}: {exc}", file=sys.stderr)
+            continue
 
     merged = {**existing_state, **new_state}
     fieldnames = [
