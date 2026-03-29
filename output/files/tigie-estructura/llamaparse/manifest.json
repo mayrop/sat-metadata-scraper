@@ -1,8 +1,0 @@
-{
-  "generated_at": "2026-03-26T18:03:14.890132+00:00",
-  "input_pdf": "static/LIGIE-UNIFICADA-LIGIE_20250728-20250728.pdf",
-  "result_type": "markdown",
-  "documents": 1315,
-  "output_text": "output/tigie-estructura/llamaparse/LIGIE-UNIFICADA-LIGIE_20250728-20250728.md",
-  "output_json": "output/tigie-estructura/llamaparse/LIGIE-UNIFICADA-LIGIE_20250728-20250728.documents.json"
-}
