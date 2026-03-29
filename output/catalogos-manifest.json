@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-03-28T20:34:47.922986",
+  "scraped_at": "2026-03-29T18:35:52.287244",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -248,7 +248,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129167&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos/aerolineas/version-1-0-revision-a/Satellite_1461175129167.pdf",
+              "local_file": "complementos/aerolineas/version-1-0-revision-a/aerolineas.pdf",
               "hash": "e212743a3f6e08e5e3ac6ea4a2fd25c0bf50c6fff53dcfdf40c07b1bd30cc221"
             },
             "xsd": {
@@ -262,6 +262,12 @@
               "last_modified": null,
               "local_file": "complementos/aerolineas/version-1-0-revision-a/aerolineas.xslt",
               "hash": "b197afab9535802b04d5e614a2320c10b8b67180e97f120b51d7bb60e61e028d"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {}
@@ -280,7 +286,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461173390662&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos/cfdi-registro-fiscal/version-1-0/Satellite_1461173390662.pdf",
+              "local_file": "complementos/cfdi-registro-fiscal/version-1-0/0874.AGSC.ACGSTME.PD.ComplementoCFDIRegistroFiscal1.0%2C0.pdf",
               "hash": "ca51822c1b72117b82559e7cc0dd898997d941f8231fb9c436af2924ed839bd1"
             },
             "xsd": {
@@ -294,6 +300,12 @@
               "last_modified": null,
               "local_file": "complementos/cfdi-registro-fiscal/version-1-0/cfdiregistrofiscal.xslt",
               "hash": "6f47783bfeafa3920cbb452a3adee0239efd2250c13b9d91d242930416d1dee2"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {}
@@ -326,6 +338,12 @@
               "last_modified": "2024-06-17",
               "local_file": "complementos/carta-porte/version-3-1/CartaPorte31.xslt",
               "hash": "6ef3db6a004a7b27014bf8f03b9762f337479f0694525b193eaa9e3ff058fa0f"
+            },
+            "matriz": {
+              "url": "https://ampocdevbuk01a.s3.us-east-1.amazonaws.com/Matriz_Errores_CCP_V31_15d77ee8eb.xls",
+              "last_modified": "2024-06-17",
+              "local_file": "complementos/carta-porte/version-3-1/Matriz_Errores_CCP_V31.xls",
+              "hash": "5435ed272510461ff24f22ab675a7dd86013894fdb9cb98e4ae0655b6246c5c3"
             }
           },
           "catalogos": {
@@ -367,7 +385,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129183&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos/certificado-de-destruccion/version-1-0-revision-a/Satellite_1461175129183.pdf",
+              "local_file": "complementos/certificado-de-destruccion/version-1-0-revision-a/certificadodedestruccion.pdf",
               "hash": "5a2ec436ee00f422739b897db919d455a772019196aac27c4ed8d77f777b6fdb"
             },
             "xsd": {
@@ -381,6 +399,12 @@
               "last_modified": null,
               "local_file": "complementos/certificado-de-destruccion/version-1-0-revision-a/certificadodedestruccion.xslt",
               "hash": "e4b09099c1453b47bb286a69b05e60d5a5bccaaac466a4a2aebf788601f69349"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {
@@ -390,7 +414,7 @@
               "files": [
                 {
                   "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461173390655&ssbinary=true",
-                  "local_file": "complementos/certificado-de-destruccion/version-1-0-revision-a/Satellite_1461173390655.pdf",
+                  "local_file": "complementos/certificado-de-destruccion/version-1-0-revision-a/0909.AGSC.ACGSTME.PD.Catalogo.certificado.destruccion%2C0.pdf",
                   "hash": "e753373b394d1ffabd2a898b26aa3fff55ce94765efb3206bebb301fd6b40a25"
                 }
               ]
@@ -524,6 +548,12 @@
               "last_modified": null,
               "local_file": "complementos/comercio-exterior/version-2-0/ComercioExterior20.xslt",
               "hash": "b7540d6878c8d1e14b3d7f8a8bf3889dc03b0dfb6dfbfc6d6b30e27a094b8446"
+            },
+            "matriz": {
+              "url": "https://ampocdevbuk01a.s3.us-east-1.amazonaws.com/Matriz_de_Errores_CCE_v2_0_da60ac2333.xls",
+              "last_modified": null,
+              "local_file": "complementos/comercio-exterior/version-2-0/Matriz_de_Errores_CCE_v2.xls",
+              "hash": "48d67a485fb4833e01055a17cb6cf16e76b96983bf166c0e9a2b1bd9596a139a"
             }
           },
           "catalogos": {
@@ -630,7 +660,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129241&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos/compra-venta-de-divisas/version-1-0-revision-a/Satellite_1461175129241.pdf",
+              "local_file": "complementos/compra-venta-de-divisas/version-1-0-revision-a/ComplementoDivisas1.0.pdf",
               "hash": "7e8bae411197adde42e331b9cf708a6bbb3f0f9df0cfdcaaa2a274c90004cde5"
             },
             "xsd": {
@@ -644,6 +674,12 @@
               "last_modified": null,
               "local_file": "complementos/compra-venta-de-divisas/version-1-0-revision-a/divisas.xslt",
               "hash": "64e24ea80b61f6a48ab242875e66877a49449286140187a668aa88241464640e"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {}
@@ -662,7 +698,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175199000&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos/consumo-de-combustibles/version-1-1-revision-b/Satellite_1461175199000.pdf",
+              "local_file": "complementos/consumo-de-combustibles/version-1-1-revision-b/Estand_Combustible11+28122021.pdf",
               "hash": "1ed44b43a05139b15f2b5cc822ecf2838c5c39c63e0914bade89f26d9a57b542"
             },
             "xsd": {
@@ -676,6 +712,12 @@
               "last_modified": null,
               "local_file": "complementos/consumo-de-combustibles/version-1-1-revision-b/consumodeCombustibles11.xslt",
               "hash": "f43a77f25aba6ea7ce48769a5c700d2edce78e75914fbe866eafdb816ac2a9c1"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {
@@ -685,7 +727,7 @@
               "files": [
                 {
                   "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175199126&ssbinary=true",
-                  "local_file": "complementos/consumo-de-combustibles/version-1-1-revision-b/Satellite_1461175199126.pdf",
+                  "local_file": "hf/xls/complementos/consumo-de-combustibles/1-1-b/CatCombustibles.xls",
                   "hash": "e0244f538579a590369715e29d2c041bb5ec4e673a9fec21fdb7ee56c85f614b"
                 }
               ]
@@ -717,7 +759,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129204&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos/donatarias/version-1-1-revision-a/Satellite_1461175129204.pdf",
+              "local_file": "complementos/donatarias/version-1-1-revision-a/ComplementodonativosV1.1.pdf",
               "hash": "bfa532a5e368ba2fcdfabebb2004acb86dbd55331e195504f82494de5607e350"
             },
             "xsd": {
@@ -731,6 +773,12 @@
               "last_modified": null,
               "local_file": "complementos/donatarias/version-1-1-revision-a/donat11.xslt",
               "hash": "608a65b07c5841857562026c244c81f9cf3ddd32ff1d28bebab347bb4230fee3"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {}
@@ -749,7 +797,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175198971&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos/estado-de-cuenta-de-combustibles-para-monederos-electronicos/version-1-2-revision-b/Satellite_1461175198971.pdf",
+              "local_file": "complementos/estado-de-cuenta-de-combustibles-para-monederos-electronicos/version-1-2-revision-b/Estand_Edo_Cuenta_Com12_B.pdf",
               "hash": "3210587141699381316eaaa9d7887381b7db9f88c1ba64c253adfdcbac4d509b"
             },
             "xsd": {
@@ -763,6 +811,12 @@
               "last_modified": null,
               "local_file": "complementos/estado-de-cuenta-de-combustibles-para-monederos-electronicos/version-1-2-revision-b/ecc12.xslt",
               "hash": "ad76f5a5c726df61fe82c1db5e3a189b1026fa0cd87518ea225498e24f4014fb"
+            },
+            "matriz": {
+              "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175199114&ssbinary=true",
+              "last_modified": null,
+              "local_file": "complementos/estado-de-cuenta-de-combustibles-para-monederos-electronicos/version-1-2-revision-b/Matriz_errores_ECC12+%28B%2940.xls",
+              "hash": "04746f1419cfa178324ad58a3e21ddcdab5f646eab1003a5e83f14e131e4e571"
             }
           },
           "catalogos": {
@@ -772,7 +826,7 @@
               "files": [
                 {
                   "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175199119&ssbinary=true",
-                  "local_file": "complementos/estado-de-cuenta-de-combustibles-para-monederos-electronicos/version-1-2-revision-b/Satellite_1461175199119.pdf",
+                  "local_file": "hf/xls/complementos/estado-de-cuenta-de-combustibles-para-monederos-electronicos/1-2-b/Catalogo_Combustibles.xls",
                   "hash": "8749f55bb6ede6bf6dfcb0acbfff720f44e45c9966b8d8d85f35d8fda051536c"
                 }
               ]
@@ -804,7 +858,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175198847&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos/hidrocarburos/version-1-0-revision-a-gastos/Satellite_1461175198847.pdf",
+              "local_file": "complementos/hidrocarburos/version-1-0-revision-a-gastos/Estructura+Gastos+Hidrocarburos10_A.pdf",
               "hash": "ab25295a112ff68f39b69bba386223c19db32164ff8208484881af02210027b1"
             },
             "xsd": {
@@ -818,6 +872,12 @@
               "last_modified": null,
               "local_file": "complementos/hidrocarburos/version-1-0-revision-a-gastos/GastosHidrocarburos10.xslt",
               "hash": "dc295079d9884a2afec09d63819eb874b4bede35ca8d4fe713625d0973e78a6b"
+            },
+            "matriz": {
+              "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175199024&ssbinary=true",
+              "last_modified": null,
+              "local_file": "complementos/hidrocarburos/version-1-0-revision-a-gastos/Matriz_Apoyo_A20_40_GCEH.XLS",
+              "hash": "b4f113fef7f94ed3e606ff437c7fb08b929ba8ac2f27739c5f7f13761a6a5737"
             }
           },
           "catalogos": {
@@ -827,7 +887,7 @@
               "files": [
                 {
                   "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175199059&ssbinary=true",
-                  "local_file": "complementos/hidrocarburos/version-1-0-revision-a-gastos/Satellite_1461175199059.pdf",
+                  "local_file": "hf/xls/complementos/hidrocarburos/1-0-a-gastos/CatGastosHidrocarburos.xls",
                   "hash": "1a6d73edddb66d9e7006a465187c6fe0f5b542dd712dbe985199f840355b269e"
                 }
               ]
@@ -853,7 +913,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175198826&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos/hidrocarburos/version-1-0-revision-a-ingresos/Satellite_1461175198826.pdf",
+              "local_file": "complementos/hidrocarburos/version-1-0-revision-a-ingresos/Estructura+Ingresos+Hidrocarburos10_A.pdf",
               "hash": "d5d62ebb449f858da1fd95dc7a3232e99562dd6470b1bfbc58c5843be9219c6d"
             },
             "xsd": {
@@ -867,6 +927,12 @@
               "last_modified": null,
               "local_file": "complementos/hidrocarburos/version-1-0-revision-a-ingresos/IngresosHidrocarburos.xslt",
               "hash": "8dc9fb24cb47162da3d6fb831a1aa57a12571986eb123adfad2471370d56c10f"
+            },
+            "matriz": {
+              "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175199079&ssbinary=true",
+              "last_modified": null,
+              "local_file": "complementos/hidrocarburos/version-1-0-revision-a-ingresos/Matriz_Apoyo_A20_40_IEEH.XLS",
+              "hash": "894ade131feceb03971c5ae7a328da61becdb196a7ca20d2aad0760e6596bf4f"
             }
           },
           "catalogos": {
@@ -876,7 +942,7 @@
               "files": [
                 {
                   "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175199052&ssbinary=true",
-                  "local_file": "complementos/hidrocarburos/version-1-0-revision-a-ingresos/Satellite_1461175199052.pdf",
+                  "local_file": "hf/xls/complementos/hidrocarburos/1-0-a-ingresos/CatIngresosHidrocarburos.xls",
                   "hash": "cf859ce8906eb7bcfaacf305618688b915f6b2fdd699102b618ca0d6ffe85bcf"
                 }
               ]
@@ -909,7 +975,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129283&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos/ine/version-1-1-revision-b/Satellite_1461175129283.pdf",
+              "local_file": "complementos/ine/version-1-1-revision-b/Complemento.INE.1.1.Actualizado.pdf",
               "hash": "67591021a7d963808f77b7c6fd48b4c3840440bf7efac948c4c9667ff87a44cc"
             },
             "xsd": {
@@ -923,6 +989,12 @@
               "last_modified": null,
               "local_file": "complementos/ine/version-1-1-revision-b/ine11.xslt",
               "hash": "4098bf77bfee89e870604b7bc96ba4bdb19df78341f5e0cbffdd094eb916bcad"
+            },
+            "matriz": {
+              "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175745349&ssbinary=true",
+              "last_modified": null,
+              "local_file": "complementos/ine/version-1-1-revision-b/MatrizdeerroresINE11.xls",
+              "hash": "e89e6c7651ce378d70b4030ae961999299c4d851c77125fe85847fbeed451901"
             }
           },
           "catalogos": {
@@ -932,7 +1004,7 @@
               "files": [
                 {
                   "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461173390774&ssbinary=true",
-                  "local_file": "complementos/ine/version-1-1-revision-b/Satellite_1461173390774.pdf",
+                  "local_file": "hf/xls/complementos/ine/1-1-b/Catalogos%2C.xls",
                   "hash": "7e79cb3ae4994302d8b24fe4e7c6ee4be6859e9b6cddd3f40521c8bfffb5dde4"
                 }
               ]
@@ -953,7 +1025,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129248&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos/leyendas-fiscales/version-1-0-revision-a/Satellite_1461175129248.pdf",
+              "local_file": "complementos/leyendas-fiscales/version-1-0-revision-a/leyendasFisc.pdf",
               "hash": "0358a74afda661e876978522b66385ccfdef61370d7e326b07a39d599be7c0c6"
             },
             "xsd": {
@@ -967,6 +1039,12 @@
               "last_modified": null,
               "local_file": "complementos/leyendas-fiscales/version-1-0-revision-a/leyendasFisc.xslt",
               "hash": "1588e059a3fdfc29bcca4de27f99dcf52abbaa7d815f428f2353a3105f52328c"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {}
@@ -985,7 +1063,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129269&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos/notarios-publicos/version-1-0-revision-a/Satellite_1461175129269.pdf",
+              "local_file": "complementos/notarios-publicos/version-1-0-revision-a/notariospublicos.pdf",
               "hash": "c9c8f49da682e2556cf72c2a1d1d5f110818e83e610a2a8bb55a63c62e2d5c56"
             },
             "xsd": {
@@ -999,6 +1077,12 @@
               "last_modified": null,
               "local_file": "complementos/notarios-publicos/version-1-0-revision-a/notariospublicos.xslt",
               "hash": "7d2609b4b2977ace634d022e83f49bb20534bf137d7bdba014a40ee4b85e1d21"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {
@@ -1008,7 +1092,7 @@
               "files": [
                 {
                   "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461173570242&ssbinary=true",
-                  "local_file": "complementos/notarios-publicos/version-1-0-revision-a/Satellite_1461173570242.pdf",
+                  "local_file": "complementos/notarios-publicos/version-1-0-revision-a/CatalogoComplementoNotarios.pdf",
                   "hash": "e4ab20d61e80bdad0f5ab6b84c3cf975a6e5154259560b11783766721aa5244c"
                 }
               ]
@@ -1029,7 +1113,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129232&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos/obras-de-arte-plasticas-y-antig-edades/version-1-0-revision-a/Satellite_1461175129232.pdf",
+              "local_file": "complementos/obras-de-arte-plasticas-y-antig-edades/version-1-0-revision-a/obrasarteantiguedades.pdf",
               "hash": "ac35e0834176149414d5a35859576ec9106567ef804dcbe3754b11f10c48fdbd"
             },
             "xsd": {
@@ -1043,6 +1127,12 @@
               "last_modified": null,
               "local_file": "complementos/obras-de-arte-plasticas-y-antig-edades/version-1-0-revision-a/obrasarteantiguedades.xslt",
               "hash": "0823ab4e0ad86ffc6b674680981f4471a60c8ab72431b8dedacd08b1e61ba8e8"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {
@@ -1052,7 +1142,7 @@
               "files": [
                 {
                   "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461173379376&ssbinary=true",
-                  "local_file": "complementos/obras-de-arte-plasticas-y-antig-edades/version-1-0-revision-a/Satellite_1461173379376.pdf",
+                  "local_file": "complementos/obras-de-arte-plasticas-y-antig-edades/version-1-0-revision-a/Catalogos_complemento_obras_arte.pdf",
                   "hash": "a2c6d7b193eeb2c6373baae6f170f301e1620ea123435cc1df4a9cc66604bed6"
                 }
               ]
@@ -1073,7 +1163,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129262&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos/otros-derechos-e-impuestos/version-1-0-revision-a/Satellite_1461175129262.pdf",
+              "local_file": "complementos/otros-derechos-e-impuestos/version-1-0-revision-a/EstandarImpuestolocal.pdf",
               "hash": "1fbc23df84f7688eb7d69676e06856ac9c12ed501fe6c670abedb51afaa964d6"
             },
             "xsd": {
@@ -1087,6 +1177,12 @@
               "last_modified": null,
               "local_file": "complementos/otros-derechos-e-impuestos/version-1-0-revision-a/implocal.xslt",
               "hash": "f99e91c983b7a43b72dc41129afca7342a30e6e45de71b34f7d4e5b6154439d4"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {}
@@ -1105,7 +1201,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129218&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos/pago-en-especie/version-1-0-revision-a/Satellite_1461175129218.pdf",
+              "local_file": "complementos/pago-en-especie/version-1-0-revision-a/pagoenespecie.pdf",
               "hash": "d83a3f05ef65d9377180bcd027a448f5b48557a78eb15adfe3099dcbe2dc78d3"
             },
             "xsd": {
@@ -1119,6 +1215,12 @@
               "last_modified": null,
               "local_file": "complementos/pago-en-especie/version-1-0-revision-a/pagoenespecie.xslt",
               "hash": "685854e25f091ebcb95a4865a7df80630949b2f400e47676ff8dfa2f3019a404"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {}
@@ -1137,7 +1239,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129276&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos/persona-fisica-integrante-de-coordinado/version-1-0-revision-a/Satellite_1461175129276.pdf",
+              "local_file": "complementos/persona-fisica-integrante-de-coordinado/version-1-0-revision-a/pfic.pdf",
               "hash": "4de3d61db007f09904d01e51add7d3b63986d7affadebde417ec04f52d5070bb"
             },
             "xsd": {
@@ -1151,6 +1253,12 @@
               "last_modified": null,
               "local_file": "complementos/persona-fisica-integrante-de-coordinado/version-1-0-revision-a/pfic.xslt",
               "hash": "5f18f835cf6007e92b156ad4cc65ab9167becdcfb1742f6cd655fd2f173e8b1b"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {}
@@ -1183,6 +1291,12 @@
               "last_modified": "2021-12-22",
               "local_file": "complementos/recepcion-de-pagos/files/Pagos20.xslt",
               "hash": "9277a0a5049fbd56e3123e6489ffb16f6ccfbca30943aa7dbd0f969f3b70bd0f"
+            },
+            "matriz": {
+              "url": "https://ampocdevbuk01a.s3.us-east-1.amazonaws.com/Matriz_De_Errores_CRP_V20_Rev_B_b6fdbe7f31.xls",
+              "last_modified": "2024-01-16",
+              "local_file": "complementos/recepcion-de-pagos/files/Matriz_De_Errores_CRP_V20_Rev_B.xls",
+              "hash": "84fef6323770dadd89f4f6fa74fbafaa06a4692d577604363938b31e0d6e4268"
             }
           },
           "catalogos": {
@@ -1238,6 +1352,12 @@
               "last_modified": "2016-11-01",
               "local_file": "complementos/recibo-de-pago-de-nomina/version-1-2-revision-e/nomina12.xslt",
               "hash": "4130bdb7f62d0987caa5af754ca0704c9e2693e3b454adfff02ba6146d673a08"
+            },
+            "matriz": {
+              "url": "https://ampocdevbuk01a.s3.us-east-1.amazonaws.com/Matriz_Errores_Nomina_v12_Rev_E_de80469d51.xls",
+              "last_modified": "2025-12-02",
+              "local_file": "complementos/recibo-de-pago-de-nomina/version-1-2-revision-e/Matriz_Errores_Nomina_v12_Rev_E.xls",
+              "hash": "285a18b3c0c4cc1c895252ecc1d3fcf6aa18f6e83b6f4af0c6e0968d84a6a53e"
             }
           },
           "catalogos": {
@@ -1279,7 +1399,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129211&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos/renovacion-y-sustitucion-de-vehiculos/version-1-0-revision-a/Satellite_1461175129211.pdf",
+              "local_file": "complementos/renovacion-y-sustitucion-de-vehiculos/version-1-0-revision-a/renovacionysustitucionvehiculos.pdf",
               "hash": "36460a2a24cbca3ade1dd33a0d0ceb1d01d0465bc4ca06f8543d62bffe9d5c46"
             },
             "xsd": {
@@ -1293,6 +1413,12 @@
               "last_modified": null,
               "local_file": "complementos/renovacion-y-sustitucion-de-vehiculos/version-1-0-revision-a/renovacionysustitucionvehiculos.xslt",
               "hash": "1cda351ecbe8c4ddb4c6bb6508e7ea9c36b11627317870f04939765274979aba"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {
@@ -1302,7 +1428,7 @@
               "files": [
                 {
                   "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461173381806&ssbinary=true",
-                  "local_file": "complementos/renovacion-y-sustitucion-de-vehiculos/version-1-0-revision-a/Satellite_1461173381806.pdf",
+                  "local_file": "complementos/renovacion-y-sustitucion-de-vehiculos/version-1-0-revision-a/Catalogo_ComplementoRenovacion_y_Sustitucion%2C0.pdf",
                   "hash": "5ba2088ee4856b6699ffbcf3fc97da13343f54aa50c2dd9d71d2b1d6a2b815c8"
                 }
               ]
@@ -1323,7 +1449,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129197&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos/sector-de-ventas-al-detalle/version-1-3-1-revision-a/Satellite_1461175129197.pdf",
+              "local_file": "complementos/sector-de-ventas-al-detalle/version-1-3-1-revision-a/Complementoventasadetalle.pdf",
               "hash": "062e1fb1edfdd3d39337c3b2a7983aa9bd82c572270ceaaa2806ca7bd90020d1"
             },
             "xsd": {
@@ -1337,6 +1463,12 @@
               "last_modified": null,
               "local_file": "complementos/sector-de-ventas-al-detalle/version-1-3-1-revision-a/detallista.xslt",
               "hash": "e09906ef78afc077aa3318ca87bf2469e8570f97299d2f0237a2bc81da1e5e12"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {}
@@ -1355,7 +1487,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129225&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos/servicios-parciales-de-construccion/version-1-0-revision-a/Satellite_1461175129225.pdf",
+              "local_file": "complementos/servicios-parciales-de-construccion/version-1-0-revision-a/ServiciosParcialesdeConstruccion.pdf",
               "hash": "3c9f5ca9045205b4cde282dddd981be55c024a7576e03462c6202422989c7887"
             },
             "xsd": {
@@ -1369,6 +1501,12 @@
               "last_modified": null,
               "local_file": "complementos/servicios-parciales-de-construccion/version-1-0-revision-a/servicioparcialconstruccion.xslt",
               "hash": "692f0470dd0fd57e4c6ea87012296b78d67c31b00c3120eaba446d29219b29e4"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {
@@ -1378,7 +1516,7 @@
               "files": [
                 {
                   "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461173384430&ssbinary=true",
-                  "local_file": "complementos/servicios-parciales-de-construccion/version-1-0-revision-a/Satellite_1461173384430.pdf",
+                  "local_file": "complementos/servicios-parciales-de-construccion/version-1-0-revision-a/0907.AGSC.ACGSTME.PD.CatalogoEntidadesFederativas%2C0.pdf",
                   "hash": "95d0164b4205fe6d3349ec29e7a1793062d2f60402f3b36e166a256a93109e4e"
                 }
               ]
@@ -1399,7 +1537,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461176205015&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos/timbre-fiscal-digital/version-1-1/Satellite_1461176205015.pdf",
+              "local_file": "complementos/timbre-fiscal-digital/version-1-1/Anexo20_2022.pdf",
               "hash": "b3b6d63a97c859a31d7aacf0fe17b2d58207280df6f06caff3ceaf79954cf4bd"
             },
             "xsd": {
@@ -1413,6 +1551,12 @@
               "last_modified": null,
               "local_file": "complementos/timbre-fiscal-digital/version-1-1/cadenaoriginal_TFD_1_1.xslt",
               "hash": "d7807e936d5a768cec5dca7a35a8b6dd515287083ca9dd7424c1b722c4b0d5a6"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {}
@@ -1431,7 +1575,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129255&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos/turista-pasajero-extranjero/version-1-0-revision-a/Satellite_1461175129255.pdf",
+              "local_file": "complementos/turista-pasajero-extranjero/version-1-0-revision-a/ComplementoTuristaPasajeroExtranjero1.0.pdf",
               "hash": "d8d0c6dedd74d445362cd8dcb138b0919baf3d55c362cf713581019ad69501ec"
             },
             "xsd": {
@@ -1445,6 +1589,12 @@
               "last_modified": null,
               "local_file": "complementos/turista-pasajero-extranjero/version-1-0-revision-a/TuristaPasajeroExtranjero.xslt",
               "hash": "5a65dd5bd8d340fdc547b92ff2797199a97674bf2c78feacb69186c91338a68b"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {}
@@ -1463,7 +1613,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129160&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos/vales-de-despensa/version-1-0-revision-a/Satellite_1461175129160.pdf",
+              "local_file": "complementos/vales-de-despensa/version-1-0-revision-a/valesdespensa.pdf",
               "hash": "234217d49fd1bfdeb5fb75e9bda4913a51100d1518c3691b12861310d70f0f4f"
             },
             "xsd": {
@@ -1477,6 +1627,12 @@
               "last_modified": null,
               "local_file": "complementos/vales-de-despensa/version-1-0-revision-a/valesdedespensa.xslt",
               "hash": "dff69b6c188c1332b6908936767050121571952a09b99f881c39e41773392b92"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {}
@@ -1495,7 +1651,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129174&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos/vehiculos-usados/version-1-0-revision-est/Satellite_1461175129174.pdf",
+              "local_file": "complementos/vehiculos-usados/version-1-0-revision-est/Vehiculousado.pdf",
               "hash": "9e9c298781ffd5e801f080d62777e2f6aaec911279283093d8dc534ae8294e9d"
             },
             "xsd": {
@@ -1509,6 +1665,12 @@
               "last_modified": null,
               "local_file": "complementos/vehiculos-usados/version-1-0-revision-est/vehiculousado.xslt",
               "hash": "683b2a66cfd07d67f3c19c48499692e648079d663475f2f04f14d37131a29235"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {}
@@ -1541,6 +1703,12 @@
               "last_modified": null,
               "local_file": "complementos-concepto/hidrocarburos-y-petroliferos/version-1-0/hidrocarburospetroliferos_3b1a7208b6.xslt",
               "hash": "b212b9df8119de4278a24d5258b27ac295746b7476cc6aef969a3ad1d6c55a4b"
+            },
+            "matriz": {
+              "url": "https://ampocdevbuk01a.s3.us-east-1.amazonaws.com/Matriz_Errores_CC_HYP_10_f691ab8ddd.xlsx",
+              "last_modified": null,
+              "local_file": "complementos-concepto/hidrocarburos-y-petroliferos/version-1-0/Matriz_Errores_CC_HYP.xlsx",
+              "hash": "d64444030dbc013fc224675468ac156d49cdc9d4c139e5e111d12f5a620b45cd"
             }
           },
           "catalogos": {
@@ -1582,7 +1750,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129153&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos-concepto/instituciones-educativas-privadas/version-1-0-revision-a/Satellite_1461175129153.pdf",
+              "local_file": "complementos-concepto/instituciones-educativas-privadas/version-1-0-revision-a/iedu.pdf",
               "hash": "614072c5ed01f5665697d410250450dafd5a1d38a609eb9c3956f15b47658719"
             },
             "xsd": {
@@ -1596,6 +1764,12 @@
               "last_modified": null,
               "local_file": "complementos-concepto/instituciones-educativas-privadas/version-1-0-revision-a/iedu.xslt",
               "hash": "ef5e7e6cc0666cfc67d0c41ad865c2a044947289013ca2add0f89dea7fde667f"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {}
@@ -1614,7 +1788,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129190&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos-concepto/venta-de-vehiculos/version-1-1-revision-a/Satellite_1461175129190.pdf",
+              "local_file": "complementos-concepto/venta-de-vehiculos/version-1-1-revision-a/ventavehiculos11.pdf",
               "hash": "1e537b3aece27dc255d20a14ab9a290ac7aa641305a5bccd138c97e91f861685"
             },
             "xsd": {
@@ -1628,6 +1802,12 @@
               "last_modified": null,
               "local_file": "complementos-concepto/venta-de-vehiculos/version-1-1-revision-a/ventavehiculos11.xslt",
               "hash": "77a103915ea66d6ade5a23e5db7e3c66467abf744acef5f9ac8cafdc16362c7d"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {}
@@ -1646,7 +1826,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175123389&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos-retenciones/arrendamiento-en-fideicomiso/version-1-0-revision-a/Satellite_1461175123389.pdf",
+              "local_file": "complementos-retenciones/arrendamiento-en-fideicomiso/version-1-0-revision-a/ArrendamientoenFideicomiso_rA.pdf",
               "hash": "39be57203f7d5258b00578261c6965307a2b8f40cfcbbc493a9af39d0bdf2719"
             },
             "xsd": {
@@ -1660,6 +1840,12 @@
               "last_modified": null,
               "local_file": "complementos-retenciones/arrendamiento-en-fideicomiso/version-1-0-revision-a/arrendamientoenfideicomiso.xslt",
               "hash": "ffc67e933bb4542574347979330f37f1b02573751e7e6a397d138a8444684498"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {}
@@ -1678,7 +1864,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175123422&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos-retenciones/dividendos/version-1-0-revision-a/Satellite_1461175123422.pdf",
+              "local_file": "complementos-retenciones/dividendos/version-1-0-revision-a/Dividendos_rA.pdf",
               "hash": "a3230eeaddc5674fb0cbb33176b68c25b7150d222c493fbbf3412c92cac42f6f"
             },
             "xsd": {
@@ -1692,6 +1878,12 @@
               "last_modified": null,
               "local_file": "complementos-retenciones/dividendos/version-1-0-revision-a/dividendos.xslt",
               "hash": "644db84efb02c5775afb51a4a49e6e869ccc4c69ac50bdd1981ab456c9121fab"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {}
@@ -1710,7 +1902,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175123436&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos-retenciones/enajenacion-de-acciones/version-1-0-revision-a/Satellite_1461175123436.pdf",
+              "local_file": "complementos-retenciones/enajenacion-de-acciones/version-1-0-revision-a/EnajenaciondeAcciones.pdf",
               "hash": "211d2311d70da039a2d284b290e78a7fd49db867b5a4b9ea91fb76575cb37bd7"
             },
             "xsd": {
@@ -1724,6 +1916,12 @@
               "last_modified": null,
               "local_file": "complementos-retenciones/enajenacion-de-acciones/version-1-0-revision-a/enajenaciondeacciones.xslt",
               "hash": "df6b302ac7a47289c9ca1c5093f3d156d596286d9449f0cb673d16fa2f4e4df9"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {}
@@ -1742,7 +1940,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175123514&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos-retenciones/fideicomisos-no-empresariales/version-1-0-revision-a/Satellite_1461175123514.pdf",
+              "local_file": "complementos-retenciones/fideicomisos-no-empresariales/version-1-0-revision-a/Fideicnoempresarial_rA.pdf",
               "hash": "764e40b0e5bfee6337bc852632cdc61e72facc0585966beeed27efdb0a9e34ee"
             },
             "xsd": {
@@ -1756,6 +1954,12 @@
               "last_modified": null,
               "local_file": "complementos-retenciones/fideicomisos-no-empresariales/version-1-0-revision-a/fideicomisonoempresarial.xslt",
               "hash": "656d03facc2c0981b9644706d4bacf0a01cc1f13c2d2b1551091270c08710be3"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {}
@@ -1774,7 +1978,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175123450&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos-retenciones/intereses/version-1-0-revision-a/Satellite_1461175123450.pdf",
+              "local_file": "complementos-retenciones/intereses/version-1-0-revision-a/Intereses_rA.pdf",
               "hash": "829c39f721a76976f58bd880f8050843b2f9d81cc63973f6b7947b1321ead12f"
             },
             "xsd": {
@@ -1788,6 +1992,12 @@
               "last_modified": null,
               "local_file": "complementos-retenciones/intereses/version-1-0-revision-a/intereses.xslt",
               "hash": "1e7e4da0b66b63e55681658be203a766038bd4133479b410809f6408f7adc6e3"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {}
@@ -1806,7 +2016,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175123406&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos-retenciones/intereses-hipotecarios/version-1-0-revision-a/Satellite_1461175123406.pdf",
+              "local_file": "complementos-retenciones/intereses-hipotecarios/version-1-0-revision-a/Intereseshipotecarios_rA.pdf",
               "hash": "b0837f8ffc7f2b1edff7c1cafba449ba45cdf78aa8abe68f3e93b4605d4d8b39"
             },
             "xsd": {
@@ -1820,6 +2030,12 @@
               "last_modified": null,
               "local_file": "complementos-retenciones/intereses-hipotecarios/version-1-0-revision-a/intereseshipotecarios.xslt",
               "hash": "edb6860e7859c374d1a917c2cc3ebf637d6e78a9131aaa78c73219423b541ad4"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {}
@@ -1838,7 +2054,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175123544&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos-retenciones/operaciones-con-derivados/version-1-0-revision-a/Satellite_1461175123544.pdf",
+              "local_file": "complementos-retenciones/operaciones-con-derivados/version-1-0-revision-a/OperacionesDerivados_rA.pdf",
               "hash": "060c997ca9713cd0039f4ca60e372bfb52baf3acba437755df1256036fa17324"
             },
             "xsd": {
@@ -1852,6 +2068,12 @@
               "last_modified": null,
               "local_file": "complementos-retenciones/operaciones-con-derivados/version-1-0-revision-a/operacionesconderivados.xslt",
               "hash": "73b42b6d44fa95051b0ef8cea776a6325a819ed79fdf07be64eb35c2e4ab8a13"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {}
@@ -1870,7 +2092,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461176328670&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos-retenciones/pagos-a-extranjeros/version-1-0-revision-b/Satellite_1461176328670.pdf",
+              "local_file": "complementos-retenciones/pagos-a-extranjeros/version-1-0-revision-b/pagosaextranjeros.pdf",
               "hash": "001c7b2e7181614ae6aac7b5ee737f04c6c5b1d4efa9ac1445af3a68249e9951"
             },
             "xsd": {
@@ -1884,6 +2106,12 @@
               "last_modified": null,
               "local_file": "complementos-retenciones/pagos-a-extranjeros/version-1-0-revision-b/pagosaextranjeros.xslt",
               "hash": "7f859ddaa3efbeba4165f89906f89051b3c14cb21e477b59bc4ae27cbe530383"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {}
@@ -1902,7 +2130,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175123529&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos-retenciones/planes-de-retiro/version-1-1-revision-b/Satellite_1461175123529.pdf",
+              "local_file": "complementos-retenciones/planes-de-retiro/version-1-1-revision-b/CompPlanesRetiro1.1_rBdocx.pdf",
               "hash": "3c28820e166a851a56307b8e69e9a83c5849d8eabb974aa364e8c413423329f3"
             },
             "xsd": {
@@ -1916,6 +2144,12 @@
               "last_modified": null,
               "local_file": "complementos-retenciones/planes-de-retiro/version-1-1-revision-b/planesderetiro11.xslt",
               "hash": "46f91ec9be6822642f259fd0e7f1ced75174c1de57a59725fbf54f592a0ed661"
+            },
+            "matriz": {
+              "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461173445025&ssbinary=true",
+              "last_modified": null,
+              "local_file": "complementos-retenciones/planes-de-retiro/version-1-1-revision-b/Matriz_Apoyo_PlanesdeRetiro11.XLS",
+              "hash": "12691fc4c98488e31e1713f6e92cd501b88a9572458aa37268fa1788638b927b"
             }
           },
           "catalogos": {
@@ -1925,7 +2159,7 @@
               "files": [
                 {
                   "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461173445012&ssbinary=true",
-                  "local_file": "complementos-retenciones/planes-de-retiro/version-1-1-revision-b/Satellite_1461173445012.pdf",
+                  "local_file": "hf/xls/complementos/planes-de-retiro/1-1-b/CatPlanesderetiro.xls",
                   "hash": "43fdc0cdd963ed613594ad8828ba326ec33a110c5169ff3807d85a7136d8e793"
                 }
               ]
@@ -1946,7 +2180,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175123499&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos-retenciones/premios/version-1-0-revision-a/Satellite_1461175123499.pdf",
+              "local_file": "complementos-retenciones/premios/version-1-0-revision-a/Premios_rA.pdf",
               "hash": "d8fd3a68be24187c7157ee60e6965bd36ae52dd3bdd07519418e2c33da998920"
             },
             "xsd": {
@@ -1960,6 +2194,12 @@
               "last_modified": null,
               "local_file": "complementos-retenciones/premios/version-1-0-revision-a/premios.xslt",
               "hash": "a005c62b350be601bd57cec1a15817453ba5e3c423a86afe67326b965d0c3e06"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {}
@@ -1978,7 +2218,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175123561&ssbinary=true",
               "last_modified": null,
-              "local_file": "complementos-retenciones/sector-financiero/version-1-0-revision-a/Satellite_1461175123561.pdf",
+              "local_file": "complementos-retenciones/sector-financiero/version-1-0-revision-a/SectorFinanciero_rA.pdf",
               "hash": "8ec44bf4018deb747a5eaa50818ae526a145286656be71ec6f7e76b50098fdc9"
             },
             "xsd": {
@@ -1992,6 +2232,12 @@
               "last_modified": null,
               "local_file": "complementos-retenciones/sector-financiero/version-1-0-revision-a/sectorfinanciero.xslt",
               "hash": "73436ce52fcedf4af1f6d180c6c6490814a96956ad4b574d59e027ad6c241add"
+            },
+            "matriz": {
+              "url": null,
+              "last_modified": null,
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {}
@@ -2010,7 +2256,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175172001&ssbinary=true",
               "last_modified": "2022-02-18",
-              "local_file": "complementos-retenciones/servicios-de-plataformas-tecnologicas/version-1-0-revision-e/Satellite_1461175172001.pdf",
+              "local_file": "complementos-retenciones/servicios-de-plataformas-tecnologicas/version-1-0-revision-e/20220218+Complemento+Servicios+Plataformas+Tecnol%C3%B3gicas+v10rC+.pdf",
               "hash": "adf7330d553c4fc2070ca756496b594323f4991b7c065e005ebdaf8813d6bd48"
             },
             "xsd": {
@@ -2024,6 +2270,12 @@
               "last_modified": null,
               "local_file": "complementos-retenciones/servicios-de-plataformas-tecnologicas/version-1-0-revision-e/ServiciosPlataformasTecnologicas10.xslt",
               "hash": "1dbf30a2427c3cfe23cf437a9791906479471bf1830c9151d70354690fb73034"
+            },
+            "matriz": {
+              "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175172037&ssbinary=true",
+              "last_modified": null,
+              "local_file": "complementos-retenciones/servicios-de-plataformas-tecnologicas/version-1-0-revision-e/Matriz_errores_Servicios_de_Plataformas_Tecnologicas_v10rC+.xlsx",
+              "hash": "d39e4b42b3fe7655ded05fa526700e2b4eb12117c60ad68c0282739715d548b3"
             }
           },
           "catalogos": {
@@ -2033,7 +2285,7 @@
               "files": [
                 {
                   "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461176407705&ssbinary=true \n ",
-                  "local_file": "complementos-retenciones/servicios-de-plataformas-tecnologicas/version-1-0-revision-e/Satellite_1461176407705.pdf",
+                  "local_file": "hf/xls/complementos/servicios-de-plataformas-tecnologicas/1-0-e/09012025_cat_PlataformasTecnologicas.xls",
                   "hash": "a69f2a2d08cffb1e341d27a00cebd89d4d501ed227df342c68a46c378a3187f9"
                 }
               ]
