@@ -234,6 +234,30 @@ def _load_catalog_index(catalog_csv: Path) -> dict[str, dict[str, str]]:
     return result
 
 
+def _build_source_path_override_map(state_rows: list[dict]) -> dict[str, Path]:
+    """Map local source file paths to their normalized raw export location.
+
+    This lets raw source exports follow authoritative section/folder_version
+    values from state files instead of inheriting legacy filesystem branches
+    like hf/xls/complementos/... when the logical section is now
+    complementos-concepto/...
+    """
+    mapping: dict[str, Path] = {}
+    for row in state_rows:
+        source_xls = row.get("source_xls", "")
+        section = row.get("section", "").strip("/")
+        folder_version = row.get("folder_version", "").strip("/")
+        if not source_xls or not section:
+            continue
+        filename = Path(source_xls).name
+        target = Path(section)
+        if folder_version:
+            target /= folder_version
+        target /= filename
+        mapping[source_xls] = target
+    return mapping
+
+
 # ── README generation ──────────────────────────────────────────────────────────
 
 
@@ -351,6 +375,7 @@ def generate(
 ) -> int:
     state_rows = _load_state_rows(state_files)
     catalog_index = _load_catalog_index(catalog_csv or CATALOG_CSV)
+    source_path_overrides = _build_source_path_override_map(state_rows)
     if not state_rows:
         joined = ", ".join(str(p) for p in state_files)
         print(f"No catalog state found at {joined}. Run scripts/catalogos/extract.py first.", file=sys.stderr)
@@ -471,7 +496,8 @@ def generate(
             rel = src.relative_to(xls_dir)
             if not _should_include_raw_file(rel):
                 continue
-            raw_rel = Path("raw") / rel
+            override_rel = source_path_overrides.get(str(src))
+            raw_rel = Path("raw") / (override_rel or rel)
             dest = output_dir / raw_rel
             dest.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(src, dest)
