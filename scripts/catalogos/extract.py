@@ -109,6 +109,23 @@ def first_non_empty(strings: Sequence[str]) -> str:
     return ""
 
 
+def override_folder_version(section: str, folder_version: str, source_xls: str) -> str:
+    source_norm = source_xls.replace("\\", "/").lower()
+    if section == "complementos/recepcion-de-pagos" and source_norm.endswith("/cat_pagos.xls"):
+        return "2-0"
+    return folder_version
+
+
+def apply_row_overrides(section: str, row: Dict[str, str]) -> Dict[str, str]:
+    source_norm = row.get("source_xls", "").replace("\\", "/").lower()
+    if section == "complementos/recepcion-de-pagos" and source_norm.endswith("/cat_pagos.xls"):
+        updated = dict(row)
+        updated["version"] = "2"
+        updated["revision"] = "0"
+        return updated
+    return row
+
+
 # ── XLS parsing ────────────────────────────────────────────────────────────────
 
 
@@ -659,6 +676,16 @@ def main(argv: Sequence[str] | None = None) -> int:
                 rel_parent = xls_path.parent.relative_to(args.xls_dir)
         except ValueError:
             rel_parent = xls_path.parent
+        rel_parts = rel_parent.parts
+        rel_folder_version = rel_parts[-1] if rel_parts else ""
+        rel_section = "/".join(rel_parts[:-1]) if len(rel_parts) > 1 else str(rel_parent)
+        effective_rel_folder_version = override_folder_version(
+            rel_section,
+            rel_folder_version,
+            str(xls_path),
+        )
+        if effective_rel_folder_version != rel_folder_version:
+            rel_parent = Path(rel_section) / effective_rel_folder_version
         output_dir = args.csv_dir / rel_parent
         try:
             written, meta_rows = extract_workbook(xls_path, output_dir, args.header_style)
@@ -679,7 +706,13 @@ def main(argv: Sequence[str] | None = None) -> int:
         folder_version = parts[-1] if parts else ""
         section = "/".join(parts[:-1]) if len(parts) > 1 else str(rel)
         for row in meta_rows:
-            entry = {"section": section, "folder_version": folder_version, **row}
+            row = apply_row_overrides(section, row)
+            effective_folder_version = override_folder_version(
+                section,
+                folder_version,
+                row.get("source_xls", ""),
+            )
+            entry = {"section": section, "folder_version": effective_folder_version, **row}
             key = (entry.get("source_xls", ""), entry.get("catalogo", ""))
             new_state[key] = entry
 

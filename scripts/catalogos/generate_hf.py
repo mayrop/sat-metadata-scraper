@@ -148,6 +148,9 @@ def _normalize_output_files_rel(path: Path) -> Path:
     for idx, part in enumerate(parts):
         if part.startswith("version-"):
             parts[idx] = part[len("version-") :]
+        parts[idx] = parts[idx].replace("-revision-", "-")
+        if parts[idx].startswith("revision-"):
+            parts[idx] = parts[idx][len("revision-") :]
     return Path(*parts)
 
 
