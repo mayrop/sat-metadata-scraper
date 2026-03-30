@@ -160,10 +160,18 @@ def normalize_section(category: str, slug: str) -> str:
     return "/".join(part for part in [slugify(category), slug] if part)
 
 
+def normalize_folder_version(folder_version: str) -> str:
+    value = folder_version or "files"
+    value = value.replace("-revision-", "-")
+    if value.startswith("revision-"):
+        value = value[len("revision-") :]
+    return value
+
+
 def folder_version_from_local_file(local_file: str) -> str:
     for part in Path(local_file).parts:
         if part.startswith("version-"):
-            return part[len("version-") :]
+            return normalize_folder_version(part[len("version-") :])
     return "files"
 
 
@@ -193,11 +201,15 @@ def load_state(path: Path) -> dict[str, dict[str, str]]:
     if not path.exists():
         return {}
     with path.open(newline="", encoding="utf-8") as handle:
-        return {
-            row.get("source_xls", ""): dict(row)
-            for row in csv.DictReader(handle)
-            if row.get("source_xls", "")
-        }
+        rows: dict[str, dict[str, str]] = {}
+        for row in csv.DictReader(handle):
+            source_xls = row.get("source_xls", "")
+            if not source_xls:
+                continue
+            updated = dict(row)
+            updated["folder_version"] = normalize_folder_version(updated.get("folder_version", ""))
+            rows[source_xls] = updated
+        return rows
 
 
 def main(argv: Sequence[str] | None = None) -> int:
