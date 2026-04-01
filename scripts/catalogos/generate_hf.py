@@ -3,7 +3,7 @@
 
 Uses catalog_state.csv as the authoritative catalog list so that the README
 and metadata always reflect every known catalog — even when local hf/csv/ or
-hf/xls/ source files are absent (they live on HF from a prior upload).
+hf/raw/catalogos/ source files are absent (they live on HF from a prior upload).
 
 For each catalog in the state, copies the local CSV into hf/dataset/catalogos/ if it
 exists; otherwise leaves the entry in README/metadata so HF keeps serving the
@@ -41,8 +41,8 @@ from pathlib import Path
 
 # ── constants ──────────────────────────────────────────────────────────────────
 
-HF_XLS_DIR     = Path("hf/xls")
-OUTPUT_FILES_DIR = Path("output/files")
+HF_XLS_DIR     = Path("hf/raw/catalogos")
+OUTPUT_FILES_DIR = Path("hf/raw/catalogos")
 HF_CSV_DIR     = Path("hf/csv")
 HF_DATASET_DIR = Path("hf/dataset/catalogos")
 CATALOG_STATE  = Path("catalog_state.csv")
@@ -68,6 +68,11 @@ _SLUG_TO_SUBDIR: dict[str, str] = {
     "complemento_carta_porte":       "complementos/carta_porte",
     "complemento_recepcion_pagos":   "complementos/recepcion_pagos",
     "complemento_comercio_exterior": "complementos/comercio_exterior",
+}
+
+_SECTION_PATH_OVERRIDES: dict[str, str] = {
+    "complementos-concepto/hidrocarburos-y-petroliferos": "complementos-concepto/hidrocarburos-y-petroliferos",
+    "complementos_concepto/hidrocarburos-y-petroliferos": "complementos-concepto/hidrocarburos-y-petroliferos",
 }
 
 
@@ -186,7 +191,7 @@ def _lookup_source_meta(catalog_index: dict[str, dict[str, str]], source_xls: st
         return {}
     if source_xls in catalog_index:
         return catalog_index[source_xls]
-    for prefix in ("output/files/",):
+    for prefix in ("output/files/", "hf/raw/catalogos/"):
         if source_xls.startswith(prefix):
             return catalog_index.get(source_xls[len(prefix) :], {})
     return {}
@@ -200,6 +205,12 @@ def _section_slug(section_rel: str) -> str:
     if parts[0] == "complementos" and len(parts) == 2:
         return "complemento_" + _slugify(parts[1])
     return _slugify(section_rel.replace("/", "_"))
+
+
+def _section_path(section_rel: str) -> str:
+    if section_rel in _SECTION_PATH_OVERRIDES:
+        return _SECTION_PATH_OVERRIDES[section_rel]
+    return "/".join(_slugify(p) for p in section_rel.split("/"))
 
 
 def _is_version_folder(name: str) -> bool:
@@ -239,7 +250,7 @@ def _build_source_path_override_map(state_rows: list[dict]) -> dict[str, Path]:
 
     This lets raw source exports follow authoritative section/folder_version
     values from state files instead of inheriting legacy filesystem branches
-    like hf/xls/complementos/... when the logical section is now
+    like hf/raw/catalogos/complementos/... when the logical section is now
     complementos-concepto/...
     """
     mapping: dict[str, Path] = {}
@@ -425,7 +436,7 @@ def generate(
         catalogo       = row.get("catalogo", "")
 
         slug         = _section_slug(section_rel)
-        section_path = "/".join(_slugify(p) for p in section_rel.split("/"))
+        section_path = _section_path(section_rel)
         catalog_slug = _entry_catalog_slug(row)
 
         if is_versioned:
@@ -471,6 +482,14 @@ def generate(
         print(f"No catalogs found in {state_file}.", file=sys.stderr)
         return 1
 
+    if output_dir.exists():
+        for child in output_dir.iterdir():
+            if child.name == ".git":
+                continue
+            if child.is_dir():
+                shutil.rmtree(child)
+            else:
+                child.unlink()
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Write .huggingface_ignore
@@ -512,7 +531,7 @@ def generate(
             seen_raw_paths.add(str(raw_rel))
             raw_count += 1
 
-    if files_dir and files_dir.exists():
+    if files_dir and files_dir.exists() and files_dir != xls_dir:
         for src in sorted(files_dir.rglob("*")):
             if not src.is_file():
                 continue

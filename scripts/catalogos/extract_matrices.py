@@ -157,6 +157,8 @@ def normalize_section(category: str, slug: str) -> str:
             return "anexo20/cfdi"
         if slug == "factura-de-retenciones-e-informacion-de-pagos":
             return "anexo20/retenciones"
+    if category == "complementos-concepto":
+        return "/".join(part for part in [category, slug] if part)
     return "/".join(part for part in [slugify(category), slug] if part)
 
 
@@ -182,10 +184,11 @@ def discover_matrix_rows(catalog_csv: Path) -> list[dict[str, str]]:
 
 def resolve_source_path(local_file: str) -> Path:
     path = Path(local_file)
-    if path.is_absolute():
+    if path.is_absolute() or local_file.startswith("hf/"):
         return path
-    if local_file.startswith("hf/"):
-        return path
+    raw_path = Path("hf/raw/catalogos") / local_file
+    if raw_path.exists():
+        return raw_path
     return Path("output/files") / local_file
 
 

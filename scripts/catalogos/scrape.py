@@ -7,8 +7,8 @@ Scrapes the "Complementos" section of:
 For each complemento, extracts estándar URL, XSD, XSLT, and last-modified dates.
 For complementos with a dedicated detail page, also extracts per-version data.
 
-Writes a dated manifest.json + catalog.csv under output/YYYY-MM-DD/ only when
-content has changed since the last run. Downloads all referenced files.
+Writes manifest metadata under output/ and downloads all referenced source files
+under hf/raw/catalogos/.
 
 Usage:
     uv run scripts/catalogos/scrape.py
@@ -49,7 +49,7 @@ SECTIONS = [
     ("Complementos de retenciones e información de pagos", "complementos-retenciones"),
 ]
 OUTPUT_DIR = Path("output")
-HF_XLS_DIR = Path("hf/xls")
+RAW_CATALOGOS_DIR = Path("hf/raw/catalogos")
 NAV_TIMEOUT = 30_000
 USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -1131,8 +1131,8 @@ def _download_catalog(
             dest = hf_xls_dir / hf_subpath / hf_fname
             rel = str(dest)
         else:
-            rel = f"{base_slug}/{subdir}/{fname}"
-            dest = files_dir / rel
+            dest = files_dir / base_slug / subdir / fname
+            rel = str(dest)
         stored_fp, stored_hash = _prev.lm.get(file_url, (None, None))
         status = download(file_url, dest, fingerprint=cat_fp, stored_fingerprint=stored_fp, stored_hash=stored_hash, verify=verify, force=force)
         if status == "written":
@@ -1192,10 +1192,10 @@ def download_complemento(
     name_slug = slugify(re.sub(r"\s*\(.*?\)", "", comp["name"]).strip())
     base = f"{prefix}/{name_slug}"
 
-    # HF XLS subpath routing:
-    #   anexo-20 retenciones → hf/xls/anexo20/retenciones/
-    #   anexo-20 cfdi        → hf/xls/anexo20/cfdi/
-    #   complementos/*       → hf/xls/complementos/{slug}/
+    # Raw catalog routing:
+    #   anexo-20 retenciones → hf/raw/catalogos/anexo20/retenciones/
+    #   anexo-20 cfdi        → hf/raw/catalogos/anexo20/cfdi/
+    #   complementos/*       → hf/raw/catalogos/complementos/{slug}/
     hf_subpath = _comp_hf_section(comp)
 
     comp_changed = False
@@ -1208,8 +1208,8 @@ def download_complemento(
         if Path(fname).suffix.lower() in {".xls", ".xlsx"} and _looks_like_matrix_name(Path(fname).stem):
             stem = _clean_matrix_stem(Path(fname).stem)
             fname = f"{stem}{Path(fname).suffix}"
-        rel = f"{base}/{subdir}/{fname}"
-        dest = files_dir / rel
+        dest = files_dir / base / subdir / fname
+        rel = str(dest)
         status = download(url, dest, force=force)
         if status == "written":
             comp_changed = True
@@ -1244,13 +1244,13 @@ def download_complemento(
             if finfo.get("url"):
                 local = get(finfo["url"], vslug)
                 finfo["local_file"] = local
-                finfo["hash"] = _sha256(files_dir / local) if local else None
+                finfo["hash"] = _sha256(Path(local)) if local else None
         for cat_type, cat in ver.get("catalogos", {}).items():
             pv_entry = prev_ver_files.get(ver_fp or "", {}).get(cat_type) if ver_fp else None
             prev_cat_fp, prev_files = pv_entry if pv_entry else (None, [])
             if _download_catalog(
                 cat, files_dir, base, vslug,
-                hf_xls_dir=HF_XLS_DIR, hf_subpath=hf_ver_subpath,
+                hf_xls_dir=RAW_CATALOGOS_DIR, hf_subpath=hf_ver_subpath,
                 hf_subpath_has_version=(hf_vslug != "files"),
                 ver_fp=ver_fp,
                 prev=_PrevState(cat_fp=prev_cat_fp, files=prev_files, lm=prev_lm or {}),
@@ -1291,7 +1291,7 @@ def _catalog_csv_file_type(cat_key: str, file_url: str | None, local_file: str |
 def write_csv(manifest: dict, csv_path: Path, prev_csv_path: Path | None = None) -> None:
     """Write a flat CSV with one row per file across all complementos/versions."""
     scraped_at = manifest["scraped_at"]
-    files_dir = OUTPUT_DIR / "files"
+    files_dir = RAW_CATALOGOS_DIR
     rows: list[dict] = []
 
     # Build {url: (hash, scraped_at, size)} from previous CSV to preserve stable fields for unchanged rows
@@ -1364,7 +1364,7 @@ def write_csv(manifest: dict, csv_path: Path, prev_csv_path: Path | None = None)
 def redownload_hf(force: bool = False) -> int:
     """Re-download HF XLS catalog files from the existing manifest with current naming rules.
 
-    Reads output/catalogos-manifest.json, downloads only XLS catalog files to hf/xls/ using
+    Reads output/catalogos-manifest.json, downloads only XLS catalog files to hf/raw/catalogos/ using
     the new _clean_stem + version suffix naming, then rewrites the manifest and CSV.
     Skips the Playwright scraping step entirely.
     """
@@ -1398,7 +1398,7 @@ def redownload_hf(force: bool = False) -> int:
                     hf_idx[original_stem] = idx + 1
                     idx_suffix = f"-{idx}" if idx > 0 else ""
                     hf_fname = f"{original_stem}{idx_suffix}{ext}"
-                    dest = HF_XLS_DIR / hf_ver_subpath / hf_fname
+                    dest = RAW_CATALOGOS_DIR / hf_ver_subpath / hf_fname
                     rel = str(dest)
                     status = download(file_url, dest, stored_hash=fe.get("hash"), force=force)
                     if status == "written":
@@ -1461,7 +1461,7 @@ def main() -> int:
         return redownload_hf(force=args.force)
 
     run_dir = OUTPUT_DIR
-    files_dir = run_dir / "files"
+    files_dir = RAW_CATALOGOS_DIR
     debug_dir = (run_dir / "debug") if args.debug else None
 
     if debug_dir:

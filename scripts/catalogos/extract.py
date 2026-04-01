@@ -2,17 +2,17 @@
 """Extract SAT CFDI catalog XLS files into per-catalog CSV files.
 
 Reads output/catalog.csv to find the latest XLS catalog files scraped by
-scrape.py (those stored under hf/xls/), then extracts every sheet whose name
+scrape.py (those stored under hf/raw/catalogos/), then extracts every sheet whose name
 starts with "c_" into hf/csv/ mirroring the same directory structure.
 
 Example outputs:
-    hf/xls/anexo20/cfdi/catCFDI40.xls   → hf/csv/anexo20/cfdi/c_uso_cfdi.csv …
-    hf/xls/complementos/carta-porte/x.xls → hf/csv/complementos/carta-porte/c_estaciones.csv …
+    hf/raw/catalogos/anexo20/cfdi/catCFDI40.xls   → hf/csv/anexo20/cfdi/c_uso_cfdi.csv …
+    hf/raw/catalogos/complementos/carta-porte/x.xls → hf/csv/complementos/carta-porte/c_estaciones.csv …
 
 Usage:
     uv run scripts/catalogos/extract.py
     uv run scripts/catalogos/extract.py --catalog output/catalog.csv --header-style snake
-    uv run scripts/catalogos/extract.py --xls-dir hf/xls --csv-dir hf/csv
+    uv run scripts/catalogos/extract.py --xls-dir hf/raw/catalogos --csv-dir hf/csv
 """
 from __future__ import annotations
 
@@ -33,7 +33,7 @@ import xlrd
 
 # ── constants ──────────────────────────────────────────────────────────────────
 
-HF_XLS_DIR    = Path("hf/xls")
+HF_XLS_DIR    = Path("hf/raw/catalogos")
 HF_CSV_DIR    = Path("hf/csv")
 CATALOG_STATE = Path("catalog_state.csv")  # committed to git, outside hf/
 CATALOG_CSV   = Path("output/catalog.csv")
@@ -547,13 +547,29 @@ def extract_workbook(xls_path: Path, output_dir: Path, header_style: str) -> tup
 # ── discovery ──────────────────────────────────────────────────────────────────
 
 
-def discover_xls(xls_dir: Path) -> List[Path]:
-    """Return all XLS paths under xls_dir, skipping ignored files."""
-    def _skip(p: Path) -> bool:
-        return "matriz" in p.name.lower()
-
-    xls_exts = {".xls", ".xlsx"}
-    return sorted(p for p in xls_dir.rglob("*") if p.suffix.lower() in xls_exts and not _skip(p))
+def discover_xls(xls_dir: Path, catalog_file: Path) -> List[Path]:
+    """Return catalog XLS/XLSX paths referenced in output/catalog.csv."""
+    files: List[Path] = []
+    seen: set[Path] = set()
+    if not catalog_file.exists():
+        return files
+    with catalog_file.open(newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            if row.get("file_type") != "catalogo.xls":
+                continue
+            source_xls = row.get("local_file", "")
+            if not source_xls:
+                continue
+            path = Path(source_xls)
+            if not path.exists():
+                continue
+            if xls_dir not in path.parents and path != xls_dir:
+                continue
+            if path in seen:
+                continue
+            seen.add(path)
+            files.append(path)
+    return sorted(files)
 
 
 # ── CLI ────────────────────────────────────────────────────────────────────────
@@ -635,7 +651,7 @@ def _load_source_section_overrides(catalog_file: Path) -> dict[str, str]:
 def main(argv: Sequence[str] | None = None) -> int:
     args = parse_args(argv or sys.argv[1:])
 
-    xls_files = discover_xls(args.xls_dir)
+    xls_files = discover_xls(args.xls_dir, args.catalog_file)
     if args.sections:
         sections_filter = [s.strip("/") for s in args.sections]
         xls_files = [
