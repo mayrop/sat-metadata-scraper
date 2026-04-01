@@ -1168,8 +1168,6 @@ def _download_catalog(
 def _comp_hf_section(comp: dict) -> str:
     """Return the HF section path for a comp entry (mirrors download_complemento routing)."""
     prefix = comp.get("_section", "complementos")
-    if prefix == "anexo-20":
-        return "anexo20/retenciones" if "retenciones" in comp["name"].lower() else "anexo20/cfdi"
     name_slug = slugify(re.sub(r"\s*\(.*?\)", "", comp["name"]).strip())
     return f"{prefix}/{name_slug}"
 

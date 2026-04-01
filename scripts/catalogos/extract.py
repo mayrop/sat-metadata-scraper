@@ -137,7 +137,7 @@ def normalize_matrix_catalog_name(stem: str) -> str:
 def normalize_section(category: str, slug: str) -> str:
     if category in {"complementos_retenciones", "complementos-retenciones"}:
         return "/".join(part for part in ["complementos-retenciones", slug] if part)
-    if category == "complementos-concepto":
+    if category in {"complementos-concepto", "anexo-20"}:
         return "/".join(part for part in [category, slug] if part)
     return "/".join(part for part in [slugify(category), slug] if part)
 
@@ -589,7 +589,14 @@ def detect_matrix_header_row(workbook: Any, sheet: Any) -> int:
         values = [format_cell(workbook, sheet, row_idx, col_idx) for col_idx in range(sheet_ncols(sheet))]
         normalized = [normalize_token(v) for v in values if v]
         joined = " ".join(normalized)
-        if "codigo error" in joined and ("validacion" in joined or "error" in joined):
+        has_codigo_error = "codigo error" in joined or "codigo de error" in joined
+        if has_codigo_error and ("validacion" in joined or "error" in joined):
+            return row_idx
+        if (
+            has_codigo_error
+            and "regla de validacion" in joined
+            and ("descripcion del error" in joined or "aclaraciones" in joined)
+        ):
             return row_idx
     raise ValueError("Could not detect matrix header row")
 
@@ -644,6 +651,7 @@ def extract_matrix_file(source_path: Path, output_dir: Path) -> dict[str, str]:
     out_headers = headers + ["row_hash"]
     catalogo = normalize_matrix_catalog_name(source_path.stem)
     dest = output_dir / f"{catalogo}.csv"
+    output_dir.mkdir(parents=True, exist_ok=True)
     write_csv(dest, out_headers, out_rows)
     print(f"  → {dest}  ({len(rows)} rows)", file=sys.stderr)
     return {
@@ -687,6 +695,23 @@ def discover_xls(xls_dir: Path, catalog_file: Path) -> List[Path]:
             seen.add(path)
             files.append(path)
     return sorted(files)
+
+
+def _logical_rel_parent(
+    xls_path: Path,
+    xls_dir: Path,
+    source_section_overrides: dict[str, str],
+) -> Path:
+    try:
+        override_rel = source_section_overrides.get(str(xls_path))
+        if override_rel:
+            parent_name = xls_path.parent.name
+            if parent_name.startswith("version-"):
+                parent_name = normalize_folder_version(parent_name[len("version-"):])
+            return Path(override_rel) / parent_name
+        return xls_path.parent.relative_to(xls_dir)
+    except ValueError:
+        return xls_path.parent
 
 
 def discover_matrix_rows(catalog_file: Path) -> list[dict[str, str]]:
@@ -785,13 +810,15 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     xls_files = discover_xls(args.xls_dir, args.catalog_file)
     matrix_rows = discover_matrix_rows(args.catalog_file)
+    source_section_overrides = _load_source_section_overrides(args.catalog_file)
     if args.sections:
         sections_filter = [s.strip("/") for s in args.sections]
         xls_files = [
             p for p in xls_files
             if any(
-                str(p.relative_to(args.xls_dir)).startswith(s + "/") or
-                str(p.relative_to(args.xls_dir)).startswith(s + "\\")
+                str(_logical_rel_parent(p, args.xls_dir, source_section_overrides)).startswith(s + "/") or
+                str(_logical_rel_parent(p, args.xls_dir, source_section_overrides)).startswith(s + "\\") or
+                str(_logical_rel_parent(p, args.xls_dir, source_section_overrides)) == s
                 for s in sections_filter
             )
         ]
@@ -809,7 +836,6 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     # Load existing catalog_state.csv for merge
     existing_state = _load_catalog_state(args.state_file)
-    source_section_overrides = _load_source_section_overrides(args.catalog_file)
 
     print(f"Found {len(xls_files)} catalog XLS file(s) and {len(matrix_rows)} matrix file(s):", file=sys.stderr)
     total_written = 0
@@ -824,14 +850,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             print(f"\n[{xls_path}] not downloaded (version unchanged) — skipping", file=sys.stderr)
             continue
         print(f"\n[{xls_path}]", file=sys.stderr)
-        try:
-            override_rel = source_section_overrides.get(str(xls_path))
-            if override_rel:
-                rel_parent = Path(override_rel) / xls_path.parent.name
-            else:
-                rel_parent = xls_path.parent.relative_to(args.xls_dir)
-        except ValueError:
-            rel_parent = xls_path.parent
+        rel_parent = _logical_rel_parent(xls_path, args.xls_dir, source_section_overrides)
         rel_parts = rel_parent.parts
         rel_folder_version = rel_parts[-1] if rel_parts else ""
         rel_section = "/".join(rel_parts[:-1]) if len(rel_parts) > 1 else str(rel_parent)

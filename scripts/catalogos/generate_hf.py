@@ -50,8 +50,6 @@ CATALOG_CSV    = Path("output/catalog.csv")
 
 # Override: map section_rel path → friendly slug used in config names and output subdir.
 _SECTION_SLUG_OVERRIDES: dict[str, str] = {
-    "anexo20/cfdi":                          "anexo20__cfdi",
-    "anexo20/retenciones":                   "anexo20__retenciones",
     "extra/unspsc":                          "extra_unspsc",
     "complementos/recibo-de-pago-de-nomina": "complemento_nomina",
     "complementos/carta-porte":              "complemento_carta_porte",
@@ -61,8 +59,6 @@ _SECTION_SLUG_OVERRIDES: dict[str, str] = {
 
 # Map slug → flat subdirectory path within the dataset
 _SLUG_TO_SUBDIR: dict[str, str] = {
-    "anexo20__cfdi":                 "anexo20/cfdi",
-    "anexo20__retenciones":          "anexo20/retenciones",
     "complemento_nomina":            "complementos/nomina",
     "complemento_carta_porte":       "complementos/carta_porte",
     "complemento_recepcion_pagos":   "complementos/recepcion_pagos",
@@ -222,7 +218,7 @@ def _section_path(section_rel: str) -> str:
         return section_rel
     if section_rel in _SECTION_PATH_OVERRIDES:
         return _SECTION_PATH_OVERRIDES[section_rel]
-    return "/".join(_slugify(p) for p in section_rel.split("/"))
+    return section_rel
 
 
 def _is_version_folder(name: str) -> bool:
