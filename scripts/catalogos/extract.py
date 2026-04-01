@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
-"""Extract SAT CFDI catalog XLS files into per-catalog CSV files.
+"""Extract SAT CFDI catalog and matrix XLS files into CSV files.
 
 Reads output/catalog.csv to find the latest XLS catalog files scraped by
-scrape.py (those stored under hf/raw/catalogos/), then extracts every sheet whose name
-starts with "c_" into hf/csv/ mirroring the same directory structure.
+scrape.py (those stored under hf/raw/catalogos/).
+
+- `file_type=catalogo.xls` entries are parsed as SAT catalog workbooks, extracting
+  every sheet whose name starts with `c_`.
+- `file_type=matriz` entries are parsed with matrix-specific header detection.
 
 Example outputs:
     hf/raw/catalogos/anexo20/cfdi/catCFDI40.xls   → hf/csv/anexo20/cfdi/c_uso_cfdi.csv …
@@ -126,6 +129,34 @@ def apply_row_overrides(section: str, row: Dict[str, str]) -> Dict[str, str]:
     return row
 
 
+def normalize_matrix_catalog_name(stem: str) -> str:
+    stem = re.sub(r"_(?:\d{8}|[0-9a-f]{8,})$", "", stem, flags=re.IGNORECASE)
+    return stem
+
+
+def normalize_section(category: str, slug: str) -> str:
+    if category in {"complementos_retenciones", "complementos-retenciones"}:
+        return "/".join(part for part in ["complementos-retenciones", slug] if part)
+    if category == "complementos-concepto":
+        return "/".join(part for part in [category, slug] if part)
+    return "/".join(part for part in [slugify(category), slug] if part)
+
+
+def normalize_folder_version(folder_version: str) -> str:
+    value = folder_version or "files"
+    value = value.replace("-revision-", "-")
+    if value.startswith("revision-"):
+        value = value[len("revision-") :]
+    return value
+
+
+def folder_version_from_local_file(local_file: str) -> str:
+    for part in Path(local_file).parts:
+        if part.startswith("version-"):
+            return normalize_folder_version(part[len("version-") :])
+    return "files"
+
+
 # ── XLS parsing ────────────────────────────────────────────────────────────────
 
 
@@ -235,7 +266,7 @@ def format_cell(workbook: Any, sheet: Any, row_idx: int, col_idx: int) -> str:
     return str(cell.value).strip()
 
 
-def detect_header_row(sheet: xlrd.sheet.Sheet) -> int:
+def detect_catalog_header_row(sheet: xlrd.sheet.Sheet) -> int:
     """Find the header row index.
 
     Primary strategy: look for a row where any cell starts with 'c_' (Anexo 20 style).
@@ -420,7 +451,7 @@ def _merge_orphan_rows(rows: List[List[str]]) -> List[List[str]]:
 
 
 def parse_sheet(workbook: Any, sheet: Any) -> SheetExtraction:
-    header_start = detect_header_row(sheet)
+    header_start = detect_catalog_header_row(sheet)
     header_rows = gather_header_rows(sheet, header_start)
     header_columns = combine_headers(workbook, sheet, header_rows)
     headers = [header for _, header in header_columns]
@@ -537,11 +568,97 @@ def extract_workbook(xls_path: Path, output_dir: Path, header_style: str) -> tup
             "numero_columnas": str(len(out_headers)),
             "nombres_columnas": "|".join(out_headers),
             "file_hash": hashlib.sha256(dest.read_bytes()).hexdigest(),
+            "file_type": "catalogo",
         }
         entry.update(payload["metadata"])
         metadata_rows.append(entry)
 
     return written, metadata_rows
+
+
+def load_matrix_workbook(path: Path) -> tuple[Any, Any]:
+    if path.suffix.lower() == ".xlsx":
+        workbook = openpyxl.load_workbook(path, data_only=True)
+        return workbook, workbook[workbook.sheetnames[0]]
+    workbook = xlrd.open_workbook(str(path), formatting_info=True)
+    return workbook, workbook.sheet_by_index(0)
+
+
+def detect_matrix_header_row(workbook: Any, sheet: Any) -> int:
+    for row_idx in range(min(15, sheet_nrows(sheet))):
+        values = [format_cell(workbook, sheet, row_idx, col_idx) for col_idx in range(sheet_ncols(sheet))]
+        normalized = [normalize_token(v) for v in values if v]
+        joined = " ".join(normalized)
+        if "codigo error" in joined and ("validacion" in joined or "error" in joined):
+            return row_idx
+    raise ValueError("Could not detect matrix header row")
+
+
+def detect_matrix_used_columns(workbook: Any, sheet: Any, header_row: int) -> list[int]:
+    used: list[int] = []
+    for col_idx in range(sheet_ncols(sheet)):
+        has_value = False
+        for row_idx in range(header_row, sheet_nrows(sheet)):
+            if format_cell(workbook, sheet, row_idx, col_idx):
+                has_value = True
+                break
+        if has_value:
+            used.append(col_idx)
+    return used
+
+
+def build_matrix_headers(workbook: Any, sheet: Any, header_row: int, used_columns: list[int]) -> list[str]:
+    headers: list[str] = []
+    extra_counter = 1
+    last_used = used_columns[-1] if used_columns else -1
+    for col_idx in used_columns:
+        value = format_cell(workbook, sheet, header_row, col_idx)
+        if value:
+            headers.append(slugify(value) or f"column_{col_idx + 1}")
+            continue
+        if col_idx == last_used:
+            headers.append("notas")
+        else:
+            headers.append(f"extra_{extra_counter}")
+            extra_counter += 1
+    return headers
+
+
+def extract_matrix_rows(workbook: Any, sheet: Any, header_row: int, used_columns: list[int]) -> list[list[str]]:
+    rows: list[list[str]] = []
+    for row_idx in range(header_row + 1, sheet_nrows(sheet)):
+        row = [format_cell(workbook, sheet, row_idx, col_idx) for col_idx in used_columns]
+        if not any(row):
+            continue
+        rows.append(row)
+    return rows
+
+
+def extract_matrix_file(source_path: Path, output_dir: Path) -> dict[str, str]:
+    workbook, sheet = load_matrix_workbook(source_path)
+    header_row = detect_matrix_header_row(workbook, sheet)
+    used_columns = detect_matrix_used_columns(workbook, sheet, header_row)
+    headers = build_matrix_headers(workbook, sheet, header_row, used_columns)
+    rows = extract_matrix_rows(workbook, sheet, header_row, used_columns)
+    out_rows = [r + [hashlib.sha256("|".join(r).encode()).hexdigest()] for r in rows]
+    out_headers = headers + ["row_hash"]
+    catalogo = normalize_matrix_catalog_name(source_path.stem)
+    dest = output_dir / f"{catalogo}.csv"
+    write_csv(dest, out_headers, out_rows)
+    print(f"  → {dest}  ({len(rows)} rows)", file=sys.stderr)
+    return {
+        "catalogo": catalogo,
+        "source_xls": str(source_path),
+        "xls_hash": hashlib.sha256(source_path.read_bytes()).hexdigest(),
+        "descripcion": normalize_token(
+            format_cell(workbook, sheet, 0, 0) if sheet_nrows(sheet) else ""
+        ),
+        "sheets": getattr(sheet, "name", getattr(sheet, "title", "")),
+        "numero_columnas": str(len(out_headers)),
+        "nombres_columnas": "|".join(out_headers),
+        "file_hash": hashlib.sha256(dest.read_bytes()).hexdigest(),
+        "file_type": "matriz",
+    }
 
 
 # ── discovery ──────────────────────────────────────────────────────────────────
@@ -570,6 +687,13 @@ def discover_xls(xls_dir: Path, catalog_file: Path) -> List[Path]:
             seen.add(path)
             files.append(path)
     return sorted(files)
+
+
+def discover_matrix_rows(catalog_file: Path) -> list[dict[str, str]]:
+    if not catalog_file.exists():
+        return []
+    with catalog_file.open(newline="", encoding="utf-8") as f:
+        return [dict(row) for row in csv.DictReader(f) if row.get("file_type") == "matriz"]
 
 
 # ── CLI ────────────────────────────────────────────────────────────────────────
@@ -660,6 +784,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = parse_args(argv or sys.argv[1:])
 
     xls_files = discover_xls(args.xls_dir, args.catalog_file)
+    matrix_rows = discover_matrix_rows(args.catalog_file)
     if args.sections:
         sections_filter = [s.strip("/") for s in args.sections]
         xls_files = [
@@ -670,8 +795,15 @@ def main(argv: Sequence[str] | None = None) -> int:
                 for s in sections_filter
             )
         ]
+        matrix_rows = [
+            row for row in matrix_rows
+            if any(
+                normalize_section(row.get("category", ""), row.get("slug", "")).startswith(s)
+                for s in sections_filter
+            )
+        ]
         print(f"Filtering to sections: {sections_filter}", file=sys.stderr)
-    if not xls_files:
+    if not xls_files and not matrix_rows:
         print("No XLS files found — skipping extract.", file=sys.stderr)
         return 0
 
@@ -679,7 +811,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     existing_state = _load_catalog_state(args.state_file)
     source_section_overrides = _load_source_section_overrides(args.catalog_file)
 
-    print(f"Found {len(xls_files)} XLS file(s):", file=sys.stderr)
+    print(f"Found {len(xls_files)} catalog XLS file(s) and {len(matrix_rows)} matrix file(s):", file=sys.stderr)
     total_written = 0
     failed_files: List[tuple[Path, str]] = []
     # Accumulate new metadata rows keyed by (source_xls, catalogo)
@@ -720,6 +852,30 @@ def main(argv: Sequence[str] | None = None) -> int:
         total_written += len(written)
         metadata_by_dir[output_dir].extend(meta_rows)
 
+    for row in matrix_rows:
+        source_rel = row.get("local_file", "")
+        if not source_rel:
+            continue
+        source_path = Path(source_rel)
+        if not source_path.exists():
+            failed_files.append((source_path, "Missing source matrix"))
+            print(f"  ERROR {source_path}: Missing source matrix", file=sys.stderr)
+            continue
+        section = normalize_section(row.get("category", ""), row.get("slug", ""))
+        folder_version = folder_version_from_local_file(source_rel)
+        output_dir = args.csv_dir / section / folder_version
+        try:
+            entry = extract_matrix_file(source_path, output_dir)
+        except Exception as exc:
+            failed_files.append((source_path, str(exc)))
+            print(f"  ERROR {source_path}: {exc}", file=sys.stderr)
+            continue
+        entry["version"] = row.get("version", "")
+        entry["revision"] = row.get("revision", "")
+        entry["fecha_publicacion"] = row.get("last_modified", "")
+        metadata_by_dir[output_dir].append(entry)
+        total_written += 1
+
     # Build new index rows from freshly processed files, adding section + version from path
     for output_dir, meta_rows in metadata_by_dir.items():
         try:
@@ -750,18 +906,9 @@ def main(argv: Sequence[str] | None = None) -> int:
             if k not in index_keys:
                 index_keys.append(k)
 
-    def _ver_key(v: str) -> tuple:
-        parts = []
-        for p in v.split("-"):
-            try:
-                parts.append(int(p))
-            except ValueError:
-                parts.append(p)
-        return tuple(parts)
-
     merged_rows = sorted(
         merged.values(),
-        key=lambda r: (r.get("section", ""), _ver_key(r.get("folder_version", "")), r.get("catalogo", "")),
+        key=lambda r: (r.get("section", ""), r.get("folder_version", ""), r.get("catalogo", "")),
     )
     if merged_rows:
         args.state_file.parent.mkdir(parents=True, exist_ok=True)
@@ -769,7 +916,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         updated = len(new_state)
         preserved = len(merged_rows) - updated
         print(
-            f"\nState   → {args.state_file}  ({len(merged_rows)} catalogs, {updated} updated, {preserved} preserved)",
+            f"\nState   → {args.state_file}  ({len(merged_rows)} entries, {updated} updated, {preserved} preserved)",
             file=sys.stderr,
         )
 

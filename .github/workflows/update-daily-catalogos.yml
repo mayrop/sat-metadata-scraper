@@ -59,10 +59,6 @@ jobs:
           fi
           uv run scripts/catalogos/extract.py $SECTION_ARG
 
-      - name: Extract matrix CSVs
-        run: |
-          uv run scripts/catalogos/extract_matrices.py
-
       - name: Generate derived tables
         run: uv run scripts/catalogos/generate_uso_regimen_table.py
 
@@ -70,7 +66,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add catalog_state.csv matrix_state.csv output/
+          git add catalog_state.csv output/
           if git diff --cached --quiet; then
             echo "FILES_CHANGED=" >> $GITHUB_ENV
           else
@@ -83,9 +79,6 @@ jobs:
 
       - name: Extract all CSVs for HF
         run: uv run scripts/catalogos/extract.py
-
-      - name: Extract all matrix CSVs for HF
-        run: uv run scripts/catalogos/extract_matrices.py
 
       - name: Import static catalogs
         run: uv run scripts/catalogos/import_unspsc.py

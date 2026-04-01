@@ -46,7 +46,6 @@ OUTPUT_FILES_DIR = Path("hf/raw/catalogos")
 HF_CSV_DIR     = Path("hf/csv")
 HF_DATASET_DIR = Path("hf/dataset/catalogos")
 CATALOG_STATE  = Path("catalog_state.csv")
-MATRIX_STATE   = Path("matrix_state.csv")
 CATALOG_CSV    = Path("output/catalog.csv")
 
 # Override: map section_rel path → friendly slug used in config names and output subdir.
@@ -159,6 +158,17 @@ def _normalize_output_files_rel(path: Path) -> Path:
     return Path(*parts)
 
 
+def _normalize_raw_catalogos_rel(path: Path) -> Path:
+    parts = list(path.parts)
+    for idx, part in enumerate(parts):
+        if part.startswith("version-"):
+            parts[idx] = part[len("version-") :]
+        parts[idx] = parts[idx].replace("-revision-", "-")
+        if parts[idx].startswith("revision-"):
+            parts[idx] = parts[idx][len("revision-") :]
+    return Path(*parts)
+
+
 def _catalog_slug(csv_name: str) -> str:
     """c_UsoCFDI.csv → c_uso_cfdi  (version suffixes stripped)"""
     return _slugify(_clean_stem(Path(csv_name).stem))
@@ -208,6 +218,8 @@ def _section_slug(section_rel: str) -> str:
 
 
 def _section_path(section_rel: str) -> str:
+    if section_rel.startswith("complementos-retenciones/"):
+        return section_rel
     if section_rel in _SECTION_PATH_OVERRIDES:
         return _SECTION_PATH_OVERRIDES[section_rel]
     return "/".join(_slugify(p) for p in section_rel.split("/"))
@@ -516,7 +528,7 @@ def generate(
             if not _should_include_raw_file(rel):
                 continue
             override_rel = source_path_overrides.get(str(src))
-            raw_rel = Path("raw") / (override_rel or rel)
+            raw_rel = Path("raw") / (override_rel or _normalize_raw_catalogos_rel(rel))
             dest = output_dir / raw_rel
             dest.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(src, dest)
@@ -609,12 +621,6 @@ def main() -> int:
         help=f"Path to catalog state CSV (default: {CATALOG_STATE})",
     )
     parser.add_argument(
-        "--matrix-state-file",
-        type=Path,
-        default=MATRIX_STATE,
-        help=f"Path to matrix state CSV to include in the main dataset (default: {MATRIX_STATE})",
-    )
-    parser.add_argument(
         "--output",
         type=Path,
         default=HF_DATASET_DIR,
@@ -640,8 +646,6 @@ def main() -> int:
     )
     args = parser.parse_args()
     state_files = [args.state_file]
-    if args.matrix_state_file not in state_files:
-        state_files.append(args.matrix_state_file)
     return generate(args.csv_dir, state_files, args.output, args.xls_dir, args.catalog_file, args.files_dir)
 
 
