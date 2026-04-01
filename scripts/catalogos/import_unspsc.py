@@ -36,17 +36,6 @@ _DESCRIPTIONS: dict[str, str] = {
 # CSVs to skip (not catalog data)
 _SKIP = {"metadata"}
 
-
-def _ver_key(v: str) -> tuple:
-    parts = []
-    for p in v.split("-"):
-        try:
-            parts.append(int(p))
-        except ValueError:
-            parts.append(p)
-    return tuple(parts)
-
-
 def _load_state(state_file: Path) -> tuple[list[str], list[dict]]:
     if not state_file.exists():
         return [], []
@@ -80,7 +69,7 @@ def _upsert_state(state_file: Path, new_entry: dict) -> None:
 
     new_rows.sort(key=lambda r: (
         r.get("section", ""),
-        _ver_key(r.get("folder_version", "")),
+        r.get("folder_version", ""),
         r.get("catalogo", ""),
     ))
 
