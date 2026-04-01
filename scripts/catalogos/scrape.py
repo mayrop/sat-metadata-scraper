@@ -1265,7 +1265,7 @@ def download_complemento(
 # ── CSV export ─────────────────────────────────────────────────────────────────
 
 CSV_FIELDS = [
-    "scraped_at", "category", "name", "slug", "detail_url", "version", "revision",
+    "scraped_at", "category", "name", "slug", "detail_url", "version", "revision", "sub",
     "latest", "file_type", "url", "local_file", "size", "hash", "last_modified",
 ]
 
@@ -1311,7 +1311,16 @@ def write_csv(manifest: dict, csv_path: Path, prev_csv_path: Path | None = None)
         slug = slugify(re.sub(r"\s*\(.*?\)", "", name).strip())
         base = {"category": category, "name": name, "slug": slug, "detail_url": comp.get("detail_url") or ""}
 
-        def row(version: str, revision: str, ftype: str, url: str | None, local: str | None, h: str | None, lm: str | None) -> None:
+        def row(
+            version: str,
+            revision: str,
+            sub: str,
+            ftype: str,
+            url: str | None,
+            local: str | None,
+            h: str | None,
+            lm: str | None,
+        ) -> None:
             if not url:
                 return
             if local:
@@ -1322,7 +1331,7 @@ def write_csv(manifest: dict, csv_path: Path, prev_csv_path: Path | None = None)
             unchanged = bool(prev_hash and h and h == prev_hash)
             size = (p.stat().st_size if p and p.exists() else None) or (prev_size if unchanged else "")
             row_scraped_at = prev_scraped_at if (prev_scraped_at and unchanged) else scraped_at
-            rows.append({**base, "scraped_at": row_scraped_at, "version": version, "revision": revision,
+            rows.append({**base, "scraped_at": row_scraped_at, "version": version, "revision": revision, "sub": sub,
                           "latest": "true" if (version or None) == latest_ver else "false",
                           "file_type": ftype,
                           "url": url, "local_file": local or "", "size": size,
@@ -1331,21 +1340,22 @@ def write_csv(manifest: dict, csv_path: Path, prev_csv_path: Path | None = None)
         for ver in versions:
             v = ver.get("version") or ""
             r = ver.get("revision") or ""
+            s = ver.get("sub") or ""
             for ftype, finfo in ver.get("files", {}).items():
-                row(v, r, ftype, finfo.get("url"), finfo.get("local_file"), finfo.get("hash"), finfo.get("last_modified"))
+                row(v, r, s, ftype, finfo.get("url"), finfo.get("local_file"), finfo.get("hash"), finfo.get("last_modified"))
             for cat_key, cat in ver.get("catalogos", {}).items():
                 lm = cat.get("last_modified")
                 files = cat.get("files") or []
                 if files:
                     for fe in files:
                         row(
-                            v, r,
+                            v, r, s,
                             _catalog_csv_file_type(cat_key, fe.get("url"), fe.get("local_file")),
                             fe.get("url"), fe.get("local_file"), fe.get("hash"), lm,
                         )
                 else:
                     row(
-                        v, r,
+                        v, r, s,
                         _catalog_csv_file_type(cat_key, cat.get("source_url"), None),
                         cat.get("source_url"), None, None, lm,
                     )

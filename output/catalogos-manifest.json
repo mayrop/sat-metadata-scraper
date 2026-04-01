@@ -1718,7 +1718,7 @@
               "files": [
                 {
                   "url": "https://ampocdevbuk01a.s3.us-east-1.amazonaws.com/cat_Hidro_Y_Petro_10_b59dacfd1f.xlsx",
-                  "local_file": "hf/raw/catalogos/complementos/hidrocarburos-y-petroliferos/1-0/cat_Hidro_Y_Petro.xlsx",
+                  "local_file": "hf/raw/catalogos/complementos-concepto/hidrocarburos-y-petroliferos/1-0/cat_Hidro_Y_Petro.xlsx",
                   "hash": "8bcfb7e42381263091d463f1732584c92e42ab2ac7f380b4b307247782eeb71f"
                 }
               ]

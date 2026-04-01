@@ -204,14 +204,19 @@ def load_state(path: Path) -> dict[str, dict[str, str]]:
     if not path.exists():
         return {}
     with path.open(newline="", encoding="utf-8") as handle:
-        rows: dict[str, dict[str, str]] = {}
+        rows: dict[tuple[str, str, str], dict[str, str]] = {}
         for row in csv.DictReader(handle):
             source_xls = row.get("source_xls", "")
             if not source_xls:
                 continue
             updated = dict(row)
             updated["folder_version"] = normalize_folder_version(updated.get("folder_version", ""))
-            rows[source_xls] = updated
+            key = (
+                updated.get("section", ""),
+                updated.get("folder_version", ""),
+                updated.get("catalogo", ""),
+            )
+            rows[key] = updated
         return rows
 
 
@@ -228,7 +233,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 0
 
     existing_state = load_state(args.state_file)
-    new_state: dict[str, dict[str, str]] = {}
+    new_state: dict[tuple[str, str, str], dict[str, str]] = {}
     written = 0
 
     for row in matrix_rows:
@@ -242,7 +247,6 @@ def main(argv: Sequence[str] | None = None) -> int:
 
         xls_hash = hashlib.sha256(source_path.read_bytes()).hexdigest()
         catalogo = normalize_matrix_catalog_name(Path(source_path).stem)
-        key = str(source_path)
         section = normalize_section(row.get("category", ""), row.get("slug", ""))
         folder_version = folder_version_from_local_file(source_rel)
         dest = args.csv_dir / section / folder_version / f"{catalogo}.csv"
@@ -260,6 +264,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             written += 1
             print(f"  → {dest}  ({len(rows)} rows)", file=sys.stderr)
 
+            key = (section, folder_version, catalogo)
             new_state[key] = {
                 "section": section,
                 "folder_version": folder_version,

@@ -617,14 +617,22 @@ def parse_args(argv: Sequence[str]) -> argparse.Namespace:
     return parser.parse_args(argv)
 
 
-def _load_catalog_state(state_file: Path) -> dict[str, dict]:
-    """Load catalog_state.csv into a dict keyed by (source_xls, catalogo)."""
-    state: dict[str, dict] = {}
+def _state_key(row: dict[str, str]) -> tuple[str, str, str]:
+    return (
+        row.get("section", ""),
+        row.get("folder_version", ""),
+        row.get("catalogo", ""),
+    )
+
+
+def _load_catalog_state(state_file: Path) -> dict[tuple[str, str, str], dict]:
+    """Load catalog_state.csv into a dict keyed by logical catalog identity."""
+    state: dict[tuple[str, str, str], dict] = {}
     if not state_file.exists():
         return state
     with state_file.open(newline="", encoding="utf-8") as f:
         for row in csv.DictReader(f):
-            key = (row.get("source_xls", ""), row.get("catalogo", ""))
+            key = _state_key(row)
             state[key] = dict(row)
     return state
 
@@ -675,7 +683,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     total_written = 0
     failed_files: List[tuple[Path, str]] = []
     # Accumulate new metadata rows keyed by (source_xls, catalogo)
-    new_state: dict[tuple, dict] = {}
+    new_state: dict[tuple[str, str, str], dict] = {}
     # Accumulate per output dir so multiple XLS in the same folder merge correctly
     metadata_by_dir: dict[Path, List[Dict]] = defaultdict(list)
 
@@ -729,7 +737,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                 row.get("source_xls", ""),
             )
             entry = {"section": section, "folder_version": effective_folder_version, **row}
-            key = (entry.get("source_xls", ""), entry.get("catalogo", ""))
+            key = _state_key(entry)
             new_state[key] = entry
 
     # Merge: start from existing state, overwrite with any freshly processed entries
