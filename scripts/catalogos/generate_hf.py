@@ -431,6 +431,16 @@ def generate(
         _entry_catalog_slug(r),
     ))
 
+    if output_dir.exists():
+        for child in output_dir.iterdir():
+            if child.name == ".git":
+                continue
+            if child.is_dir():
+                shutil.rmtree(child)
+            else:
+                child.unlink()
+    output_dir.mkdir(parents=True, exist_ok=True)
+
     entries: list[dict] = []
     raw_entries: list[dict] = []
     copied = 0
@@ -489,16 +499,6 @@ def generate(
     if not entries:
         print(f"No catalogs found in {state_file}.", file=sys.stderr)
         return 1
-
-    if output_dir.exists():
-        for child in output_dir.iterdir():
-            if child.name == ".git":
-                continue
-            if child.is_dir():
-                shutil.rmtree(child)
-            else:
-                child.unlink()
-    output_dir.mkdir(parents=True, exist_ok=True)
 
     # Write .huggingface_ignore
     (output_dir / ".huggingface_ignore").write_text(

@@ -1190,10 +1190,9 @@ def download_complemento(
     name_slug = slugify(re.sub(r"\s*\(.*?\)", "", comp["name"]).strip())
     base = f"{prefix}/{name_slug}"
 
-    # Raw catalog routing:
-    #   anexo-20 retenciones → hf/raw/catalogos/anexo20/retenciones/
-    #   anexo-20 cfdi        → hf/raw/catalogos/anexo20/cfdi/
-    #   complementos/*       → hf/raw/catalogos/complementos/{slug}/
+    # Raw catalog routing keeps the original source section and version folder.
+    # Extraction/HF export can normalize section/version later, but the raw tree
+    # should remain a faithful mirror of the source layout.
     hf_subpath = _comp_hf_section(comp)
 
     comp_changed = False
@@ -1236,7 +1235,7 @@ def download_complemento(
     for ver in comp.get("versions", []):
         vslug = _ver_slug(ver)
         hf_vslug = _hf_ver_slug(ver)
-        hf_ver_subpath = f"{hf_subpath}/{hf_vslug}" if hf_vslug != "files" else hf_subpath
+        raw_ver_subpath = f"{hf_subpath}/{vslug}" if vslug != "files" else hf_subpath
         ver_fp = "-".join(str(v) for v in [ver.get("version"), ver.get("revision")] if v) or None
         for finfo in ver.get("files", {}).values():
             if finfo.get("url"):
@@ -1248,8 +1247,8 @@ def download_complemento(
             prev_cat_fp, prev_files = pv_entry if pv_entry else (None, [])
             if _download_catalog(
                 cat, files_dir, base, vslug,
-                hf_xls_dir=RAW_CATALOGOS_DIR, hf_subpath=hf_ver_subpath,
-                hf_subpath_has_version=(hf_vslug != "files"),
+                hf_xls_dir=RAW_CATALOGOS_DIR, hf_subpath=raw_ver_subpath,
+                hf_subpath_has_version=(vslug != "files"),
                 ver_fp=ver_fp,
                 prev=_PrevState(cat_fp=prev_cat_fp, files=prev_files, lm=prev_lm or {}),
                 verify=verify,
@@ -1387,8 +1386,8 @@ def redownload_hf(force: bool = False) -> int:
         hf_subpath = _comp_hf_section(comp)
 
         for ver in comp.get("versions", []):
-            hf_vslug = _hf_ver_slug(ver)
-            hf_ver_subpath = f"{hf_subpath}/{hf_vslug}" if hf_vslug != "files" else hf_subpath
+            vslug = _ver_slug(ver)
+            raw_ver_subpath = f"{hf_subpath}/{vslug}" if vslug != "files" else hf_subpath
 
             hf_idx: dict[str, int] = {}  # per-catalog counter for multi-file catalogs
             for cat in ver.get("catalogos", {}).values():
@@ -1406,7 +1405,7 @@ def redownload_hf(force: bool = False) -> int:
                     hf_idx[original_stem] = idx + 1
                     idx_suffix = f"-{idx}" if idx > 0 else ""
                     hf_fname = f"{original_stem}{idx_suffix}{ext}"
-                    dest = RAW_CATALOGOS_DIR / hf_ver_subpath / hf_fname
+                    dest = RAW_CATALOGOS_DIR / raw_ver_subpath / hf_fname
                     rel = str(dest)
                     status = download(file_url, dest, stored_hash=fe.get("hash"), force=force)
                     if status == "written":
@@ -1420,7 +1419,7 @@ def redownload_hf(force: bool = False) -> int:
                     if dest.exists():
                         # Only try to derive version from XLS content when the manifest
                         # had no version info (hf_vslug == "files")
-                        if hf_vslug == "files":
+                        if vslug == "files":
                             ver_slug = _xls_version_slug(dest)
                             if ver_slug:
                                 versioned_dest = dest.parent / ver_slug / dest.name

@@ -46,7 +46,7 @@
               "files": [
                 {
                   "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_Retenciones.xls",
-                  "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones-e-informacion-de-pagos/1-0/catCFDI_Retenciones.xls",
+                  "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones-e-informacion-de-pagos/version-1-0/catCFDI_Retenciones.xls",
                   "hash": "ce4890dac7951b7f85616cf4b603254ebc3d04f6df91239b26216a5aa0580089"
                 }
               ]
@@ -100,7 +100,7 @@
               "files": [
                 {
                   "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_Retenciones_1.xls",
-                  "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones-e-informacion-de-pagos/2-0/catCFDI_Retenciones.xls",
+                  "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones-e-informacion-de-pagos/version-2-0/catCFDI_Retenciones.xls",
                   "hash": "ebe8c59f2cb1677af96d48e7f892aef28294e3dd3ed5aa3e45da9924ddf76c35"
                 }
               ]
@@ -167,7 +167,7 @@
               "files": [
                 {
                   "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_33_31032023.xls",
-                  "local_file": "hf/raw/catalogos/anexo-20/formato-de-factura/3-3/catCFDI.xls",
+                  "local_file": "hf/raw/catalogos/anexo-20/formato-de-factura/version-3-3/catCFDI.xls",
                   "hash": "ef6cf4fbedcbc5a3db993b9495186762327a75cd4c826f39d7055ccf28f7a46b"
                 }
               ]
@@ -227,7 +227,7 @@
               "files": [
                 {
                   "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260324.xls",
-                  "local_file": "hf/raw/catalogos/anexo-20/formato-de-factura/4-0/catCFDI.xls",
+                  "local_file": "hf/raw/catalogos/anexo-20/formato-de-factura/version-4-0/catCFDI.xls",
                   "hash": "98fedf75bd83ac963917d37afb23c462428f22a9e4a72f7acea62c28e3757767"
                 }
               ]

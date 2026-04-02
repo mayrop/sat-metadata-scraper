@@ -144,6 +144,8 @@ def normalize_section(category: str, slug: str) -> str:
 
 def normalize_folder_version(folder_version: str) -> str:
     value = folder_version or "files"
+    if value.startswith("version-"):
+        value = value[len("version-") :]
     value = value.replace("-revision-", "-")
     if value.startswith("revision-"):
         value = value[len("revision-") :]
@@ -702,6 +704,12 @@ def _logical_rel_parent(
     xls_dir: Path,
     source_section_overrides: dict[str, str],
 ) -> Path:
+    def _normalize_parent_name(path: Path) -> Path:
+        parts = list(path.parts)
+        if parts and parts[-1].startswith("version-"):
+            parts[-1] = normalize_folder_version(parts[-1][len("version-"):])
+        return Path(*parts) if parts else path
+
     try:
         override_rel = source_section_overrides.get(str(xls_path))
         if override_rel:
@@ -709,9 +717,9 @@ def _logical_rel_parent(
             if parent_name.startswith("version-"):
                 parent_name = normalize_folder_version(parent_name[len("version-"):])
             return Path(override_rel) / parent_name
-        return xls_path.parent.relative_to(xls_dir)
+        return _normalize_parent_name(xls_path.parent.relative_to(xls_dir))
     except ValueError:
-        return xls_path.parent
+        return _normalize_parent_name(xls_path.parent)
 
 
 def discover_matrix_rows(catalog_file: Path) -> list[dict[str, str]]:
@@ -769,7 +777,7 @@ def parse_args(argv: Sequence[str]) -> argparse.Namespace:
 def _state_key(row: dict[str, str]) -> tuple[str, str, str]:
     return (
         row.get("section", ""),
-        row.get("folder_version", ""),
+        normalize_folder_version(row.get("folder_version", "")),
         row.get("catalogo", ""),
     )
 
@@ -781,8 +789,10 @@ def _load_catalog_state(state_file: Path) -> dict[tuple[str, str, str], dict]:
         return state
     with state_file.open(newline="", encoding="utf-8") as f:
         for row in csv.DictReader(f):
+            row = dict(row)
+            row["folder_version"] = normalize_folder_version(row.get("folder_version", ""))
             key = _state_key(row)
-            state[key] = dict(row)
+            state[key] = row
     return state
 
 
