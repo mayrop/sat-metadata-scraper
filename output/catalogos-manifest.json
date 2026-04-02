@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-04-01T05:46:09.762400",
+  "scraped_at": "2026-04-01T08:32:38.868343",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -1306,7 +1306,7 @@
               "files": [
                 {
                   "url": "https://ampocdevbuk01a.s3.us-east-1.amazonaws.com/cat_Pagos_8ca5655de2.xls",
-                  "local_file": "hf/raw/catalogos/complementos/recepcion-de-pagos/1/cat_Pagos.xls",
+                  "local_file": "hf/raw/catalogos/complementos/recepcion-de-pagos/cat_Pagos.xls",
                   "hash": "5492da027a2edec9a7680e6a43c426ca3c7e3554a596f89ee0248cce576cb200"
                 }
               ]
