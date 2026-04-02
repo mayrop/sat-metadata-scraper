@@ -139,12 +139,11 @@ def _should_include_output_files_rel(path: Path) -> bool:
 def _normalize_output_files_rel(path: Path) -> Path:
     parts = list(path.parts)
     if parts and parts[0] == "anexo-20":
-        parts[0] = "anexo20"
-    if len(parts) >= 2 and parts[0] == "anexo20":
-        if parts[1] == "formato-de-factura":
-            parts[1] = "cfdi"
-        elif parts[1] == "factura-de-retenciones-e-informacion-de-pagos":
-            parts[1] = "retenciones"
+        if len(parts) >= 2:
+            if parts[1] == "formato-de-factura":
+                parts[1] = "factura-electronica"
+            elif parts[1] == "factura-de-retenciones-e-informacion-de-pagos":
+                parts[1] = "factura-de-retenciones"
     for idx, part in enumerate(parts):
         if part.startswith("version-"):
             parts[idx] = part[len("version-") :]
@@ -156,6 +155,11 @@ def _normalize_output_files_rel(path: Path) -> Path:
 
 def _normalize_raw_catalogos_rel(path: Path) -> Path:
     parts = list(path.parts)
+    if parts and parts[0] == "anexo-20" and len(parts) >= 2:
+        if parts[1] == "formato-de-factura":
+            parts[1] = "factura-electronica"
+        elif parts[1] == "factura-de-retenciones-e-informacion-de-pagos":
+            parts[1] = "factura-de-retenciones"
     for idx, part in enumerate(parts):
         if part.startswith("version-"):
             parts[idx] = part[len("version-") :]

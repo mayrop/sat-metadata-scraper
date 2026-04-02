@@ -12,19 +12,19 @@
             "xsd": {
               "url": "http://www.sat.gob.mx/esquemas/retencionpago/1/retencionpagov1.xsd",
               "last_modified": "2019-04-30",
-              "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones-e-informacion-de-pagos/version-1-0/retencionpagov1.xsd",
+              "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones/version-1-0/retencionpagov1.xsd",
               "hash": "1ca6dde549539bd499e445ade3e0bf67ef223d3ecf0770a84b291f4dee2474e2"
             },
             "estandar": {
               "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/cfdv33.pdf",
               "last_modified": "2017-07-28",
-              "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones-e-informacion-de-pagos/version-1-0/cfdv33.pdf",
+              "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones/version-1-0/cfdv33.pdf",
               "hash": "93e99135fa0f3217ba4a342c0f70a62b90b1d09e1ee703ec5ca1099d98d60818"
             },
             "xslt": {
               "url": "http://www.sat.gob.mx/esquemas/retencionpago/1/retenciones.xslt",
               "last_modified": "2019-04-30",
-              "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones-e-informacion-de-pagos/version-1-0/retenciones.xslt",
+              "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones/version-1-0/retenciones.xslt",
               "hash": "c1f0486eeb41c59f01b4b91422bfd3fd9303f243524136e0b63e0c48b7111ab4"
             }
           },
@@ -35,7 +35,7 @@
               "files": [
                 {
                   "url": "http://www.sat.gob.mx/esquemas/retencionpago/1/catalogos/catRetenciones.xsd",
-                  "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones-e-informacion-de-pagos/version-1-0/catRetenciones.xsd",
+                  "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones/version-1-0/catRetenciones.xsd",
                   "hash": "37d7411aeaeb0f09bd14182cecbc50da857e882741bc6ef052bc8054e15f9487"
                 }
               ]
@@ -46,7 +46,7 @@
               "files": [
                 {
                   "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_Retenciones.xls",
-                  "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones-e-informacion-de-pagos/version-1-0/catCFDI_Retenciones.xls",
+                  "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones/version-1-0/catCFDI_Retenciones.xls",
                   "hash": "ce4890dac7951b7f85616cf4b603254ebc3d04f6df91239b26216a5aa0580089"
                 }
               ]
@@ -60,25 +60,25 @@
             "xsd": {
               "url": "http://www.sat.gob.mx/esquemas/retencionpago/2/retencionpagov2.xsd",
               "last_modified": "2021-12-28",
-              "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones-e-informacion-de-pagos/version-2-0/retencionpagov2.xsd",
+              "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones/version-2-0/retencionpagov2.xsd",
               "hash": "2e76e8d7731abac2abfeac0850adbba267e5e54ae31e49961c2177e3d7e03939"
             },
             "estandar": {
               "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/Anexo20_2022.pdf",
               "last_modified": "2022-01-18",
-              "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones-e-informacion-de-pagos/version-2-0/Anexo20_2022.pdf",
+              "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones/version-2-0/Anexo20_2022.pdf",
               "hash": "b3b6d63a97c859a31d7aacf0fe17b2d58207280df6f06caff3ceaf79954cf4bd"
             },
             "xslt": {
               "url": "http://www.sat.gob.mx/esquemas/retencionpago/2/retenciones.xslt",
               "last_modified": "2021-12-23",
-              "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones-e-informacion-de-pagos/version-2-0/retenciones.xslt",
+              "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones/version-2-0/retenciones.xslt",
               "hash": "b8cccf25955b1a5c12f20a6c2233f2644816fbc7bea2e98f8d87e74a88263d10"
             },
             "matriz": {
               "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/MatrizDeErrores_CFDI_Retenciones_v20.xls",
               "last_modified": "2025-04-09",
-              "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones-e-informacion-de-pagos/version-2-0/MatrizDeErrores_CFDI_Retenciones_v20.xls",
+              "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones/version-2-0/MatrizDeErrores_CFDI_Retenciones_v20.xls",
               "hash": "c4320cfd1ea5e768cf89bdbcdfe59b61e2e71e47e69ce8a632f3ff35b1a513a9"
             }
           },
@@ -89,7 +89,7 @@
               "files": [
                 {
                   "url": "http://www.sat.gob.mx/esquemas/retencionpago/1/catalogos/catRetenciones.xsd",
-                  "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones-e-informacion-de-pagos/version-2-0/catRetenciones.xsd",
+                  "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones/version-2-0/catRetenciones.xsd",
                   "hash": "37d7411aeaeb0f09bd14182cecbc50da857e882741bc6ef052bc8054e15f9487"
                 }
               ]
@@ -100,7 +100,7 @@
               "files": [
                 {
                   "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_Retenciones_1.xls",
-                  "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones-e-informacion-de-pagos/version-2-0/catCFDI_Retenciones.xls",
+                  "local_file": "hf/raw/catalogos/anexo-20/factura-de-retenciones/version-2-0/catCFDI_Retenciones.xls",
                   "hash": "ebe8c59f2cb1677af96d48e7f892aef28294e3dd3ed5aa3e45da9924ddf76c35"
                 }
               ]
@@ -121,31 +121,31 @@
             "xsd": {
               "url": "http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd",
               "last_modified": "2017-07-28",
-              "local_file": "hf/raw/catalogos/anexo-20/formato-de-factura/version-3-3/cfdv33.xsd",
+              "local_file": "hf/raw/catalogos/anexo-20/factura-electronica/version-3-3/cfdv33.xsd",
               "hash": "9fab804ebd9c532ddd59a74b23a3fa2b5d0d1f9046360b05efcef72206f01fd0"
             },
             "estandar": {
               "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/cfdv33.pdf",
               "last_modified": "2017-07-28",
-              "local_file": "hf/raw/catalogos/anexo-20/formato-de-factura/version-3-3/cfdv33.pdf",
+              "local_file": "hf/raw/catalogos/anexo-20/factura-electronica/version-3-3/cfdv33.pdf",
               "hash": "93e99135fa0f3217ba4a342c0f70a62b90b1d09e1ee703ec5ca1099d98d60818"
             },
             "xslt": {
               "url": "http://www.sat.gob.mx/sitio_internet/cfd/3/cadenaoriginal_3_3/cadenaoriginal_3_3.xslt",
               "last_modified": "2021-12-01",
-              "local_file": "hf/raw/catalogos/anexo-20/formato-de-factura/version-3-3/cadenaoriginal_3_3.xslt",
+              "local_file": "hf/raw/catalogos/anexo-20/factura-electronica/version-3-3/cadenaoriginal_3_3.xslt",
               "hash": "2cfd68ff167c88c9a0ce449c32b6fe1110e18c846d03812ca302d9defe672745"
             },
             "patron": {
               "url": "http://www.sat.gob.mx/sitio_internet/cfd/tipoDatos/tdCFDI/tdCFDI.xsd",
               "last_modified": "2017-12-14",
-              "local_file": "hf/raw/catalogos/anexo-20/formato-de-factura/version-3-3/tdCFDI.xsd",
+              "local_file": "hf/raw/catalogos/anexo-20/factura-electronica/version-3-3/tdCFDI.xsd",
               "hash": "b3b81fe4017b95d5477f23a32f47e8b0571683cfddfff1330508c75e02b504cd"
             },
             "matriz": {
               "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/MatrizDeErrores_CFDI_v33.xls",
               "last_modified": "2017-04-12",
-              "local_file": "hf/raw/catalogos/anexo-20/formato-de-factura/version-3-3/MatrizDeErrores_CFDI_v33.xls",
+              "local_file": "hf/raw/catalogos/anexo-20/factura-electronica/version-3-3/MatrizDeErrores_CFDI_v33.xls",
               "hash": "6d10cde320a02df06ec61678afdf08b236ec2e08f76f88f06754955d5c341998"
             }
           },
@@ -156,7 +156,7 @@
               "files": [
                 {
                   "url": "http://www.sat.gob.mx/sitio_internet/cfd/catalogos/catCFDI.xsd",
-                  "local_file": "hf/raw/catalogos/anexo-20/formato-de-factura/version-3-3/catCFDI.xsd",
+                  "local_file": "hf/raw/catalogos/anexo-20/factura-electronica/version-3-3/catCFDI.xsd",
                   "hash": "6c58936cb77576f839a4d7915953ceaf252b9eb9319f9458fe5bb67ae2bb0bb1"
                 }
               ]
@@ -167,7 +167,7 @@
               "files": [
                 {
                   "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_33_31032023.xls",
-                  "local_file": "hf/raw/catalogos/anexo-20/formato-de-factura/version-3-3/catCFDI.xls",
+                  "local_file": "hf/raw/catalogos/anexo-20/factura-electronica/version-3-3/catCFDI.xls",
                   "hash": "ef6cf4fbedcbc5a3db993b9495186762327a75cd4c826f39d7055ccf28f7a46b"
                 }
               ]
@@ -181,31 +181,31 @@
             "xsd": {
               "url": "http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd",
               "last_modified": "2024-06-04",
-              "local_file": "hf/raw/catalogos/anexo-20/formato-de-factura/version-4-0/cfdv40.xsd",
+              "local_file": "hf/raw/catalogos/anexo-20/factura-electronica/version-4-0/cfdv40.xsd",
               "hash": "2489b5b535f5cbc6a6c2db6132620de1833f85372512d01deea62880e700e276"
             },
             "estandar": {
               "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/Anexo20_2022.pdf",
               "last_modified": "2022-01-13",
-              "local_file": "hf/raw/catalogos/anexo-20/formato-de-factura/version-4-0/Anexo20_2022.pdf",
+              "local_file": "hf/raw/catalogos/anexo-20/factura-electronica/version-4-0/Anexo20_2022.pdf",
               "hash": "b3b6d63a97c859a31d7aacf0fe17b2d58207280df6f06caff3ceaf79954cf4bd"
             },
             "xslt": {
               "url": "http://www.sat.gob.mx/sitio_internet/cfd/4/cadenaoriginal_4_0/cadenaoriginal_4_0.xslt",
               "last_modified": "2024-06-17",
-              "local_file": "hf/raw/catalogos/anexo-20/formato-de-factura/version-4-0/cadenaoriginal_4_0.xslt",
+              "local_file": "hf/raw/catalogos/anexo-20/factura-electronica/version-4-0/cadenaoriginal_4_0.xslt",
               "hash": "e310da4d33e85b011559d86511fbd94da701b57cdf1b6e57609e375725ffb229"
             },
             "matriz": {
               "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/MatrizDeErrores_CFDI_v40_20260325.xls",
               "last_modified": "2026-03-25",
-              "local_file": "hf/raw/catalogos/anexo-20/formato-de-factura/version-4-0/MatrizDeErrores_CFDI_v40.xls",
+              "local_file": "hf/raw/catalogos/anexo-20/factura-electronica/version-4-0/MatrizDeErrores_CFDI_v40.xls",
               "hash": "bdc350035c7ed720af5be15509e01d0bda7c12cec4ad9797b0c34f889c1140a7"
             },
             "patron": {
               "url": "http://www.sat.gob.mx/sitio_internet/cfd/tipoDatos/tdCFDI/tdCFDI.xsd",
               "last_modified": "2024-04-22",
-              "local_file": "hf/raw/catalogos/anexo-20/formato-de-factura/version-4-0/tdCFDI.xsd",
+              "local_file": "hf/raw/catalogos/anexo-20/factura-electronica/version-4-0/tdCFDI.xsd",
               "hash": "b3b81fe4017b95d5477f23a32f47e8b0571683cfddfff1330508c75e02b504cd"
             }
           },
@@ -216,7 +216,7 @@
               "files": [
                 {
                   "url": "http://www.sat.gob.mx/sitio_internet/cfd/catalogos/catCFDI.xsd",
-                  "local_file": "hf/raw/catalogos/anexo-20/formato-de-factura/version-4-0/catCFDI.xsd",
+                  "local_file": "hf/raw/catalogos/anexo-20/factura-electronica/version-4-0/catCFDI.xsd",
                   "hash": "6c58936cb77576f839a4d7915953ceaf252b9eb9319f9458fe5bb67ae2bb0bb1"
                 }
               ]
@@ -227,7 +227,7 @@
               "files": [
                 {
                   "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260324.xls",
-                  "local_file": "hf/raw/catalogos/anexo-20/formato-de-factura/version-4-0/catCFDI.xls",
+                  "local_file": "hf/raw/catalogos/anexo-20/factura-electronica/version-4-0/catCFDI.xls",
                   "hash": "98fedf75bd83ac963917d37afb23c462428f22a9e4a72f7acea62c28e3757767"
                 }
               ]

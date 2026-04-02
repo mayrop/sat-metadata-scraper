@@ -1169,6 +1169,11 @@ def _comp_hf_section(comp: dict) -> str:
     """Return the HF section path for a comp entry (mirrors download_complemento routing)."""
     prefix = comp.get("_section", "complementos")
     name_slug = slugify(re.sub(r"\s*\(.*?\)", "", comp["name"]).strip())
+    if prefix == "anexo-20":
+        if name_slug == "formato-de-factura":
+            name_slug = "factura-electronica"
+        elif name_slug == "factura-de-retenciones-e-informacion-de-pagos":
+            name_slug = "factura-de-retenciones"
     return f"{prefix}/{name_slug}"
 
 
@@ -1306,6 +1311,11 @@ def write_csv(manifest: dict, csv_path: Path, prev_csv_path: Path | None = None)
         category = comp.get("_section", "complementos")
         name = comp["name"]
         slug = slugify(re.sub(r"\s*\(.*?\)", "", name).strip())
+        if category == "anexo-20":
+            if slug == "formato-de-factura":
+                slug = "factura-electronica"
+            elif slug == "factura-de-retenciones-e-informacion-de-pagos":
+                slug = "factura-de-retenciones"
         base = {"category": category, "name": name, "slug": slug, "detail_url": comp.get("detail_url") or ""}
 
         def row(

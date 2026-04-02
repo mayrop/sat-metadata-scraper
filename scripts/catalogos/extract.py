@@ -143,6 +143,11 @@ def normalize_matrix_catalog_name(stem: str) -> str:
 def normalize_section(category: str, slug: str) -> str:
     if category in {"complementos_retenciones", "complementos-retenciones"}:
         return "/".join(part for part in ["complementos-retenciones", slug] if part)
+    if category == "anexo-20":
+        if slug == "formato-de-factura":
+            slug = "factura-electronica"
+        elif slug == "factura-de-retenciones-e-informacion-de-pagos":
+            slug = "factura-de-retenciones"
     if category in {"complementos-concepto", "anexo-20"}:
         return "/".join(part for part in [category, slug] if part)
     return "/".join(part for part in [slugify(category), slug] if part)
