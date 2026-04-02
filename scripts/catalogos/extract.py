@@ -114,14 +114,20 @@ def first_non_empty(strings: Sequence[str]) -> str:
 
 def override_folder_version(section: str, folder_version: str, source_xls: str) -> str:
     source_norm = source_xls.replace("\\", "/").lower()
-    if section == "complementos/recepcion-de-pagos" and source_norm.endswith("/cat_pagos.xls"):
+    if section == "complementos/recepcion-de-pagos" and (
+        source_norm.endswith("/cat_pagos.xls")
+        or source_norm.endswith("/matriz_de_errores_crp_v20_rev_b.xls")
+    ):
         return "2-0"
     return folder_version
 
 
 def apply_row_overrides(section: str, row: Dict[str, str]) -> Dict[str, str]:
     source_norm = row.get("source_xls", "").replace("\\", "/").lower()
-    if section == "complementos/recepcion-de-pagos" and source_norm.endswith("/cat_pagos.xls"):
+    if section == "complementos/recepcion-de-pagos" and (
+        source_norm.endswith("/cat_pagos.xls")
+        or source_norm.endswith("/matriz_de_errores_crp_v20_rev_b.xls")
+    ):
         updated = dict(row)
         updated["version"] = "2"
         updated["revision"] = "0"
@@ -796,6 +802,37 @@ def _load_catalog_state(state_file: Path) -> dict[tuple[str, str, str], dict]:
     return state
 
 
+def _prefer_state_row(current: dict[str, str], candidate: dict[str, str]) -> dict[str, str]:
+    def score(row: dict[str, str]) -> tuple[int, int, int]:
+        folder_version = row.get("folder_version", "")
+        return (
+            1 if folder_version and folder_version != "files" else 0,
+            1 if row.get("version") else 0,
+            1 if row.get("revision") else 0,
+        )
+
+    return candidate if score(candidate) >= score(current) else current
+
+
+def _dedupe_merged_rows(rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    deduped: dict[tuple[str, str, str, str], dict[str, str]] = {}
+    for row in rows:
+        key = (
+            row.get("section", ""),
+            row.get("catalogo", ""),
+            row.get("source_xls", ""),
+            row.get("file_type", ""),
+        )
+        if key in deduped:
+            deduped[key] = _prefer_state_row(deduped[key], row)
+        else:
+            deduped[key] = row
+    return sorted(
+        deduped.values(),
+        key=lambda r: (r.get("section", ""), r.get("folder_version", ""), r.get("catalogo", "")),
+    )
+
+
 def _load_source_section_overrides(catalog_file: Path) -> dict[str, str]:
     """Map source XLS paths to desired CSV section paths using output/catalog.csv."""
     overrides: dict[str, str] = {}
@@ -935,10 +972,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             if k not in index_keys:
                 index_keys.append(k)
 
-    merged_rows = sorted(
-        merged.values(),
-        key=lambda r: (r.get("section", ""), r.get("folder_version", ""), r.get("catalogo", "")),
-    )
+    merged_rows = _dedupe_merged_rows(list(merged.values()))
     if merged_rows:
         args.state_file.parent.mkdir(parents=True, exist_ok=True)
         write_csv(args.state_file, index_keys, [[r.get(k, "") for k in index_keys] for r in merged_rows])
