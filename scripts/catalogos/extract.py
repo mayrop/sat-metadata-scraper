@@ -153,6 +153,19 @@ def normalize_section(category: str, slug: str) -> str:
     return "/".join(part for part in [slugify(category), slug] if part)
 
 
+def normalize_source_xls_path(path_str: str) -> str:
+    if not path_str:
+        return path_str
+    return (
+        path_str
+        .replace("hf/raw/catalogos/anexo-20/formato-de-factura/", "hf/raw/catalogos/anexo-20/factura-electronica/")
+        .replace(
+            "hf/raw/catalogos/anexo-20/factura-de-retenciones-e-informacion-de-pagos/",
+            "hf/raw/catalogos/anexo-20/factura-de-retenciones/",
+        )
+    )
+
+
 def normalize_folder_version(folder_version: str) -> str:
     value = folder_version or "files"
     if value.startswith("version-"):
@@ -801,6 +814,7 @@ def _load_catalog_state(state_file: Path) -> dict[tuple[str, str, str], dict]:
     with state_file.open(newline="", encoding="utf-8") as f:
         for row in csv.DictReader(f):
             row = dict(row)
+            row["source_xls"] = normalize_source_xls_path(row.get("source_xls", ""))
             row["folder_version"] = normalize_folder_version(row.get("folder_version", ""))
             key = _state_key(row)
             state[key] = row
@@ -852,6 +866,7 @@ def _load_source_section_overrides(catalog_file: Path) -> dict[str, str]:
             slug = row.get("slug", "")
             if not source_xls or not category:
                 continue
+            source_xls = normalize_source_xls_path(source_xls)
             if category == "complementos-concepto" and slug:
                 overrides[source_xls] = f"complementos-concepto/{slug}"
     return overrides
@@ -957,6 +972,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         folder_version = parts[-1] if parts else ""
         section = "/".join(parts[:-1]) if len(parts) > 1 else str(rel)
         for row in meta_rows:
+            row["source_xls"] = normalize_source_xls_path(row.get("source_xls", ""))
             row = apply_row_overrides(section, row)
             effective_folder_version = override_folder_version(
                 section,
