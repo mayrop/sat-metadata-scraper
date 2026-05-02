@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-03-21T14:37:25.087328+00:00",
-  "source_url": "http://omawww.sat.gob.mx/cifras_sat/Paginas/DatosAbiertos/contribuyentes_publicados.html",
+  "scraped_at": "2026-05-02T05:49:50.187502+00:00",
+  "source_url": "https://www.sat.gob.mx/minisitio/DatosAbiertos/contribuyentes_publicados.html",
   "articles": [
     {
       "key": "69b",
@@ -10,8 +10,8 @@
       "fingerprint": "Thu, 19 Mar 2026 00:10:07 GMT|0x8DE854BE10B2BAC",
       "last_modified": "Thu, 19 Mar 2026 00:10:07 GMT",
       "etag": "0x8DE854BE10B2BAC",
-      "info_date": "2026-02-28",
-      "hash": "595e24914e847622c077cbbc54c51f9d85bd1d484bc5d92c2684d4acc2388892",
+      "info_date": "2026-03-31",
+      "hash": "e9a4ba0d55c3cb851f9f404a4681ba1eaaa6808324ce7473e6d4bf18faa982b4",
       "size": "4623450"
     },
     {
