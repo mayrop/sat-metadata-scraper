@@ -476,6 +476,32 @@ def _merge_orphan_rows(rows: List[List[str]]) -> List[List[str]]:
     return merged
 
 
+_FORWARD_FILL_COLS: frozenset[str] = frozenset({"categoria"})
+
+
+def _forward_fill_columns(headers: List[str], rows: List[List[str]]) -> List[List[str]]:
+    """Forward-fill empty cells in grouping columns (e.g. 'categoria').
+
+    SAT catalogs sometimes only populate the first row of a group, leaving
+    subsequent rows blank. This propagates the last seen value downward.
+    """
+    indices = [i for i, h in enumerate(headers) if h in _FORWARD_FILL_COLS]
+    if not indices:
+        return rows
+    last: Dict[int, str] = {}
+    result: List[List[str]] = []
+    for row in rows:
+        row = list(row)
+        for i in indices:
+            if i < len(row):
+                if row[i]:
+                    last[i] = row[i]
+                elif i in last:
+                    row[i] = last[i]
+        result.append(row)
+    return result
+
+
 def parse_sheet(workbook: Any, sheet: Any) -> SheetExtraction:
     header_start = detect_catalog_header_row(sheet)
     header_rows = gather_header_rows(sheet, header_start)
@@ -575,11 +601,13 @@ def extract_workbook(xls_path: Path, output_dir: Path, header_style: str) -> tup
     for catalog, payload in catalogs.items():
         if payload["headers"] is None:
             continue
-        out_headers = transform_headers_for_output(payload["headers"], catalog, header_style) + ["row_hash"]
+        out_headers_no_hash = transform_headers_for_output(payload["headers"], catalog, header_style)
+        out_headers = out_headers_no_hash + ["row_hash"]
         dest = output_dir / f"{catalog}.csv"
+        filled_rows = _forward_fill_columns(out_headers_no_hash, payload["rows"])
         hashed_rows = [
             row + [hashlib.sha256("|".join(row).encode()).hexdigest()]
-            for row in payload["rows"]
+            for row in filled_rows
         ]
         write_csv(dest, out_headers, hashed_rows)
         print(f"  → {dest}  ({len(payload['rows'])} rows)", file=sys.stderr)

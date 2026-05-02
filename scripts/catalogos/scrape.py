@@ -341,7 +341,7 @@ def download(
     # Fingerprint fast-path: skip fetch entirely when version/date unchanged.
     if not force and not verify:
         if fingerprint and stored_fingerprint and fingerprint == stored_fingerprint:
-            if dest.exists() or stored_hash:
+            if dest.exists():
                 return "skipped"
     data = _fetch_bytes(url)
     if data is None:
@@ -349,7 +349,7 @@ def download(
     new_hash = hashlib.sha256(data).hexdigest()
     if not force:
         prior_hash = stored_hash or _sha256(dest)
-        if new_hash == prior_hash and (verify or dest.exists()):
+        if new_hash == prior_hash and dest.exists():
             return "unchanged"
     dest.write_bytes(data)
     return "written"

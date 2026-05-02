@@ -2,7 +2,7 @@
 """Scrape SAT Artículo 69-B and 69-B Bis 'Listado completo' CSV files.
 
 Source page:
-  http://omawww.sat.gob.mx/cifras_sat/Paginas/DatosAbiertos/contribuyentes_publicados.html
+  https://www.sat.gob.mx/minisitio/DatosAbiertos/contribuyentes_publicados.html
 
 Discovers download URLs from the page, uses Last-Modified + ETag as fingerprints,
 and only re-downloads when content has changed (or --force).
@@ -34,7 +34,7 @@ from urllib.error import HTTPError, URLError
 
 # ── constants ──────────────────────────────────────────────────────────────────
 
-PAGE_URL   = "http://omawww.sat.gob.mx/cifras_sat/Paginas/DatosAbiertos/contribuyentes_publicados.html"
+PAGE_URL   = "https://www.sat.gob.mx/minisitio/DatosAbiertos/contribuyentes_publicados.html"
 OUTPUT_DIR = Path("output")
 RAW_DIR    = OUTPUT_DIR / "files" / "listado-69b"
 MANIFEST   = OUTPUT_DIR / "listado-69b-manifest.json"
@@ -258,6 +258,7 @@ def main() -> int:
 
     prev_manifest = _load_manifest()
     articles_out: list[dict] = []
+    missing_urls: list[str] = []
 
     for sid, info in sections.items():
         url = info.get("url", "")
@@ -268,6 +269,7 @@ def main() -> int:
 
         if not url:
             print(f"  ERROR: no 'Listado completo' URL found for {name}", file=sys.stderr)
+            missing_urls.append(name)
             prev = _prev_article(prev_manifest, key)
             if prev:
                 articles_out.append(prev)
@@ -333,6 +335,10 @@ def main() -> int:
     }
     MANIFEST.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"\nManifest → {MANIFEST}", file=sys.stderr)
+
+    if missing_urls:
+        print(f"\nFAIL: missing URLs for: {', '.join(missing_urls)}", file=sys.stderr)
+        return 1
 
     return 0
 
