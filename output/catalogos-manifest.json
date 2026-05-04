@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-03T08:40:05.272120",
+  "scraped_at": "2026-05-04T08:55:54.815906",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -385,7 +385,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129183&ssbinary=true",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos/certificado-de-destruccion/version-1-0-revision-a/Satellite_1461175129183.bin",
+              "local_file": "hf/raw/catalogos/complementos/certificado-de-destruccion/version-1-0-revision-a/certificadodedestruccion.pdf",
               "hash": "5a2ec436ee00f422739b897db919d455a772019196aac27c4ed8d77f777b6fdb"
             },
             "xsd": {
@@ -2148,7 +2148,7 @@
             "matriz": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461173445025&ssbinary=true",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos-retenciones/planes-de-retiro/version-1-1-revision-b/Satellite_1461173445025.bin",
+              "local_file": "hf/raw/catalogos/complementos-retenciones/planes-de-retiro/version-1-1-revision-b/Matriz_Apoyo_PlanesdeRetiro11.XLS",
               "hash": "12691fc4c98488e31e1713f6e92cd501b88a9572458aa37268fa1788638b927b"
             }
           },
