@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-05T08:49:31.809397",
+  "scraped_at": "2026-05-07T09:03:37.846907",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -222,13 +222,13 @@
               ]
             },
             "xls": {
-              "source_url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260422.xls",
-              "last_modified": "2026-04-22",
+              "source_url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260506.xls",
+              "last_modified": "2026-05-06",
               "files": [
                 {
-                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260422.xls",
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260506.xls",
                   "local_file": "hf/raw/catalogos/anexo-20/factura-electronica/version-4-0/catCFDI.xls",
-                  "hash": "9ffea7f74adc75b43047ea69a6c8e9fe85200cdc6d60ec82f783cfb75f30da5f"
+                  "hash": "01acb625f9f33919fd626b7d694a1506b56453660d15af9c3b850cf6a8466bcc"
                 }
               ]
             }
