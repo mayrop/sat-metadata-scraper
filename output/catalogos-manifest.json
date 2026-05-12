@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-11T09:11:22.089186",
+  "scraped_at": "2026-05-12T09:05:33.156831",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -1684,30 +1684,30 @@
       "versions": [
         {
           "version": "1.0.",
-          "revision": null,
+          "revision": "A",
           "files": {
             "estandar": {
               "url": "https://ampocdevbuk01a.s3.us-east-1.amazonaws.com/CC_HYP_10_r_A_cbf22d9866.pdf",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos-concepto/hidrocarburos-y-petroliferos/version-1-0/CC_HYP_10_r_A_cbf22d9866.pdf",
+              "local_file": "hf/raw/catalogos/complementos-concepto/hidrocarburos-y-petroliferos/version-1-0-revision-a/CC_HYP_10_r_A_cbf22d9866.pdf",
               "hash": "f9c735ae2b4731f552875921b3de1af2cd651da43b5bbb0303e06ebb67388b1d"
             },
             "xsd": {
               "url": "http://www.sat.gob.mx/sitio_internet/cfd/hidrocarburospetroliferos.xsd",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos-concepto/hidrocarburos-y-petroliferos/version-1-0/hidrocarburospetroliferos.xsd",
+              "local_file": "hf/raw/catalogos/complementos-concepto/hidrocarburos-y-petroliferos/version-1-0-revision-a/hidrocarburospetroliferos.xsd",
               "hash": "650ad6fd305350c081384a6c018f55e404b32e4e9c5a1c4e90ff99eb8eb4589b"
             },
             "xslt": {
               "url": "http://www.sat.gob.mx/sitio_internet/cfd/HidrocarburosPetro/hidrocarburospetroliferos.xslt",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos-concepto/hidrocarburos-y-petroliferos/version-1-0/hidrocarburospetroliferos.xslt",
+              "local_file": "hf/raw/catalogos/complementos-concepto/hidrocarburos-y-petroliferos/version-1-0-revision-a/hidrocarburospetroliferos.xslt",
               "hash": "b212b9df8119de4278a24d5258b27ac295746b7476cc6aef969a3ad1d6c55a4b"
             },
             "matriz": {
               "url": "https://ampocdevbuk01a.s3.us-east-1.amazonaws.com/Matriz_Errores_CC_HYP_10_r_A_ef331d1872.xlsx",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos-concepto/hidrocarburos-y-petroliferos/version-1-0/Matriz_Errores_CC_HYP_10_r_A.xlsx",
+              "local_file": "hf/raw/catalogos/complementos-concepto/hidrocarburos-y-petroliferos/version-1-0-revision-a/Matriz_Errores_CC_HYP_10_r_A.xlsx",
               "hash": "05ffc19dceac9ef3d716ba42f53ec03f5b6a08b83af4105b2226f916f8c60936"
             }
           },
@@ -1718,7 +1718,7 @@
               "files": [
                 {
                   "url": "https://ampocdevbuk01a.s3.us-east-1.amazonaws.com/cat_Hidro_Y_Petro_10_r_A_42f333c87a.xlsx",
-                  "local_file": "hf/raw/catalogos/complementos-concepto/hidrocarburos-y-petroliferos/version-1-0/cat_Hidro_Y_Petro_10_r_A.xlsx",
+                  "local_file": "hf/raw/catalogos/complementos-concepto/hidrocarburos-y-petroliferos/version-1-0-revision-a/cat_Hidro_Y_Petro_10_r_A.xlsx",
                   "hash": "27c41057b23309db3022d559d343c21348ef5667e9651fd86a8df65e2ff95687"
                 }
               ]
@@ -1729,7 +1729,7 @@
               "files": [
                 {
                   "url": "http://www.sat.gob.mx/sitio_internet/cfd/catalogos/HidrocarburosPetro/catHidroYPetro.xsd",
-                  "local_file": "hf/raw/catalogos/complementos-concepto/hidrocarburos-y-petroliferos/version-1-0/catHidroYPetro.xsd",
+                  "local_file": "hf/raw/catalogos/complementos-concepto/hidrocarburos-y-petroliferos/version-1-0-revision-a/catHidroYPetro.xsd",
                   "hash": "1601b6ce2821b44fe80fe9f11e0404704e30f439072789e272b968339039ffa6"
                 }
               ]
