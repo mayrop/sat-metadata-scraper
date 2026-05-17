@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-16T08:40:05.908455",
+  "scraped_at": "2026-05-17T08:48:51.672741",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -2130,7 +2130,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175123529&ssbinary=true",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos-retenciones/planes-de-retiro/version-1-1-revision-b/CompPlanesRetiro1.1_rBdocx.pdf",
+              "local_file": "hf/raw/catalogos/complementos-retenciones/planes-de-retiro/version-1-1-revision-b/Satellite_1461175123529.bin",
               "hash": "3c28820e166a851a56307b8e69e9a83c5849d8eabb974aa364e8c413423329f3"
             },
             "xsd": {
