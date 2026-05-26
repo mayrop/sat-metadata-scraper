@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-25T09:23:03.708967",
+  "scraped_at": "2026-05-26T09:11:29.118151",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -532,28 +532,19 @@
           "revision": null,
           "files": {
             "estandar": {
-              "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/EstandarComercioExterior_v20.pdf",
-              "last_modified": "2023-12-19",
-              "local_file": "hf/raw/catalogos/complementos/comercio-exterior/version-2-0/EstandarComercioExterior_v20.pdf",
-              "hash": "3ff0567dbafce9948a64c4616b7f63a74ae305a63f4a49968884d918314e5393"
+              "url": null,
+              "last_modified": null,
+              "local_file": null
             },
             "xsd": {
-              "url": "https://d1kv9jqywn0dfi.cloudfront.net/sitio_internet/cfd/ComercioExterior20/ComercioExterior20.xsd",
+              "url": null,
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos/comercio-exterior/version-2-0/ComercioExterior20.xsd",
-              "hash": "08c569b109dfd7ac95fea9b6d6861b2493f617280149d4eaa5b1adbd325e009b"
+              "local_file": null
             },
             "xslt": {
-              "url": "https://d1kv9jqywn0dfi.cloudfront.net/sitio_internet/cfd/ComercioExterior20/ComercioExterior20.xslt",
+              "url": null,
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos/comercio-exterior/version-2-0/ComercioExterior20.xslt",
-              "hash": "b7540d6878c8d1e14b3d7f8a8bf3889dc03b0dfb6dfbfc6d6b30e27a094b8446"
-            },
-            "matriz": {
-              "url": "https://ampocdevbuk01a.s3.us-east-1.amazonaws.com/Matriz_de_Errores_CCE_v2_0_da60ac2333.xls",
-              "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos/comercio-exterior/version-2-0/Matriz_de_Errores_CCE_v2.xls",
-              "hash": "48d67a485fb4833e01055a17cb6cf16e76b96983bf166c0e9a2b1bd9596a139a"
+              "local_file": null
             }
           },
           "catalogos": {
@@ -632,14 +623,46 @@
                   "hash": "26a5687018bbfe88f2299e70edf63f87b4e38f268503549b11a9c49943ab77e8"
                 }
               ]
+            }
+          }
+        },
+        {
+          "version": "2.0",
+          "revision": "A",
+          "files": {
+            "estandar": {
+              "url": "https://ampocdevbuk01a.s3.us-east-1.amazonaws.com/Estandar_Comercio_Exterior_v20_r_A_49b8193933.pdf",
+              "last_modified": "2026-05-25",
+              "local_file": "hf/raw/catalogos/complementos/comercio-exterior/version-2-0-revision-a/Estandar_Comercio_Exterior_v20_r_A_49b8193933.pdf",
+              "hash": "77d4173104f75416a9fb1ce6c8dcfeee96696d9dd5748b8f3dea2ffc8277ebd7"
             },
+            "xsd": {
+              "url": "https://d1kv9jqywn0dfi.cloudfront.net/sitio_internet/cfd/ComercioExterior20/ComercioExterior20.xsd",
+              "last_modified": null,
+              "local_file": "hf/raw/catalogos/complementos/comercio-exterior/version-2-0-revision-a/ComercioExterior20.xsd",
+              "hash": "08c569b109dfd7ac95fea9b6d6861b2493f617280149d4eaa5b1adbd325e009b"
+            },
+            "xslt": {
+              "url": "https://d1kv9jqywn0dfi.cloudfront.net/sitio_internet/cfd/ComercioExterior20/ComercioExterior20.xslt",
+              "last_modified": null,
+              "local_file": "hf/raw/catalogos/complementos/comercio-exterior/version-2-0-revision-a/ComercioExterior20.xslt",
+              "hash": "b7540d6878c8d1e14b3d7f8a8bf3889dc03b0dfb6dfbfc6d6b30e27a094b8446"
+            },
+            "matriz": {
+              "url": "https://ampocdevbuk01a.s3.us-east-1.amazonaws.com/Matriz_de_Errores_CCE_v2_0_r_A_76f1e17af8.xls",
+              "last_modified": null,
+              "local_file": "hf/raw/catalogos/complementos/comercio-exterior/version-2-0-revision-a/Matriz_de_Errores_CCE_v2_0_r_A.xls",
+              "hash": "90f73eeb1b15549ab216de0c699c570ce3959fecc802c7bf89c2c8556524e944"
+            }
+          },
+          "catalogos": {
             "xsd": {
               "source_url": "https://d1kv9jqywn0dfi.cloudfront.net/sitio_internet/cfd/catalogos/ComExt/catComExt.xsd",
               "last_modified": null,
               "files": [
                 {
                   "url": "https://d1kv9jqywn0dfi.cloudfront.net/sitio_internet/cfd/catalogos/ComExt/catComExt.xsd",
-                  "local_file": "hf/raw/catalogos/complementos/comercio-exterior/version-2-0/catComExt.xsd",
+                  "local_file": "hf/raw/catalogos/complementos/comercio-exterior/version-2-0-revision-a/catComExt.xsd",
                   "hash": "6c2d60cb8f92810db0fc82b83571d714244bc701b510d9fac4021c2b99dfcfbb"
                 }
               ]
@@ -1684,31 +1707,31 @@
       "versions": [
         {
           "version": "1.0.",
-          "revision": "A",
+          "revision": "B",
           "files": {
             "estandar": {
-              "url": "https://ampocdevbuk01a.s3.us-east-1.amazonaws.com/CC_HYP_10_r_A_cbf22d9866.pdf",
+              "url": "https://ampocdevbuk01a.s3.us-east-1.amazonaws.com/CC_HYP_10_r_B_f26496ab56.pdf",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos-concepto/hidrocarburos-y-petroliferos/version-1-0-revision-a/CC_HYP_10_r_A_cbf22d9866.pdf",
-              "hash": "f9c735ae2b4731f552875921b3de1af2cd651da43b5bbb0303e06ebb67388b1d"
+              "local_file": "hf/raw/catalogos/complementos-concepto/hidrocarburos-y-petroliferos/version-1-0-revision-b/CC_HYP_10_r_B_f26496ab56.pdf",
+              "hash": "ce226904963cb0c3ec6c9bf348f2358f486cac38fdd7faeeffc5c81bfa38b851"
             },
             "xsd": {
               "url": "http://www.sat.gob.mx/sitio_internet/cfd/hidrocarburospetroliferos.xsd",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos-concepto/hidrocarburos-y-petroliferos/version-1-0-revision-a/hidrocarburospetroliferos.xsd",
+              "local_file": "hf/raw/catalogos/complementos-concepto/hidrocarburos-y-petroliferos/version-1-0-revision-b/hidrocarburospetroliferos.xsd",
               "hash": "650ad6fd305350c081384a6c018f55e404b32e4e9c5a1c4e90ff99eb8eb4589b"
             },
             "xslt": {
               "url": "http://www.sat.gob.mx/sitio_internet/cfd/HidrocarburosPetro/hidrocarburospetroliferos.xslt",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos-concepto/hidrocarburos-y-petroliferos/version-1-0-revision-a/hidrocarburospetroliferos.xslt",
+              "local_file": "hf/raw/catalogos/complementos-concepto/hidrocarburos-y-petroliferos/version-1-0-revision-b/hidrocarburospetroliferos.xslt",
               "hash": "b212b9df8119de4278a24d5258b27ac295746b7476cc6aef969a3ad1d6c55a4b"
             },
             "matriz": {
-              "url": "https://ampocdevbuk01a.s3.us-east-1.amazonaws.com/Matriz_Errores_CC_HYP_10_r_A_ef331d1872.xlsx",
+              "url": "https://ampocdevbuk01a.s3.us-east-1.amazonaws.com/Matriz_Errores_CC_HYP_10_r_B_356faee08b.xlsx",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos-concepto/hidrocarburos-y-petroliferos/version-1-0-revision-a/Matriz_Errores_CC_HYP_10_r_A.xlsx",
-              "hash": "05ffc19dceac9ef3d716ba42f53ec03f5b6a08b83af4105b2226f916f8c60936"
+              "local_file": "hf/raw/catalogos/complementos-concepto/hidrocarburos-y-petroliferos/version-1-0-revision-b/Matriz_Errores_CC_HYP_10_r_B.xlsx",
+              "hash": "e4e8ff20a5de741187c342531c9a29aa7f02ec697ff3778f8b043ed41bd76cea"
             }
           },
           "catalogos": {
@@ -1718,7 +1741,7 @@
               "files": [
                 {
                   "url": "https://ampocdevbuk01a.s3.us-east-1.amazonaws.com/cat_Hidro_Y_Petro_10_r_A_42f333c87a.xlsx",
-                  "local_file": "hf/raw/catalogos/complementos-concepto/hidrocarburos-y-petroliferos/version-1-0-revision-a/cat_Hidro_Y_Petro_10_r_A.xlsx",
+                  "local_file": "hf/raw/catalogos/complementos-concepto/hidrocarburos-y-petroliferos/version-1-0-revision-b/cat_Hidro_Y_Petro_10_r_A.xlsx",
                   "hash": "27c41057b23309db3022d559d343c21348ef5667e9651fd86a8df65e2ff95687"
                 }
               ]
@@ -1729,7 +1752,7 @@
               "files": [
                 {
                   "url": "http://www.sat.gob.mx/sitio_internet/cfd/catalogos/HidrocarburosPetro/catHidroYPetro.xsd",
-                  "local_file": "hf/raw/catalogos/complementos-concepto/hidrocarburos-y-petroliferos/version-1-0-revision-a/catHidroYPetro.xsd",
+                  "local_file": "hf/raw/catalogos/complementos-concepto/hidrocarburos-y-petroliferos/version-1-0-revision-b/catHidroYPetro.xsd",
                   "hash": "1601b6ce2821b44fe80fe9f11e0404704e30f439072789e272b968339039ffa6"
                 }
               ]
