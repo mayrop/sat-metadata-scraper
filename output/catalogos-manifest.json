@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-26T09:11:29.118151",
+  "scraped_at": "2026-05-27T09:11:55.541514",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -324,8 +324,8 @@
             "estandar": {
               "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/Carta_Porte_31.pdf",
               "last_modified": "2024-06-17",
-              "local_file": "hf/raw/catalogos/complementos/carta-porte/version-3-1/Carta_Porte_31.pdf",
-              "hash": "6c35f136351ed75901908adbd42cb2cb586f0ff430d6fb437c7174b71ad1cd11"
+              "local_file": null,
+              "hash": null
             },
             "xsd": {
               "url": "http://www.sat.gob.mx/sitio_internet/cfd/CartaPorte/CartaPorte31.xsd",
