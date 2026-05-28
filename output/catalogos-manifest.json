@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-27T09:11:55.541514",
+  "scraped_at": "2026-05-28T09:16:00.792988",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -324,8 +324,8 @@
             "estandar": {
               "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/Carta_Porte_31.pdf",
               "last_modified": "2024-06-17",
-              "local_file": null,
-              "hash": null
+              "local_file": "hf/raw/catalogos/complementos/carta-porte/version-3-1/Carta_Porte_31.pdf",
+              "hash": "6c35f136351ed75901908adbd42cb2cb586f0ff430d6fb437c7174b71ad1cd11"
             },
             "xsd": {
               "url": "http://www.sat.gob.mx/sitio_internet/cfd/CartaPorte/CartaPorte31.xsd",
@@ -1186,7 +1186,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129262&ssbinary=true",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos/otros-derechos-e-impuestos/version-1-0-revision-a/EstandarImpuestolocal.pdf",
+              "local_file": "hf/raw/catalogos/complementos/otros-derechos-e-impuestos/version-1-0-revision-a/Satellite_1461175129262.bin",
               "hash": "1fbc23df84f7688eb7d69676e06856ac9c12ed501fe6c670abedb51afaa964d6"
             },
             "xsd": {
