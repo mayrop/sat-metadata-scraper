@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-28T09:16:00.792988",
+  "scraped_at": "2026-05-29T09:12:47.575693",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -1186,7 +1186,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129262&ssbinary=true",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos/otros-derechos-e-impuestos/version-1-0-revision-a/Satellite_1461175129262.bin",
+              "local_file": "hf/raw/catalogos/complementos/otros-derechos-e-impuestos/version-1-0-revision-a/EstandarImpuestolocal.pdf",
               "hash": "1fbc23df84f7688eb7d69676e06856ac9c12ed501fe6c670abedb51afaa964d6"
             },
             "xsd": {
