@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-29T09:12:47.575693",
+  "scraped_at": "2026-05-30T08:53:36.342673",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -556,11 +556,6 @@
                   "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_ClavePedimento20.xls",
                   "local_file": "hf/raw/catalogos/complementos/comercio-exterior/version-2-0/c_ClavePedimento20.xls",
                   "hash": "b1db80a510c05538016315c4ab3e3e4c196d340ae5824a48a5cbd3bed21a759b"
-                },
-                {
-                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_Colonia20.xls",
-                  "local_file": "hf/raw/catalogos/complementos/comercio-exterior/version-2-0/c_Colonia20.xls",
-                  "hash": "e187eff43ae8219125e548940a105dfac9e9c12b79c7fcbb7009f24dcbc80513"
                 },
                 {
                   "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_CodigoPostal_V_4_20231219.xls",
