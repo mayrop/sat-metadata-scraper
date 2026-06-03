@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-06-02T09:30:02.716950",
+  "scraped_at": "2026-06-03T09:39:15.773729",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -414,7 +414,7 @@
               "files": [
                 {
                   "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461173390655&ssbinary=true",
-                  "local_file": "hf/raw/catalogos/complementos/certificado-de-destruccion/version-1-0-revision-a/Satellite_1461173390655.bin",
+                  "local_file": "hf/raw/catalogos/complementos/certificado-de-destruccion/version-1-0-revision-a/0909.AGSC.ACGSTME.PD.Catalogo.certificado.destruccion%2C0.pdf",
                   "hash": "e753373b394d1ffabd2a898b26aa3fff55ce94765efb3206bebb301fd6b40a25"
                 }
               ]
