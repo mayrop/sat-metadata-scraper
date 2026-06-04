@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-06-03T09:39:15.773729",
+  "scraped_at": "2026-06-04T09:23:17.289928",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -222,13 +222,13 @@
               ]
             },
             "xls": {
-              "source_url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260521.xls",
-              "last_modified": "2026-05-21",
+              "source_url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260603.xls",
+              "last_modified": "2026-06-03",
               "files": [
                 {
-                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260521.xls",
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260603.xls",
                   "local_file": "hf/raw/catalogos/anexo-20/factura-electronica/version-4-0/catCFDI.xls",
-                  "hash": "cc1e758c8d9ee21cc9b021316a0c643cc4a2b03e71425daaa4b7710d4f736641"
+                  "hash": "126a1ed8a9feee04dc82079128ec6ddbd979833822656dacbb33bf6e468945bf"
                 }
               ]
             }
@@ -1539,7 +1539,7 @@
               "files": [
                 {
                   "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461173384430&ssbinary=true",
-                  "local_file": "hf/raw/catalogos/complementos/servicios-parciales-de-construccion/version-1-0-revision-a/0907.AGSC.ACGSTME.PD.CatalogoEntidadesFederativas%2C0.pdf",
+                  "local_file": "hf/raw/catalogos/complementos/servicios-parciales-de-construccion/version-1-0-revision-a/Satellite_1461173384430.bin",
                   "hash": "95d0164b4205fe6d3349ec29e7a1793062d2f60402f3b36e166a256a93109e4e"
                 }
               ]
