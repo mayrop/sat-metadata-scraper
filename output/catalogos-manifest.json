@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-06-04T09:23:17.289928",
+  "scraped_at": "2026-06-05T09:11:11.499662",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -998,7 +998,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129283&ssbinary=true",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos/ine/version-1-1-revision-b/Complemento.INE.1.1.Actualizado.pdf",
+              "local_file": "hf/raw/catalogos/complementos/ine/version-1-1-revision-b/Satellite_1461175129283.bin",
               "hash": "67591021a7d963808f77b7c6fd48b4c3840440bf7efac948c4c9667ff87a44cc"
             },
             "xsd": {
@@ -1539,7 +1539,7 @@
               "files": [
                 {
                   "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461173384430&ssbinary=true",
-                  "local_file": "hf/raw/catalogos/complementos/servicios-parciales-de-construccion/version-1-0-revision-a/Satellite_1461173384430.bin",
+                  "local_file": "hf/raw/catalogos/complementos/servicios-parciales-de-construccion/version-1-0-revision-a/0907.AGSC.ACGSTME.PD.CatalogoEntidadesFederativas%2C0.pdf",
                   "hash": "95d0164b4205fe6d3349ec29e7a1793062d2f60402f3b36e166a256a93109e4e"
                 }
               ]
