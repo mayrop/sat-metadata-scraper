@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-06-12T09:27:59.476698",
+  "scraped_at": "2026-06-13T09:09:06.155325",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -849,7 +849,7 @@
               "files": [
                 {
                   "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175199119&ssbinary=true",
-                  "local_file": "hf/raw/catalogos/complementos/estado-de-cuenta-de-combustibles-para-monederos-electronicos/version-1-2-revision-b/Satellite_1461175199119.bin",
+                  "local_file": "hf/raw/catalogos/complementos/estado-de-cuenta-de-combustibles-para-monederos-electronicos/version-1-2-revision-b/Catalogo_Combustibles.xls",
                   "hash": "8749f55bb6ede6bf6dfcb0acbfff720f44e45c9966b8d8d85f35d8fda051536c"
                 }
               ]
@@ -1136,7 +1136,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129232&ssbinary=true",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos/obras-de-arte-plasticas-y-antig-edades/version-1-0-revision-a/Satellite_1461175129232.bin",
+              "local_file": "hf/raw/catalogos/complementos/obras-de-arte-plasticas-y-antig-edades/version-1-0-revision-a/obrasarteantiguedades.pdf",
               "hash": "ac35e0834176149414d5a35859576ec9106567ef804dcbe3754b11f10c48fdbd"
             },
             "xsd": {
@@ -1385,24 +1385,24 @@
           },
           "catalogos": {
             "xls": {
-              "source_url": "https://ampocdevbuk01a.s3.us-east-1.amazonaws.com/cat_Nomina_5332287214.xls",
-              "last_modified": "2026-02-12",
+              "source_url": "https://ampocdevbuk01a.s3.us-east-1.amazonaws.com/cat_Nomina_67bb340d6f.xls",
+              "last_modified": "2026-06-12",
               "files": [
                 {
-                  "url": "https://ampocdevbuk01a.s3.us-east-1.amazonaws.com/cat_Nomina_5332287214.xls",
+                  "url": "https://ampocdevbuk01a.s3.us-east-1.amazonaws.com/cat_Nomina_67bb340d6f.xls",
                   "local_file": "hf/raw/catalogos/complementos/recibo-de-pago-de-nomina/version-1-2-revision-e/cat_Nomina.xls",
-                  "hash": "5da96c252fe107f94e6ad45c42a186e904a8feb386ee960209df686e798487ca"
+                  "hash": "b9235a192814cbf30a2a1def9a2dd0deb29cace3216462658cf7290aea645936"
                 }
               ]
             },
             "xsd": {
               "source_url": "http://www.sat.gob.mx/sitio_internet/cfd/catalogos/Nomina/catNomina.xsd",
-              "last_modified": "2025-12-17",
+              "last_modified": "2026-06-12",
               "files": [
                 {
                   "url": "http://www.sat.gob.mx/sitio_internet/cfd/catalogos/Nomina/catNomina.xsd",
                   "local_file": "hf/raw/catalogos/complementos/recibo-de-pago-de-nomina/version-1-2-revision-e/catNomina.xsd",
-                  "hash": "93d2168679f66a6cd6c9ce3f4593b26e6765ee1dbd3926141b2fa48cf3d1816f"
+                  "hash": "aeabf62f9901d75d5dccf0fbed13dd9dca6295e5b0ef40c9d89edcae3c641bc9"
                 }
               ]
             }
