@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-06-29T09:38:30.443024",
+  "scraped_at": "2026-06-30T09:10:05.844711",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -2115,7 +2115,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461176328670&ssbinary=true",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos-retenciones/pagos-a-extranjeros/version-1-0-revision-b/Satellite_1461176328670.bin",
+              "local_file": "hf/raw/catalogos/complementos-retenciones/pagos-a-extranjeros/version-1-0-revision-b/pagosaextranjeros.pdf",
               "hash": "001c7b2e7181614ae6aac7b5ee737f04c6c5b1d4efa9ac1445af3a68249e9951"
             },
             "xsd": {
