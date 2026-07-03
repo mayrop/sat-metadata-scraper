@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-02T09:10:48.830507",
+  "scraped_at": "2026-07-03T10:32:55.789250",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -838,7 +838,7 @@
             "matriz": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175199114&ssbinary=true",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos/estado-de-cuenta-de-combustibles-para-monederos-electronicos/version-1-2-revision-b/Matriz_errores_ECC12+%28B%2940.xls",
+              "local_file": "hf/raw/catalogos/complementos/estado-de-cuenta-de-combustibles-para-monederos-electronicos/version-1-2-revision-b/Satellite_1461175199114.bin",
               "hash": "04746f1419cfa178324ad58a3e21ddcdab5f646eab1003a5e83f14e131e4e571"
             }
           },
