@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-03T10:32:55.789250",
+  "scraped_at": "2026-07-04T10:05:24.368638",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -222,13 +222,13 @@
               ]
             },
             "xls": {
-              "source_url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260701.xls",
-              "last_modified": "2026-07-01",
+              "source_url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260703.xls",
+              "last_modified": "2026-07-03",
               "files": [
                 {
-                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260701.xls",
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260703.xls",
                   "local_file": "hf/raw/catalogos/anexo-20/factura-electronica/version-4-0/catCFDI.xls",
-                  "hash": "d952a16a22415287704e8008f92db7cfc841207f5fc9408238a3668ec06c8a10"
+                  "hash": "5d2d5bae511ff42c8f00916d33bb1337e8bca734527dec4050dcd219f0d56a18"
                 }
               ]
             }
@@ -838,7 +838,7 @@
             "matriz": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175199114&ssbinary=true",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos/estado-de-cuenta-de-combustibles-para-monederos-electronicos/version-1-2-revision-b/Satellite_1461175199114.bin",
+              "local_file": "hf/raw/catalogos/complementos/estado-de-cuenta-de-combustibles-para-monederos-electronicos/version-1-2-revision-b/Matriz_errores_ECC12+%28B%2940.xls",
               "hash": "04746f1419cfa178324ad58a3e21ddcdab5f646eab1003a5e83f14e131e4e571"
             }
           },
