@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-11T09:22:39.733427",
+  "scraped_at": "2026-07-12T09:49:41.769141",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -2077,7 +2077,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175123544&ssbinary=true",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos-retenciones/operaciones-con-derivados/version-1-0-revision-a/OperacionesDerivados_rA.pdf",
+              "local_file": "hf/raw/catalogos/complementos-retenciones/operaciones-con-derivados/version-1-0-revision-a/Satellite_1461175123544.bin",
               "hash": "060c997ca9713cd0039f4ca60e372bfb52baf3acba437755df1256036fa17324"
             },
             "xsd": {
