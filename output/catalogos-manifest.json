@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-17T09:52:41.069553",
+  "scraped_at": "2026-07-18T09:22:14.879576",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -222,13 +222,13 @@
               ]
             },
             "xls": {
-              "source_url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260703.xls",
-              "last_modified": "2026-07-03",
+              "source_url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260717.xls",
+              "last_modified": "2026-07-17",
               "files": [
                 {
-                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260703.xls",
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260717.xls",
                   "local_file": "hf/raw/catalogos/anexo-20/factura-electronica/version-4-0/catCFDI.xls",
-                  "hash": "5d2d5bae511ff42c8f00916d33bb1337e8bca734527dec4050dcd219f0d56a18"
+                  "hash": "4d4490285bf7783a1803da4c80908fe20288a813a0de9f21436bfc4bda3976a7"
                 }
               ]
             }
@@ -2039,7 +2039,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175123406&ssbinary=true",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos-retenciones/intereses-hipotecarios/version-1-0-revision-a/Intereseshipotecarios_rA.pdf",
+              "local_file": "hf/raw/catalogos/complementos-retenciones/intereses-hipotecarios/version-1-0-revision-a/Satellite_1461175123406.bin",
               "hash": "b0837f8ffc7f2b1edff7c1cafba449ba45cdf78aa8abe68f3e93b4605d4d8b39"
             },
             "xsd": {
