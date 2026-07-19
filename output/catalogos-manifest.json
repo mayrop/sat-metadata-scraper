@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-18T09:22:14.879576",
+  "scraped_at": "2026-07-19T09:50:42.786124",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -1136,7 +1136,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129232&ssbinary=true",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos/obras-de-arte-plasticas-y-antig-edades/version-1-0-revision-a/obrasarteantiguedades.pdf",
+              "local_file": "hf/raw/catalogos/complementos/obras-de-arte-plasticas-y-antig-edades/version-1-0-revision-a/Satellite_1461175129232.bin",
               "hash": "ac35e0834176149414d5a35859576ec9106567ef804dcbe3754b11f10c48fdbd"
             },
             "xsd": {
@@ -2039,7 +2039,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175123406&ssbinary=true",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos-retenciones/intereses-hipotecarios/version-1-0-revision-a/Satellite_1461175123406.bin",
+              "local_file": "hf/raw/catalogos/complementos-retenciones/intereses-hipotecarios/version-1-0-revision-a/Intereseshipotecarios_rA.pdf",
               "hash": "b0837f8ffc7f2b1edff7c1cafba449ba45cdf78aa8abe68f3e93b4605d4d8b39"
             },
             "xsd": {
