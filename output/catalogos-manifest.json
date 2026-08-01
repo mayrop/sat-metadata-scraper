@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-31T10:34:44.888322",
+  "scraped_at": "2026-08-01T09:56:16.494164",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -197,10 +197,10 @@
               "hash": "b0559b380e73b850ca8a3da53b077a6051a09d87068d8d98e82dfd4acfba7565"
             },
             "matriz": {
-              "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/MatrizDeErrores_CFDI_v40_20260720.xls",
-              "last_modified": "2026-07-20",
+              "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/MatrizDeErrores_CFDI_v40_20260325.xls",
+              "last_modified": "2026-03-25",
               "local_file": "hf/raw/catalogos/anexo-20/formato-de-factura/version-4-0/MatrizDeErrores_CFDI_v40.xls",
-              "hash": "88cbc6f8bfd9fe7e7382e7a4a27a1834e7bbc9cdb711cf3d54a72bceeba19257"
+              "hash": "bdc350035c7ed720af5be15509e01d0bda7c12cec4ad9797b0c34f889c1140a7"
             },
             "patron": {
               "url": "http://www.sat.gob.mx/sitio_internet/cfd/tipoDatos/tdCFDI/tdCFDI.xsd",
@@ -222,13 +222,13 @@
               ]
             },
             "xls": {
-              "source_url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260717.xls",
-              "last_modified": "2026-07-17",
+              "source_url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260731.xls",
+              "last_modified": "2026-07-31",
               "files": [
                 {
-                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260717.xls",
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260731.xls",
                   "local_file": "hf/raw/catalogos/anexo-20/factura-electronica/version-4-0/catCFDI.xls",
-                  "hash": "4d4490285bf7783a1803da4c80908fe20288a813a0de9f21436bfc4bda3976a7"
+                  "hash": "5a2e95fb98f657e52552d2772154c4b1e0dbdfee2cefd6696ac003eba7326bcb"
                 }
               ]
             }
