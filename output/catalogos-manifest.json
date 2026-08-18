@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-17T08:37:25.214754",
+  "scraped_at": "2026-08-18T08:30:00.462219",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -127,8 +127,8 @@
             "estandar": {
               "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/cfdv33.pdf",
               "last_modified": "2017-07-28",
-              "local_file": "hf/raw/catalogos/anexo-20/formato-de-factura/version-3-3/cfdv33.pdf",
-              "hash": "93e99135fa0f3217ba4a342c0f70a62b90b1d09e1ee703ec5ca1099d98d60818"
+              "local_file": null,
+              "hash": null
             },
             "xslt": {
               "url": "http://www.sat.gob.mx/sitio_internet/cfd/3/cadenaoriginal_3_3/cadenaoriginal_3_3.xslt",
@@ -145,8 +145,8 @@
             "matriz": {
               "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/MatrizDeErrores_CFDI_v33.xls",
               "last_modified": "2017-04-12",
-              "local_file": "hf/raw/catalogos/anexo-20/formato-de-factura/version-3-3/MatrizDeErrores_CFDI_v33.xls",
-              "hash": "6d10cde320a02df06ec61678afdf08b236ec2e08f76f88f06754955d5c341998"
+              "local_file": null,
+              "hash": null
             }
           },
           "catalogos": {
