@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-01T12:59:24.888667",
+  "scraped_at": "2026-09-02T12:30:51.080472",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -910,7 +910,7 @@
               "files": [
                 {
                   "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175199059&ssbinary=true",
-                  "local_file": "hf/raw/catalogos/complementos/hidrocarburos/version-1-0-revision-a-gastos/Satellite_1461175199059.bin",
+                  "local_file": "hf/raw/catalogos/complementos/hidrocarburos/version-1-0-revision-a-gastos/CatGastosHidrocarburos.xls",
                   "hash": "1a6d73edddb66d9e7006a465187c6fe0f5b542dd712dbe985199f840355b269e"
                 }
               ]
