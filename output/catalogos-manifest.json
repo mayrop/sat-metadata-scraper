@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-03T12:27:06.067873",
+  "scraped_at": "2026-09-04T12:29:18.410912",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -222,13 +222,13 @@
               ]
             },
             "xls": {
-              "source_url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260821.xls",
-              "last_modified": "2026-08-21",
+              "source_url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260903.xls",
+              "last_modified": "2026-09-03",
               "files": [
                 {
-                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260821.xls",
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260903.xls",
                   "local_file": "hf/raw/catalogos/anexo-20/factura-electronica/version-4-0/catCFDI.xls",
-                  "hash": "b348e06963f888c0160721d6506d93981062e7e811b2d75a0e5f4772cb5f5f25"
+                  "hash": "a5ce7a602726f08ab8cee71710d5ea8e6029e3bfbdcf9a19a433e31070128b99"
                 }
               ]
             }
@@ -838,7 +838,7 @@
             "matriz": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175199114&ssbinary=true",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos/estado-de-cuenta-de-combustibles-para-monederos-electronicos/version-1-2-revision-b/Satellite_1461175199114.bin",
+              "local_file": "hf/raw/catalogos/complementos/estado-de-cuenta-de-combustibles-para-monederos-electronicos/version-1-2-revision-b/Matriz_errores_ECC12+%28B%2940.xls",
               "hash": "04746f1419cfa178324ad58a3e21ddcdab5f646eab1003a5e83f14e131e4e571"
             }
           },
@@ -936,7 +936,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175198826&ssbinary=true",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos/hidrocarburos/version-1-0-revision-a-ingresos/Estructura+Ingresos+Hidrocarburos10_A.pdf",
+              "local_file": "hf/raw/catalogos/complementos/hidrocarburos/version-1-0-revision-a-ingresos/Satellite_1461175198826.bin",
               "hash": "d5d62ebb449f858da1fd95dc7a3232e99562dd6470b1bfbc58c5843be9219c6d"
             },
             "xsd": {
