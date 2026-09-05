@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-04T12:29:18.410912",
+  "scraped_at": "2026-09-05T11:35:15.967660",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -936,7 +936,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175198826&ssbinary=true",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos/hidrocarburos/version-1-0-revision-a-ingresos/Satellite_1461175198826.bin",
+              "local_file": "hf/raw/catalogos/complementos/hidrocarburos/version-1-0-revision-a-ingresos/Estructura+Ingresos+Hidrocarburos10_A.pdf",
               "hash": "d5d62ebb449f858da1fd95dc7a3232e99562dd6470b1bfbc58c5843be9219c6d"
             },
             "xsd": {
@@ -1086,7 +1086,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129269&ssbinary=true",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos/notarios-publicos/version-1-0-revision-a/notariospublicos.pdf",
+              "local_file": "hf/raw/catalogos/complementos/notarios-publicos/version-1-0-revision-a/Satellite_1461175129269.bin",
               "hash": "c9c8f49da682e2556cf72c2a1d1d5f110818e83e610a2a8bb55a63c62e2d5c56"
             },
             "xsd": {
@@ -1560,7 +1560,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461176205015&ssbinary=true",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos/timbre-fiscal-digital/version-1-1/Anexo20_2022.pdf",
+              "local_file": "hf/raw/catalogos/complementos/timbre-fiscal-digital/version-1-1/Satellite_1461176205015.bin",
               "hash": "b3b6d63a97c859a31d7aacf0fe17b2d58207280df6f06caff3ceaf79954cf4bd"
             },
             "xsd": {
