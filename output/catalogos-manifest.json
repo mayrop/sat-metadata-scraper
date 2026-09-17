@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-16T13:02:14.819109",
+  "scraped_at": "2026-09-17T12:58:43.483868",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -248,7 +248,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129167&ssbinary=true",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos/aerolineas/version-1-0-revision-a/Satellite_1461175129167.bin",
+              "local_file": "hf/raw/catalogos/complementos/aerolineas/version-1-0-revision-a/aerolineas.pdf",
               "hash": "e212743a3f6e08e5e3ac6ea4a2fd25c0bf50c6fff53dcfdf40c07b1bd30cc221"
             },
             "xsd": {
@@ -936,7 +936,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175198826&ssbinary=true",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos/hidrocarburos/version-1-0-revision-a-ingresos/Satellite_1461175198826.bin",
+              "local_file": "hf/raw/catalogos/complementos/hidrocarburos/version-1-0-revision-a-ingresos/Estructura+Ingresos+Hidrocarburos10_A.pdf",
               "hash": "d5d62ebb449f858da1fd95dc7a3232e99562dd6470b1bfbc58c5843be9219c6d"
             },
             "xsd": {
