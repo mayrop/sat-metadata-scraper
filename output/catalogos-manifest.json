@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-22T13:01:55.806929",
+  "scraped_at": "2026-09-23T13:13:03.353304",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -127,8 +127,8 @@
             "estandar": {
               "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/cfdv33.pdf",
               "last_modified": "2017-07-28",
-              "local_file": "hf/raw/catalogos/anexo-20/formato-de-factura/version-3-3/cfdv33.pdf",
-              "hash": "93e99135fa0f3217ba4a342c0f70a62b90b1d09e1ee703ec5ca1099d98d60818"
+              "local_file": null,
+              "hash": null
             },
             "xslt": {
               "url": "http://www.sat.gob.mx/sitio_internet/cfd/3/cadenaoriginal_3_3/cadenaoriginal_3_3.xslt",
@@ -224,13 +224,7 @@
             "xls": {
               "source_url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260918.xls",
               "last_modified": "2026-09-18",
-              "files": [
-                {
-                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20260918.xls",
-                  "local_file": "hf/raw/catalogos/anexo-20/factura-electronica/version-4-0/catCFDI.xls",
-                  "hash": "691d86975619284e07cebf2f232a802a56aca8a6fc54299251c9467ecb6bc194"
-                }
-              ]
+              "files": []
             }
           }
         }
@@ -1262,7 +1256,7 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461175129276&ssbinary=true",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos/persona-fisica-integrante-de-coordinado/version-1-0-revision-a/pfic.pdf",
+              "local_file": "hf/raw/catalogos/complementos/persona-fisica-integrante-de-coordinado/version-1-0-revision-a/Satellite_1461175129276.bin",
               "hash": "4de3d61db007f09904d01e51add7d3b63986d7affadebde417ec04f52d5070bb"
             },
             "xsd": {
