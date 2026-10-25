@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-24T12:24:39.985828",
+  "scraped_at": "2026-10-25T12:57:47.475810",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -286,8 +286,8 @@
             "estandar": {
               "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461173390662&ssbinary=true",
               "last_modified": null,
-              "local_file": "hf/raw/catalogos/complementos/cfdi-registro-fiscal/version-1-0/0874.AGSC.ACGSTME.PD.ComplementoCFDIRegistroFiscal1.0%2C0.pdf",
-              "hash": "ca51822c1b72117b82559e7cc0dd898997d941f8231fb9c436af2924ed839bd1"
+              "local_file": null,
+              "hash": null
             },
             "xsd": {
               "url": "http://www.sat.gob.mx/sitio_internet/cfd/cfdiregistrofiscal/cfdiregistrofiscal.xsd",
