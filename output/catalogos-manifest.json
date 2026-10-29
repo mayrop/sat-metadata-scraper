@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-28T14:45:56.116650",
+  "scraped_at": "2026-10-29T14:52:06.538269",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -1165,7 +1165,7 @@
               "files": [
                 {
                   "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461173379376&ssbinary=true",
-                  "local_file": "hf/raw/catalogos/complementos/obras-de-arte-plasticas-y-antig-edades/version-1-0-revision-a/Catalogos_complemento_obras_arte.pdf",
+                  "local_file": "hf/raw/catalogos/complementos/obras-de-arte-plasticas-y-antig-edades/version-1-0-revision-a/Satellite_1461173379376.bin",
                   "hash": "a2c6d7b193eeb2c6373baae6f170f301e1620ea123435cc1df4a9cc66604bed6"
                 }
               ]
