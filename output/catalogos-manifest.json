@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-29T14:52:06.538269",
+  "scraped_at": "2026-10-30T14:46:19.704602",
   "complementos": [
     {
       "name": "Factura de retenciones e información de pagos (Anexo 20)",
@@ -222,13 +222,13 @@
               ]
             },
             "xls": {
-              "source_url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20261015.xls",
-              "last_modified": "2026-10-15",
+              "source_url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20261029.xls",
+              "last_modified": "2026-10-29",
               "files": [
                 {
-                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20261015.xls",
+                  "url": "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_20261029.xls",
                   "local_file": "hf/raw/catalogos/anexo-20/factura-electronica/version-4-0/catCFDI.xls",
-                  "hash": "fde78b456d1e0d90366bfc68f8312f9edce5703ad5dc8ccebf09c462db13a079"
+                  "hash": "ca9536cc4e4af64e2f2e0afc527f08bd0d1601e9d30a25d93dc4dcc4e256573b"
                 }
               ]
             }
@@ -1165,7 +1165,7 @@
               "files": [
                 {
                   "url": "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1461173379376&ssbinary=true",
-                  "local_file": "hf/raw/catalogos/complementos/obras-de-arte-plasticas-y-antig-edades/version-1-0-revision-a/Satellite_1461173379376.bin",
+                  "local_file": "hf/raw/catalogos/complementos/obras-de-arte-plasticas-y-antig-edades/version-1-0-revision-a/Catalogos_complemento_obras_arte.pdf",
                   "hash": "a2c6d7b193eeb2c6373baae6f170f301e1620ea123435cc1df4a9cc66604bed6"
                 }
               ]
