@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-17T11:27:22.707329+00:00",
+  "scraped_at": "2026-11-19T16:23:20.402639+00:00",
   "source_url": "https://www.sat.gob.mx/minisitio/DatosAbiertos/contribuyentes_publicados.html",
   "articles": [
     {
@@ -10,8 +10,8 @@
       "fingerprint": "Thu, 19 Mar 2026 00:10:07 GMT|0x8DE854BE10B2BAC",
       "last_modified": "Thu, 19 Mar 2026 00:10:07 GMT",
       "etag": "0x8DE854BE10B2BAC",
-      "info_date": "2026-09-30",
-      "hash": "1c47cfec74e566f8ad949e17b1203b883d46ca81af97bc098c67a51cdabceb2b",
+      "info_date": "2026-10-31",
+      "hash": "475c99628d90183f76575e0c9c31f198420f570359a1b1df871d465054da1eae",
       "size": "4623450"
     },
     {
